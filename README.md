@@ -7,7 +7,7 @@ This list is a checklist to help you try the deeper use cases and increase the d
 ## Table of contents
 
 - [AI tools use in a policy-compliant way](#ai-tools-use-in-a-policy-compliant-way)
-- [AI coding basics](#ai-coding-basics)
+- [Agentic Coding Fundamentals](#agentic-coding-fundamentals)
 - [Spec-first work](#spec-first-work)
 - [Agents Instructions and Skills](#agents-instructions-and-skills)
 - [Testing and quality](#testing-and-quality)
@@ -40,7 +40,7 @@ The goal is value per token, not maximizing tokens used.
 
 ---
 
-## AI coding basics
+## Agentic Coding Fundamentals
 
 ### 3. AI is used for codebase navigation and understanding
 
