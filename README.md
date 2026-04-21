@@ -12,7 +12,7 @@ This list is a checklist to help you try the deeper use cases and increase the d
 - [Agents Instructions and Skills](#agents-instructions-and-skills)
 - [Testing and quality](#testing-and-quality)
 - [Tool integrations and MCP](#tool-integrations-and-mcp)
-- [Multi-Agent Workflows and Advanced Use Cases](#multi-agent-workflows-and-advanced-use-cases)
+- [Multi-Agent Workflows](#multi-agent-workflows)
 - [Operations and maintenance](#operations-and-maintenance)
 - [Tools mentioned](#tools-mentioned)
 - [Contributing](#contributing)
@@ -204,7 +204,7 @@ The goal is value per token, not maximizing tokens used.
 
 ---
 
-## Multi-Agent Workflows and Advanced Use Cases
+## Multi-Agent Workflows
 
 ### 27. Voice input is used to work with AI coding tools
 
