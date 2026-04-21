@@ -31,9 +31,9 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 **Self-check:** prompt history, plan, or spec draft created before implementation; planning phase used for recent larger changes.
 
-### 3. Agent mode is used for code generation, not autocomplete or pure chat
+### 3. Agent mode is used for code generation
 
-**Why this is important?** Agent mode can inspect files, edit code, run commands, reason across steps, and complete larger tasks end-to-end. This is a different level of leverage than asking isolated code generation requests in chat or relying on line-by-line autocomplete.
+**Why this is important?** Unlike autocomplete or pure chat, agent mode can inspect files, edit code, run commands, reason across steps, and complete larger tasks end-to-end. This is a different level of leverage than asking isolated code generation requests or relying on line-by-line suggestions.
 
 **Self-check:** recent task where an agent changed several files, recent task where an agent executed commands or completed multi-step work.
 
