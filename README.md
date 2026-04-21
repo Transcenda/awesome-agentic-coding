@@ -292,8 +292,4 @@ The goal is value per token, not maximizing tokens used.
 
 ## Contributing
 
-Contributions are welcome. Open an issue to discuss a new item or improvement, or submit a pull request with changes. The roadmap is kept intentionally short and practical — new items should describe a concrete use case that deepens AI coding usage, with a clear Why and a Self-check that a reader can evaluate against their own work.
-
-## License
-
-This project is licensed under the terms in [LICENSE](./LICENSE).
+Contributions are welcome — open a pull request directly with your proposed change. The roadmap is kept intentionally short and practical, so new items should describe a concrete use case that deepens AI coding usage, with a clear Why and a Self-check that a reader can evaluate against their own work.
