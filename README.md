@@ -5,12 +5,12 @@ A developer's roadmap for agentic coding adoption. Use this as a personal growth
 ## Table of contents
 
 - [AI tools use in a policy-compliant way](#ai-tools-use-in-a-policy-compliant-way)
-- [AI codding basics](#ai-codding-basics)
+- [AI coding basics](#ai-coding-basics)
 - [Spec-first work](#spec-first-work)
 - [Agents instructions and code repository context handling](#agents-instructions-and-code-repository-context-handling)
 - [Testing and quality](#testing-and-quality)
 - [Tool integrations and MCP](#tool-integrations-and-mcp)
-- [Multi-Agent Workflows and Advances Use Cases](#multi-agent-workflows-and-advances-use-cases)
+- [Multi-Agent Workflows and Advanced Use Cases](#multi-agent-workflows-and-advanced-use-cases)
 
 ---
 
@@ -18,9 +18,9 @@ A developer's roadmap for agentic coding adoption. Use this as a personal growth
 
 ### 1. All AI tools are compliant with company policy and security guidelines
 
-**Why this is important?** Engineers must understand the importance of following security guidelines and using only approved tools. This protects company data and keeps AI usage within policy. Approved AI tools are helping collect and analize the engineer's needs based on usage statistics, and in case of non-enterprise accounts the usage statis typically isn't included in AI tools adoption reportings.
+**Why this is important?** Engineers must understand the importance of following security guidelines and using only approved tools. This protects company data and keeps AI usage within policy. Approved AI tools are helping collect and analyze the engineer's needs based on usage statistics, and in case of non-enterprise accounts the usage stats typically isn't included in AI tools adoption reportings.
 
-IMPORTANT: Ask you manager for the AI Use Policy on your particular project.
+IMPORTANT: Ask your manager for the AI Use Policy on your particular project.
 
 **Evidence:** the engineer can describe which tools are allowed, confirm that they do not use tools outside the approved list, and demonstrate that they are signed into the enterprise/company account in the IDE/CLI client using the proper GitHub ID or ClaudeCode ID
 
@@ -28,13 +28,13 @@ IMPORTANT: Ask you manager for the AI Use Policy on your particular project.
 
 **Why this is important?** Large prompts and connected tools can waste quota and silently degrade results. At the same time, engineers going deeper with AI will naturally consume more tokens - that is expected.
 
-The goal is to be avare about the value per token, not maximizing tokens usage.
+The goal is to be aware about the value per token, not maximizing tokens usage.
 
 **Evidence:** engineer can explain budget and limits, and show where usage information is visible per AI tools.
 
 ---
 
-## AI codding basics
+## AI coding basics
 
 ### 4. AI is used for codebase navigation and understanding
 
@@ -50,7 +50,7 @@ The goal is to be avare about the value per token, not maximizing tokens usage.
 
 ### 6. Agent mode is used for code generation, not autocomplete or pure chat
 
-**Why this is important?** Agent mode can inspect files, edit code, run commands, reason across steps, and complete larger tasks end-to-end. This is a different level of leverage than asking isolated code genertion requests in chat or relying on line by line autocomplete.
+**Why this is important?** Agent mode can inspect files, edit code, run commands, reason across steps, and complete larger tasks end-to-end. This is a different level of leverage than asking isolated code generation requests in chat or relying on line by line autocomplete.
 
 **Evidence:** Demonstrated example where the agent changed several files, executed commands, or completed a task with multiple steps.
 
@@ -96,7 +96,7 @@ The goal is to be avare about the value per token, not maximizing tokens usage.
 
 ### 13. Task brief or spec files are created before the implementation of larger features
 
-**Why this is important?** The better specs are build as the input artifacts for AI agents, and those are used to get the better agent output and makes it easier to review the implementation. This turns "build X" into an executable plan instead of jumping directly into code generation.
+**Why this is important?** The better specs are built as the input artifacts for AI agents, and those are used to get the better agent output and makes it easier to review the implementation. This turns "build X" into an executable plan instead of jumping directly into code generation.
 
 **Evidence:** Jira ticket with a markdown spec, or a design note used as agent input, together with execution steps, an implementation plan, or an acceptance checklist created with AI.
 
@@ -130,9 +130,9 @@ The goal is to be avare about the value per token, not maximizing tokens usage.
 
 ### 18. Repeated tasks and reusable commands are documented in the form of custom Skills
 
-**Why this is important?** Skills help teams move from ad-hock prompting to full automation of their day to day typical workflows. You can define your own custom agent skills and/or use the skill frameowrks to cover the common automation senarious.
+**Why this is important?** Skills help teams move from ad-hoc prompting to full automation of their day to day typical workflows. You can define your own custom agent skills and/or use the skill frameworks to cover the common automation scenarios.
 
-**Evidence:** a reusable instructions for build automation, feature scaffolding, dependency updates, PR prep, test generation, workflows for bug triage or similar repeateable work
+**Evidence:** a reusable instructions for build automation, feature scaffolding, dependency updates, PR prep, test generation, workflows for bug triage or similar repeatable work
 
 ### 19. Skills frameworks are used
 
@@ -158,7 +158,7 @@ The goal is to be avare about the value per token, not maximizing tokens usage.
 
 ### 22. AI is used for integration tests, E2E tests, fixtures, and realistic test data
 
-**Why this is important?** Integration tests offer the highest leverage in controling the quality of the code changes and catching reggresions. Engineers can plan the integration tests suit with e2e tests, fixtures and seed data to cover the all major behaviours of the fearure under development. AI coding agents can be also used to evaluate the quality of the tests and improve the coverage.
+**Why this is important?** Integration tests offer the highest leverage in controlling the quality of the code changes and catching regressions. Engineers can plan the integration tests suite with e2e tests, fixtures and seed data to cover the all major behaviours of the feature under development. AI coding agents can be also used to evaluate the quality of the tests and improve the coverage.
 
 **Evidence:** Generated fixtures, test datasets, mocks, seed data generation scripts with integration tests that use all that
 
@@ -166,11 +166,11 @@ The goal is to be avare about the value per token, not maximizing tokens usage.
 
 **Why this is important?** Browser/device automation unlocks a practical workflow for UI validation, screenshot capture, regression checks, and turning test cases in English into tests automation scripts that can be run on developer's machine and on CI/CD
 
-**Evidence:** Browser-based script or mobile deice simulator control script example, screenshot validation run, or generated UI automation from a written scenario
+**Evidence:** Browser-based script or mobile device simulator control script example, screenshot validation run, or generated UI automation from a written scenario
 
 ### 24. AI is used to debug failing tests and flaky behavior
 
-**Why this is important?** AI is good at narrowing hypotheses, reading logs, and suggesting the minimal targeted fixes to resilve flaky tests and improve the predictability of your CI/CD pipelines.
+**Why this is important?** AI is good at narrowing hypotheses, reading logs, and suggesting the minimal targeted fixes to resolve flaky tests and improve the predictability of your CI/CD pipelines.
 
 **Evidence:** recent failing test investigation or flaky test fix with AI involvement
 
@@ -186,19 +186,19 @@ The goal is to be avare about the value per token, not maximizing tokens usage.
 
 ### 26. AI is used to inspect logs, API responses, and data snapshots safely
 
-**Why this is important?** AI can help debugging and support work based on the actual data pulled for troubleshopting.
+**Why this is important?** AI can help debugging and support work based on the actual data pulled for troubleshooting.
 
 **Evidence:** recent investigation using logs, API output, traces, or snapshots from QA/prod or CI/CD pipeline research
 
 ### 27. AI is used to explore databases, model data, query, and generate migrations
 
-**Why this is important?** Engineer can write the single-purpose tool for troublechooting issues with data or analizing data coming from production support. AI agents can help write queries, understanding schemas, preparing test data to reproduce the problems. AI combined with database access (via MCP, Skills, or CLI scripts) turns manual troubleshooting into a semi-autmated workflow.
+**Why this is important?** Engineer can write the single-purpose tool for troubleshooting issues with data or analyzing data coming from production support. AI agents can help write queries, understanding schemas, preparing test data to reproduce the problems. AI combined with database access (via MCP, Skills, or CLI scripts) turns manual troubleshooting into a semi-automated workflow.
 
 **Evidence:** recent prod support tickets where the engineer used AI to write or explain a SQL query, explore a schema, design a new data model, or draft a migration script to address the production issue.
 
 ---
 
-## Multi-Agent Workflows and Advances Use Cases
+## Multi-Agent Workflows and Advanced Use Cases
 
 ### 28. Voice input is used to work with AI coding tools
 
