@@ -1,4 +1,4 @@
-# Developer's Roadmap for Agentic Coding Adoption
+# Developer's Roadmap for Agentic Coding
 
 AI coding agents are used in very different ways. Some go deep — agentic loops, sub-agents, custom Skills, parallel workflows. Others stay shallow — autocomplete and one-shot code generation. The gap between the two is where most of the productivity lives.
 
