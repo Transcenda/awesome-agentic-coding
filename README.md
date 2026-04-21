@@ -13,7 +13,7 @@ This list is a checklist to help you try the deeper use cases and increase the d
 - [Testing and quality](#testing-and-quality)
 - [Tool integrations and MCP](#tool-integrations-and-mcp)
 - [Multi-Agent Workflows](#multi-agent-workflows)
-- [Operations and maintenance](#operations-and-maintenance)
+- [Productivity and operations](#productivity-and-operations)
 - [Tools mentioned](#tools-mentioned)
 - [Contributing](#contributing)
 - [License](#license)
@@ -206,39 +206,39 @@ The goal is value per token, not maximizing tokens used.
 
 ## Multi-Agent Workflows
 
-### 27. Voice input is used to work with AI coding tools
-
-**Why this is important?** Voice input removes the typing bottleneck for explaining context, describing bugs, walking through intent, and dictating specs — often where momentum gets lost. Several coding tools now support voice natively (for example, Claude Code's /voice command), and third-party dictation and realtime voice tools can be layered in. Pairing voice with agent mode lets you think out loud and have the agent act on it, which is especially effective for exploratory work, debugging narration, and long-form planning.
-
-**Self-check:** voice input tried with at least one AI coding tool, situation where voice was a better fit than typing — debugging or dictating a spec or walking through a design.
-
-### 28. Permissions are expanded to enable more autonomous agent work
+### 27. Permissions are expanded to enable more autonomous agent work
 
 **Why this is important?** Default permission settings are conservative, and agents ask for confirmation on most actions. As trust in the tools grows and good guardrails are in place (agentic loops, version control, sandboxes), broader permissions can be safely granted so the agent works longer without interruption. This unlocks long refactors, overnight runs, and multi-step automation.
 
 **Self-check:** permission settings tuned with approved commands or auto-accept scopes or trust rules, recent task completed with broader permissions where the trust envelope helped.
 
-### 29. Git worktrees are used to run multiple features or branches in parallel on one machine
+### 28. Git worktrees are used to run multiple features or branches in parallel on one machine
 
 **Why this is important?** Git worktrees let one repo host multiple isolated checkouts at once, so different agents or sessions can work on different features, in multiple branches simultaneously, without conflicting changes. This multiplies throughput — one agent can refactor in one worktree while another implements a feature in a second, and tests run in a third.
 
 **Self-check:** git worktrees set up and in active use, recent case where parallel worktrees helped — e.g., long refactor while continuing feature work.
 
-### 30. Parallel service instances run on localhost for parallel integration and E2E tests
+### 29. Parallel service instances run on localhost for parallel integration and E2E tests
 
 **Why this is important?** Integration and E2E tests are slow because services typically bind to fixed ports, forcing tests to run serially. Tools like Portless (or similar dynamic-port/domains on localhost) let multiple instances of the same stack run in parallel on one machine. This speeds up test suites and makes parallel agent work practical when each agent needs its own running services.
 
 **Self-check:** local environment configured for parallel service instances, test suite or workflow that benefits from running services in parallel.
+
+---
+
+## Productivity and operations
+
+### 30. Voice input is used to work with AI coding tools
+
+**Why this is important?** Voice input removes the typing bottleneck for explaining context, describing bugs, walking through intent, and dictating specs — often where momentum gets lost. Several coding tools now support voice natively (for example, Claude Code's /voice command), and third-party dictation and realtime voice tools can be layered in. Pairing voice with agent mode lets you think out loud and have the agent act on it, which is especially effective for exploratory work, debugging narration, and long-form planning.
+
+**Self-check:** voice input tried with at least one AI coding tool, situation where voice was a better fit than typing — debugging or dictating a spec or walking through a design.
 
 ### 31. Token usage is actively optimized with compression and filtering tools
 
 **Why this is important?** Deep AI usage naturally grows token expense. Dedicated tools can reduce it dramatically: Caveman compresses agent responses by stripping filler and hedging, cutting output tokens by about 70% on average across Claude Code, Cursor, Copilot, Gemini CLI, Windsurf, and others. RTK is a CLI proxy that auto-filters verbose outputs from git, tests, builds, and container commands before the agent reads them, saving 60–90% on input tokens.
 
 **Self-check:** Caveman or RTK or equivalent token-optimization tool in use, concrete practices applied (prompt caching, tight context, model-per-task selection), measurable token reduction you can point to.
-
----
-
-## Operations and maintenance
 
 ### 32. AI is used to manage dependency upgrades and security patches
 
