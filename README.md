@@ -6,7 +6,7 @@ Use this checklist as a self-assessment to find your next deeper use case to try
 
 ## Table of contents
 
-- [Agentic Coding Fundamentals](#agentic-coding-fundamentals)
+- [Agentic Coding 101](#agentic-coding-101)
 - [Spec-first work](#spec-first-work)
 - [Agents Instructions and Skills](#agents-instructions-and-skills)
 - [Testing and quality](#testing-and-quality)
@@ -17,7 +17,7 @@ Use this checklist as a self-assessment to find your next deeper use case to try
 
 ---
 
-## Agentic Coding Fundamentals
+## Agentic Coding 101
 
 ### 1. Codebase navigation and understanding
 
