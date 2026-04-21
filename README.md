@@ -25,13 +25,13 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 **Self-check:** recent example of AI explaining a flow or identifying affected files, onboarding into an unfamiliar area sped up by AI.
 
-### 2. Planning mode is used before coding starts
+### 2. Planning mode before coding starts
 
 **Why this is important?** Using AI for planning the work before writing code helps reduce blind edits and improves first-pass quality for larger changes.
 
 **Self-check:** prompt history, plan, or spec draft created before implementation; planning phase used for recent larger changes.
 
-### 3. Agent mode is used for code generation
+### 3. Agent mode for code generation
 
 **Why this is important?** Unlike autocomplete or pure chat, agent mode can inspect files, edit code, run commands, reason across steps, and complete larger tasks end-to-end. This is a different level of leverage than asking isolated code generation requests or relying on line-by-line suggestions.
 
@@ -43,7 +43,7 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 **Self-check:** recent PR with summary or change explanation drafted by AI.
 
-### 5. Both IDE/desktop and CLI AI agents have been tried
+### 5. IDE/desktop and CLI AI agents both tried
 
 **Why this is important?** Different tasks suit different interfaces. IDE-integrated tools are great for inline edits, quick assistance, and working through extensive code review. CLI agents are better for repo-wide changes, multi-file edits, grep/search-driven exploration, scaffolding, scripted flows, and terminal-heavy work. Trying both lets you pick the right tool for each task rather than forcing one interface into every situation.
 
@@ -77,7 +77,7 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 ## Spec-first work
 
-### 10. Task brief or spec files are created before the implementation of larger features
+### 10. Task briefs or spec files before larger features
 
 **Why this is important?** A good spec, used as input to AI, produces better agent output and makes the implementation easier to review. This turns "build X" into an executable plan instead of jumping directly into code generation.
 
@@ -89,13 +89,13 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 **Self-check:** prompt history or checklist covering happy path and error states, corner cases surfaced with AI help, full-scenario coverage considered before implementation.
 
-### 12. Architecture and design-level decisions for the feature
+### 12. Architecture and design-level decisions
 
 **Why this is important?** Before implementation, there are often design choices — data model shape, API boundaries, tradeoffs between approaches. AI helps reason through options and write them down so the choice is explicit and reviewable during code review. This sits one level above the feature spec and helps build the feature the right way.
 
 **Self-check:** recent design note or tradeoff analysis produced with AI, AI-written input used in a design discussion or technical review.
 
-### 13. Creating ADRs and updating architecture documentation for the whole codebase
+### 13. Creating ADRs and updating architecture documentation
 
 **Why this is important?** Architecture docs and ADRs often rot or get skipped because they feel heavy to write. AI makes it fast to draft, update, and keep them accurate as the system evolves, so new teammates and AI agents have reliable context for future decisions.
 
@@ -105,25 +105,25 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 ## Agents Instructions and Skills
 
-### 14. Agent instructions are committed in the repo
+### 14. Agent instructions committed in the repo
 
 **Why this is important?** Source repository context improves agent onboarding, repeatability of work, and code-wide quality.
 
 **Self-check:** AGENTS.md, CLAUDE.md, or Copilot instruction files present in the repo; equivalent repo-visible guidance maintained.
 
-### 15. Repeated tasks and reusable commands are documented in the form of custom Skills
+### 15. Custom Skills for repeated tasks and reusable commands
 
 **Why this is important?** Skills help teams move from ad-hoc prompting to full automation of their day-to-day typical workflows. You can define your own custom agent skills and/or use the skill frameworks to cover common automation scenarios.
 
 **Self-check:** reusable Skill for build automation or feature scaffolding or dependency updates, Skill for PR prep or test generation or bug triage, repeatable work automated with a Skill instead of ad-hoc prompting.
 
-### 16. Skills frameworks are used
+### 16. Skills frameworks
 
 **Why this is important?** Writing every Skill from scratch is slow and means rediscovering patterns others already solved. Skills frameworks provide ready-made building blocks that complement your own custom Skills (item 15) — prebuilt breadth alongside team-specific depth. Context7 curates agent instructions for popular languages, frameworks, and libraries, and lets you selectively load only the ones relevant to the current task. Composable frameworks like Superpowers combine Skills into larger workflows and support sub-agent patterns for multi-step work.
 
 **Self-check:** Context7 used to selectively load agent instructions for the languages or libraries in use, composable framework like Superpowers integrated into your workflow, framework Skills combined with your own custom Skills.
 
-### 17. Sub-agents are used to delegate parallel or scoped subtasks
+### 17. Sub-agents for parallel or scoped subtasks
 
 **Why this is important?** Complex tasks are often made of independent sub-problems — exploring one area while drafting another, running a search in parallel with an edit. Most modern coding AI tools can spawn sub-agents (for example Claude Code's Task/Agent tool, background agents, parallel sessions in Cursor, or terminal-spawned parallel CLI agent sessions) to keep the main context clean and complete work faster.
 
@@ -145,7 +145,7 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 **Self-check:** fixtures or test datasets or seed data generation scripts produced with AI, integration tests that use AI-generated fixtures, test quality or coverage improved with AI evaluation.
 
-### 20. Browser/device automation is used for testing and UI interaction
+### 20. Browser/device automation for testing and UI interaction
 
 **Why this is important?** Browser/device automation unlocks a practical workflow for UI validation, screenshot capture, regression checks, and turning test cases in English into automation scripts that run on the developer's machine and on CI/CD.
 
@@ -161,7 +161,7 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 ## Tool integrations and MCP
 
-### 22. MCP servers are connected and used
+### 22. Connected MCP servers
 
 **Why this is important?** Connected tools make agents much more useful than plain chat, and MCP servers give access to data and external systems. Popular examples to start with: browser-control MCP for web automation, Figma MCP for designs, PostgreSQL MCP for database access, GitHub MCP for repo and PR operations. When MCP is not available for a given system, Skills, vendor SDKs, or CLI scripts can play a similar role.
 
@@ -183,19 +183,19 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 ## Multi-Agent Workflows
 
-### 25. Permissions are expanded to enable more autonomous agent work
+### 25. Expanded permissions for autonomous agent work
 
 **Why this is important?** Default permission settings are conservative, and agents ask for confirmation on most actions. As trust in the tools grows and good guardrails are in place (agentic loops, version control, sandboxes), broader permissions can be safely granted so the agent works longer without interruption. This unlocks long refactors, overnight runs, and multi-step automation.
 
 **Self-check:** permission settings tuned with approved commands or auto-accept scopes or trust rules, recent task completed with broader permissions where the trust envelope helped.
 
-### 26. Git worktrees are used to run multiple features or branches in parallel on one machine
+### 26. Git worktrees for parallel features on one machine
 
 **Why this is important?** Git worktrees let one repo host multiple isolated checkouts at once, so different agents or sessions can work on different features, in multiple branches simultaneously, without conflicting changes. This multiplies throughput — one agent can refactor in one worktree while another implements a feature in a second, and tests run in a third.
 
 **Self-check:** git worktrees set up and in active use, recent case where parallel worktrees helped — e.g., long refactor while continuing feature work.
 
-### 27. Parallel service instances run on localhost for parallel integration and E2E tests
+### 27. Parallel localhost service instances for integration and E2E tests
 
 **Why this is important?** Integration and E2E tests are slow because services typically bind to fixed ports, forcing tests to run serially. Tools like Portless (or similar dynamic-port/domains on localhost) let multiple instances of the same stack run in parallel on one machine. This speeds up test suites and makes parallel agent work practical when each agent needs its own running services.
 
@@ -205,13 +205,13 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 ## Productivity and operations
 
-### 28. Voice input is used to work with AI coding tools
+### 28. Voice input for AI coding tools
 
 **Why this is important?** Voice input removes the typing bottleneck for explaining context, describing bugs, walking through intent, and dictating specs — often where momentum gets lost. Several coding tools now support voice natively (for example, Claude Code's /voice command), and third-party dictation and realtime voice tools can be layered in. Pairing voice with agent mode lets you think out loud and have the agent act on it, which is especially effective for exploratory work, debugging narration, and long-form planning.
 
 **Self-check:** voice input tried with at least one AI coding tool, situation where voice was a better fit than typing — debugging or dictating a spec or walking through a design.
 
-### 29. Token usage is actively optimized with compression and filtering tools
+### 29. Token usage optimized with compression and filtering tools
 
 **Why this is important?** Deep AI usage naturally grows token expense. Dedicated tools can reduce it dramatically: Caveman compresses agent responses by stripping filler and hedging, cutting output tokens by about 70% on average across Claude Code, Cursor, Copilot, Gemini CLI, Windsurf, and others. RTK is a CLI proxy that auto-filters verbose outputs from git, tests, builds, and container commands before the agent reads them, saving 60–90% on input tokens.
 
@@ -233,7 +233,7 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 ## AI tools use in a policy-compliant way
 
-### 32. All AI tools are compliant with company policy and security guidelines
+### 32. AI tools compliant with policy and security guidelines
 
 **Why this is important?** Using only approved AI tools protects company data and keeps AI usage within policy.
 
@@ -241,7 +241,7 @@ IMPORTANT: Check your organization's AI use policy.
 
 **Self-check:** clear on which AI tools are approved for your work, not using any tools outside the approved list, IDE/CLI signed into the enterprise account.
 
-### 33. Token usage and limits are understood
+### 33. Token usage and limits understood
 
 **Why this is important?** Large prompts and connected tools can waste quota and silently degrade results. At the same time, deeper AI usage naturally consumes more tokens — that is expected.
 
