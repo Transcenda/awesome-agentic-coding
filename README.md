@@ -1,8 +1,8 @@
 # Developer's Roadmap for Agentic Coding
 
-AI coding agents are used in very different ways. Some go deep — agentic loops, sub-agents, custom Skills, parallel workflows. Others stay shallow — autocomplete and one-shot code generation. The gap between the two is where most of the productivity lives.
+Most people using AI coding agents only scratch the surface: autocomplete, one-shot code generation, a chat window for questions. The real productivity is further down: agentic loops, sub-agents, custom Skills, parallel workflows.
 
-Use this checklist as a self-assessment to find your next deeper use case to try.
+Use this checklist as a self-assessment to find where to go deeper.
 
 ## Table of contents
 
