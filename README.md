@@ -19,7 +19,7 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 ## Agentic Coding Fundamentals
 
-### 1. AI is used for codebase navigation and understanding
+### 1. Codebase navigation and understanding
 
 **Why this is important?** A large part of development time is navigation and code comprehension, not code writing. AI is useful to explore the code and understand how it works faster.
 
@@ -37,7 +37,7 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 **Self-check:** recent task where an agent changed several files, recent task where an agent executed commands or completed multi-step work.
 
-### 4. AI is used for generating the PR summaries and explanation of changes
+### 4. Generating the PR summaries and explanation of changes
 
 **Why this is important?** This improves reviewer speed, handoff quality, and the readability of technical changes in PRs.
 
@@ -49,25 +49,25 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 **Self-check:** recent example of using an IDE agent, recent example of using a CLI agent, can articulate which kind of work fits which interface.
 
-### 6. AI is used for refactoring and cleaning up existing code
+### 6. Refactoring and cleaning up existing code
 
 **Why this is important?** A large share of the work goes into improving code that already works — extracting, renaming, simplifying, removing duplication, cleaning up legacy code. AI is very effective for this kind of work, and it is often only applied to new features, which misses a big part of its value.
 
 **Self-check:** recent refactor done with AI assistance, AI used to extract a function or simplify a component, legacy code cleaned up with AI, readability improved with AI across several files.
 
-### 7. AI is used for self code review before submitting PRs
+### 7. Self code review before submitting PRs
 
 **Why this is important?** AI review catches issues earlier, improves diff quality before a human reviewer sees it, and makes feedback on others' code more thorough. This reduces review cycles and raises the quality of what lands in main.
 
 **Self-check:** recent PR where AI review was run on your own changes before human review, or a review comment on a teammate's PR informed by AI analysis.
 
-### 8. AI is used in an agentic loop that includes build, static analysis, and automated tests
+### 8. Agentic loop with build, static analysis, and automated tests
 
 **Why this is important?** The strongest way to use an agent is to let it close its own feedback loop — make a code change, compile, run static analysis, run unit tests, read the failures, adjust, and repeat until green. This is how the agent catches its own mistakes (including hallucinated functions or incorrect types) and produces code that is verifiably working rather than only plausible. The output becomes more trustworthy, and throughput goes up dramatically compared to reviewing one-shot generations by hand.
 
 **Self-check:** recent task where the agent ran build, linter, and tests in a loop; agent iterated on its own output until feedback was green; not a single-shot code generation — the loop was closed by the agent.
 
-### 9. AI is used to create and maintain technical documentation
+### 9. Creating and maintaining technical documentation
 
 **Why this is important?** AI is effective for drafting and updating READMEs, module docs, API references, setup guides, and onboarding notes. Up-to-date documentation improves team velocity and also gives AI agents better context to work from in future sessions.
 
@@ -83,19 +83,19 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 **Self-check:** ticket or design note with a markdown spec used as AI input, execution steps or implementation plan or acceptance checklist written with AI.
 
-### 11. AI is used to generate detailed requirements for a comprehensive UX and explain various happy and failure paths
+### 11. Generating detailed requirements and explaining happy and failure paths
 
 **Why this is important?** Corner cases are exactly what gets missed when AI is used only for happy-path code generation. AI can help reduce risk and improve the readiness of the feature across real-world scenarios.
 
 **Self-check:** prompt history or checklist covering happy path and error states, corner cases surfaced with AI help, full-scenario coverage considered before implementation.
 
-### 12. AI is used for architecture and design-level decisions for the feature
+### 12. Architecture and design-level decisions for the feature
 
 **Why this is important?** Before implementation, there are often design choices — data model shape, API boundaries, tradeoffs between approaches. AI helps reason through options and write them down so the choice is explicit and reviewable during code review. This sits one level above the feature spec and helps build the feature the right way.
 
 **Self-check:** recent design note or tradeoff analysis produced with AI, AI-written input used in a design discussion or technical review.
 
-### 13. AI is used to create ADRs and update architecture documentation for the whole codebase
+### 13. Creating ADRs and updating architecture documentation for the whole codebase
 
 **Why this is important?** Architecture docs and ADRs often rot or get skipped because they feel heavy to write. AI makes it fast to draft, update, and keep them accurate as the system evolves, so new teammates and AI agents have reliable context for future decisions.
 
@@ -133,13 +133,13 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 ## Testing and quality
 
-### 18. AI is used to generate or improve unit tests
+### 18. Generating or improving unit tests
 
 **Why this is important?** AI helps improve unit test coverage, reducing the time spent on unit testing and avoiding situations where unit tests get skipped.
 
 **Self-check:** recent PR with unit tests added or improved by AI.
 
-### 19. AI is used for integration tests, E2E tests, fixtures, and realistic test data
+### 19. Integration tests, E2E tests, fixtures, and realistic test data
 
 **Why this is important?** Integration tests offer the highest leverage in controlling the quality of code changes and catching regressions. A full integration test suite with E2E tests, fixtures, and seed data covers all the major behaviours of the feature being developed. AI coding agents can also evaluate the quality of the tests and improve the coverage.
 
@@ -151,7 +151,7 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 **Self-check:** browser-based automation script in use, mobile device simulator control script, screenshot validation run as part of testing, UI automation generated from a written scenario.
 
-### 21. AI is used to debug failing tests and flaky behavior
+### 21. Debugging failing tests and flaky behavior
 
 **Why this is important?** AI is good at narrowing hypotheses, reading logs, and suggesting minimal targeted fixes to resolve flaky tests and improve the predictability of CI/CD pipelines.
 
@@ -167,13 +167,13 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 **Self-check:** at least one MCP server configured and in active use, recent task completed through a connected tool, know which MCPs or Skills or SDKs or CLI scripts cover your common systems.
 
-### 23. AI is used to inspect logs, API responses, and data snapshots safely
+### 23. Inspecting logs, API responses, and data snapshots safely
 
 **Why this is important?** AI can help with debugging and investigation work based on the actual data pulled from logs or snapshots, instead of guesswork.
 
 **Self-check:** recent investigation using logs or API output or traces, snapshots from QA or CI/CD used as AI input, real data driving the debugging rather than guesswork.
 
-### 24. AI is used to explore databases, model data, query, and generate migrations
+### 24. Exploring databases, modeling data, querying, and generating migrations
 
 **Why this is important?** AI helps with data across the full range of day-to-day tasks — writing queries, exploring schemas, preparing test data, modeling new entities, and drafting migrations. This is useful for feature development, incident investigation, and analytics alike. AI combined with database access (via MCP, Skills, or CLI scripts) turns manual data work into a faster, semi-automated workflow.
 
@@ -217,13 +217,13 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 **Self-check:** Caveman or RTK or equivalent token-optimization tool in use, concrete practices applied (prompt caching, tight context, model-per-task selection), measurable token reduction you can point to.
 
-### 30. AI is used to manage dependency upgrades and security patches
+### 30. Managing dependency upgrades and security patches
 
 **Why this is important?** Dependency upgrades and security patches are repetitive, tedious work that tends to get deferred — which is exactly how CVEs pile up and breaking-change debt grows. AI is well-suited to this work because it can read changelogs, diff API changes, update call sites, run tests in a loop, and handle most of the mechanical work. Paired with automation tools like Dependabot or Renovate, upgrades become routine instead of risky.
 
 **Self-check:** recent dependency upgrade PR where AI handled the breaking changes, security patch applied with AI triaging the CVE and proposing the fix, AI used to read changelogs and call out likely breaking changes in advance, upgrade workflow integrated with Dependabot or Renovate or equivalent alongside AI assistance.
 
-### 31. AI is used for incident response and on-call workflows
+### 31. Incident response and on-call workflows
 
 **Why this is important?** On-call work involves triage under time pressure, reading logs and traces quickly, spotting patterns, drafting communication, and writing up postmortems afterward. AI is effective across all of these — it can correlate signals from logs and traces, propose hypotheses, draft runbooks for recurring alerts, and turn raw incident notes into a clean postmortem.
 
