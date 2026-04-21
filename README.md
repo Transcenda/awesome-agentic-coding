@@ -37,11 +37,11 @@ This list is a checklist to help you try the deeper use cases and increase the d
 
 **Self-check:** recent task where an agent changed several files, recent task where an agent executed commands or completed multi-step work.
 
-### 4. AI is used for managing branches, generating the PR summaries and explanation of changes
+### 4. AI is used for generating the PR summaries and explanation of changes
 
 **Why this is important?** This improves reviewer speed, handoff quality, and the readability of technical changes in PRs.
 
-**Self-check:** recent PR with summary or change explanation drafted by AI, branch or commit flow handled with AI.
+**Self-check:** recent PR with summary or change explanation drafted by AI.
 
 ### 5. Both IDE/desktop and CLI AI agents have been tried
 
