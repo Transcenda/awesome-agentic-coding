@@ -14,9 +14,6 @@ This list is a checklist to help you try the deeper use cases and increase the d
 - [Tool integrations and MCP](#tool-integrations-and-mcp)
 - [Multi-Agent Workflows](#multi-agent-workflows)
 - [Productivity and operations](#productivity-and-operations)
-- [Tools mentioned](#tools-mentioned)
-- [Contributing](#contributing)
-- [License](#license)
 
 ---
 
