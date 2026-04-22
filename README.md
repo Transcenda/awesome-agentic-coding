@@ -17,6 +17,117 @@ Use this checklist to find what to try next.
 
 ---
 
+## Agentic coding toolbox
+
+### AI coding agents
+
+- [Claude Code](https://claude.com/claude-code) — Anthropic's agentic coding CLI and IDE integration
+- [GitHub Copilot](https://github.com/features/copilot) — GitHub's AI pair programmer
+- [Cursor](https://cursor.com) — AI-first code editor
+- [Windsurf](https://windsurf.com) — AI editor
+- [Gemini CLI](https://github.com/google-gemini/gemini-cli) — Google's Gemini CLI
+
+### Agent instructions and Skills
+
+- [AGENTS.md](https://agents.md/) — open format for repo-level agent instructions
+- [Context7](https://github.com/upstash/context7) — up-to-date library documentation for AI agents, loadable selectively
+- [Superpowers](https://github.com/obra/superpowers) — composable Skills framework with sub-agent patterns
+- [GSD (Get Shit Done)](https://github.com/gsd-build/get-shit-done) — meta-prompting, context-engineering, spec-driven Skills system for Claude Code
+- [BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) — role-based framework with analyst, PM, architect, dev, and QA agents
+
+### Agent SDKs and multi-agent frameworks
+
+- [Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk-python) — Anthropic's SDK for building sub-agents and orchestrated workflows
+- [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) — lightweight multi-agent orchestration with handoffs and tracing
+- [LangGraph](https://github.com/langchain-ai/langgraph) — graph-based orchestration for stateful multi-agent systems
+- [Agent OS](https://github.com/buildermethods/agent-os) — opinionated methodology for long-running autonomous agents
+
+### Spec-driven development
+
+- [Spec Kit](https://github.com/github/spec-kit) — GitHub's toolkit for spec-driven development with AI agents
+- [Kiro](https://kiro.dev) — AWS's spec-first IDE
+- [Tessl](https://tessl.io) — spec-centric development platform
+- [BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) — also fits spec-first: agile AI-driven development organized around spec/brief artifacts
+
+### ADR tooling
+
+- [MADR](https://github.com/adr/madr) — markdown ADR template
+- [log4brains](https://github.com/thomvaill/log4brains) — CLI and static site generator for ADRs
+- [adr-tools](https://github.com/npryce/adr-tools) — shell-based toolchain for creating and numbering ADRs
+
+### AI code review
+
+- [CodeRabbit](https://coderabbit.ai) — AI code review bot for GitHub/GitLab PRs
+- [Greptile](https://greptile.com) — AI code reviewer with repo-wide context
+- [Qodo Merge](https://github.com/Codium-ai/pr-agent) — open-source agent for PR descriptions, reviews, and walkthroughs
+- [Ellipsis](https://ellipsis.dev) — AI reviewer with auto-fix capability
+
+### Codemods and refactoring
+
+- [Grit](https://getgrit.io) — query language and CLI for AI-assisted codemods
+- [jscodeshift](https://github.com/facebook/jscodeshift) — Meta's AST codemod toolkit for JavaScript and TypeScript
+- [Comby](https://comby.dev) — language-agnostic structural search-and-replace for multi-file refactoring
+
+### Documentation
+
+- [Mintlify](https://mintlify.com) — AI-assisted docs platform for developer documentation
+
+### Testing
+
+- [Playwright](https://playwright.dev) — cross-browser E2E framework
+- [Pact](https://pact.io) — consumer-driven contract testing for service integration
+- [Qodo Cover](https://github.com/Codium-ai/cover-agent) — open-source AI unit test generation
+- [Diffblue Cover](https://www.diffblue.com) — AI unit test generator for Java/JVM
+- [Trunk Flaky Tests](https://trunk.io/products/flaky-tests) — detect, quarantine, and track flaky tests across CI
+
+### Browser automation (AI-native)
+
+- [Browserbase Stagehand](https://github.com/browserbase/stagehand) — AI-native browser automation layered on Playwright
+- [Browser Use](https://github.com/browser-use/browser-use) — open-source library that lets LLMs drive real browsers
+- [Anthropic Computer Use](https://docs.anthropic.com/en/docs/agents-and-tools/computer-use) — Claude's screen, keyboard, and mouse control for agent-driven UI automation
+
+### MCP servers
+
+- [GitHub MCP](https://github.com/github/github-mcp-server) — official GitHub MCP server
+- [Playwright MCP](https://github.com/microsoft/playwright-mcp) — browser automation MCP from Microsoft
+- [Figma MCP](https://www.figma.com/) — Figma's developer MCP for design tokens and canvas access
+- PostgreSQL MCP — database MCP (several implementations in the [MCP servers repo](https://github.com/modelcontextprotocol/servers))
+
+### Observability and incident response
+
+- [Sentry](https://sentry.io) — AI-assisted root-cause analysis with an MCP server for agent queries
+- [Rootly](https://rootly.com) — incident platform with AI agents for investigation and retrospectives
+- [incident.io](https://incident.io) — on-call and incident platform with AI summaries and investigation copilots
+- [PagerDuty AIOps](https://www.pagerduty.com) — AI-driven alert noise reduction and incident automation
+
+### Data exploration
+
+- [Outerbase](https://www.outerbase.com) — AI-powered SQL workspace for schemas, queries, and migrations
+- [dbt](https://www.getdbt.com) — analytics-engineering transformations with AI assistance in dbt Cloud
+
+### Local development
+
+- [Portless](https://github.com/vercel-labs/portless) — stable named URLs for localhost services, worktree-aware (Vercel Labs)
+- [Microsoft .NET Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/) — isolated multi-service local dev/test stacks for .NET
+
+### Voice input
+
+- [Wispr Flow](https://wisprflow.ai) — AI dictation app for macOS and Windows
+- [Superwhisper](https://superwhisper.com) — macOS voice-to-text built on Whisper-family models
+
+### Token optimization
+
+- [Caveman](https://github.com/JuliusBrussee/caveman) — agent response compression (~70% output token reduction)
+- [RTK](https://github.com/rtk-ai/rtk) — CLI proxy for input token filtering on common dev commands
+
+### Dependency and security automation
+
+- [Dependabot](https://github.com/dependabot) — GitHub's dependency update bot
+- [Renovate](https://github.com/renovatebot/renovate) — cross-platform dependency update tool
+- [Snyk](https://snyk.io) — security platform with AI-assisted fix suggestions for vulnerable dependencies
+
+---
+
 ## Agentic coding 101
 
 ### 1. Codebase navigation and understanding
@@ -246,117 +357,6 @@ IMPORTANT: Check your organization's AI use policy.
 Large prompts and connected tools can waste quota and silently degrade results. At the same time, deeper AI usage naturally consumes more tokens, which is expected, and the goal is value per token, not maximizing tokens used.
 
 **Self-check:** clear on your budget and limits, know where to see usage information per tool.
-
----
-
-## Tools mentioned
-
-### AI coding agents
-
-- [Claude Code](https://claude.com/claude-code) — Anthropic's agentic coding CLI and IDE integration
-- [GitHub Copilot](https://github.com/features/copilot) — GitHub's AI pair programmer
-- [Cursor](https://cursor.com) — AI-first code editor
-- [Windsurf](https://windsurf.com) — AI editor
-- [Gemini CLI](https://github.com/google-gemini/gemini-cli) — Google's Gemini CLI
-
-### Agent instructions and Skills
-
-- [AGENTS.md](https://agents.md/) — open format for repo-level agent instructions
-- [Context7](https://github.com/upstash/context7) — up-to-date library documentation for AI agents, loadable selectively
-- [Superpowers](https://github.com/obra/superpowers) — composable Skills framework with sub-agent patterns
-- [GSD (Get Shit Done)](https://github.com/gsd-build/get-shit-done) — meta-prompting, context-engineering, spec-driven Skills system for Claude Code
-- [BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) — role-based framework with analyst, PM, architect, dev, and QA agents
-
-### Agent SDKs and multi-agent frameworks
-
-- [Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk-python) — Anthropic's SDK for building sub-agents and orchestrated workflows
-- [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) — lightweight multi-agent orchestration with handoffs and tracing
-- [LangGraph](https://github.com/langchain-ai/langgraph) — graph-based orchestration for stateful multi-agent systems
-- [Agent OS](https://github.com/buildermethods/agent-os) — opinionated methodology for long-running autonomous agents
-
-### Spec-driven development
-
-- [Spec Kit](https://github.com/github/spec-kit) — GitHub's toolkit for spec-driven development with AI agents
-- [Kiro](https://kiro.dev) — AWS's spec-first IDE
-- [Tessl](https://tessl.io) — spec-centric development platform
-- [BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) — also fits spec-first: agile AI-driven development organized around spec/brief artifacts
-
-### ADR tooling
-
-- [MADR](https://github.com/adr/madr) — markdown ADR template
-- [log4brains](https://github.com/thomvaill/log4brains) — CLI and static site generator for ADRs
-- [adr-tools](https://github.com/npryce/adr-tools) — shell-based toolchain for creating and numbering ADRs
-
-### AI code review
-
-- [CodeRabbit](https://coderabbit.ai) — AI code review bot for GitHub/GitLab PRs
-- [Greptile](https://greptile.com) — AI code reviewer with repo-wide context
-- [Qodo Merge](https://github.com/Codium-ai/pr-agent) — open-source agent for PR descriptions, reviews, and walkthroughs
-- [Ellipsis](https://ellipsis.dev) — AI reviewer with auto-fix capability
-
-### Codemods and refactoring
-
-- [Grit](https://getgrit.io) — query language and CLI for AI-assisted codemods
-- [jscodeshift](https://github.com/facebook/jscodeshift) — Meta's AST codemod toolkit for JavaScript and TypeScript
-- [Comby](https://comby.dev) — language-agnostic structural search-and-replace for multi-file refactoring
-
-### Documentation
-
-- [Mintlify](https://mintlify.com) — AI-assisted docs platform for developer documentation
-
-### Testing
-
-- [Playwright](https://playwright.dev) — cross-browser E2E framework
-- [Pact](https://pact.io) — consumer-driven contract testing for service integration
-- [Qodo Cover](https://github.com/Codium-ai/cover-agent) — open-source AI unit test generation
-- [Diffblue Cover](https://www.diffblue.com) — AI unit test generator for Java/JVM
-- [Trunk Flaky Tests](https://trunk.io/products/flaky-tests) — detect, quarantine, and track flaky tests across CI
-
-### Browser automation (AI-native)
-
-- [Browserbase Stagehand](https://github.com/browserbase/stagehand) — AI-native browser automation layered on Playwright
-- [Browser Use](https://github.com/browser-use/browser-use) — open-source library that lets LLMs drive real browsers
-- [Anthropic Computer Use](https://docs.anthropic.com/en/docs/agents-and-tools/computer-use) — Claude's screen, keyboard, and mouse control for agent-driven UI automation
-
-### MCP servers
-
-- [GitHub MCP](https://github.com/github/github-mcp-server) — official GitHub MCP server
-- [Playwright MCP](https://github.com/microsoft/playwright-mcp) — browser automation MCP from Microsoft
-- [Figma MCP](https://www.figma.com/) — Figma's developer MCP for design tokens and canvas access
-- PostgreSQL MCP — database MCP (several implementations in the [MCP servers repo](https://github.com/modelcontextprotocol/servers))
-
-### Observability and incident response
-
-- [Sentry](https://sentry.io) — AI-assisted root-cause analysis with an MCP server for agent queries
-- [Rootly](https://rootly.com) — incident platform with AI agents for investigation and retrospectives
-- [incident.io](https://incident.io) — on-call and incident platform with AI summaries and investigation copilots
-- [PagerDuty AIOps](https://www.pagerduty.com) — AI-driven alert noise reduction and incident automation
-
-### Data exploration
-
-- [Outerbase](https://www.outerbase.com) — AI-powered SQL workspace for schemas, queries, and migrations
-- [dbt](https://www.getdbt.com) — analytics-engineering transformations with AI assistance in dbt Cloud
-
-### Local development
-
-- [Portless](https://github.com/vercel-labs/portless) — stable named URLs for localhost services, worktree-aware (Vercel Labs)
-- [Microsoft .NET Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/) — isolated multi-service local dev/test stacks for .NET
-
-### Voice input
-
-- [Wispr Flow](https://wisprflow.ai) — AI dictation app for macOS and Windows
-- [Superwhisper](https://superwhisper.com) — macOS voice-to-text built on Whisper-family models
-
-### Token optimization
-
-- [Caveman](https://github.com/JuliusBrussee/caveman) — agent response compression (~70% output token reduction)
-- [RTK](https://github.com/rtk-ai/rtk) — CLI proxy for input token filtering on common dev commands
-
-### Dependency and security automation
-
-- [Dependabot](https://github.com/dependabot) — GitHub's dependency update bot
-- [Renovate](https://github.com/renovatebot/renovate) — cross-platform dependency update tool
-- [Snyk](https://snyk.io) — security platform with AI-assisted fix suggestions for vulnerable dependencies
 
 ---
 
