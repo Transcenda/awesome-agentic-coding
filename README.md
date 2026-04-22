@@ -6,70 +6,70 @@ Use this checklist as a self-assessment to find where to go deeper.
 
 ## Table of contents
 
-- [Agentic Coding 101](#agentic-coding-101)
+- [Agentic coding 101](#agentic-coding-101)
 - [Spec-first work](#spec-first-work)
-- [Agents Instructions and Skills](#agents-instructions-and-skills)
+- [Agent instructions and Skills](#agent-instructions-and-skills)
 - [Testing and quality](#testing-and-quality)
 - [Tool integrations and MCP](#tool-integrations-and-mcp)
-- [Multi-Agent Workflows](#multi-agent-workflows)
+- [Multi-agent workflows](#multi-agent-workflows)
 - [Productivity and operations](#productivity-and-operations)
-- [AI tools use in a policy-compliant way](#ai-tools-use-in-a-policy-compliant-way)
+- [Policy-compliant AI use](#policy-compliant-ai-use)
 
 ---
 
-## Agentic Coding 101
+## Agentic coding 101
 
 ### 1. Codebase navigation and understanding
 
-**Why this is important?** A large part of development time is navigation and code comprehension, not code writing. AI is useful to explore the code and understand how it works faster.
+A large part of development time is navigation and code comprehension, not code writing. AI is useful to explore the code and understand how it works faster.
 
 **Self-check:** recent example of AI explaining a flow or identifying affected files, onboarding into an unfamiliar area sped up by AI.
 
 ### 2. Planning mode before coding starts
 
-**Why this is important?** Using AI for planning the work before writing code helps reduce blind edits and improves first-pass quality for larger changes.
+Using AI for planning the work before writing code helps reduce blind edits and improves first-pass quality for larger changes.
 
 **Self-check:** prompt history, plan, or spec draft created before implementation; planning phase used for recent larger changes.
 
 ### 3. Agent mode for code generation
 
-**Why this is important?** Unlike autocomplete or pure chat, agent mode can inspect files, edit code, run commands, reason across steps, and complete larger tasks end-to-end. This is a different level of leverage than asking isolated code generation requests or relying on line-by-line suggestions.
+Unlike autocomplete or pure chat, agent mode can inspect files, edit code, run commands, reason across steps, and complete larger tasks end-to-end. This is a different level of leverage than asking isolated code generation requests or relying on line-by-line suggestions.
 
 **Self-check:** recent task where an agent changed several files, recent task where an agent executed commands or completed multi-step work.
 
 ### 4. Generating the PR summaries and explanation of changes
 
-**Why this is important?** This improves reviewer speed, handoff quality, and the readability of technical changes in PRs.
+This improves reviewer speed, handoff quality, and the readability of technical changes in PRs.
 
 **Self-check:** recent PR with summary or change explanation drafted by AI.
 
-### 5. IDE/desktop and CLI AI agents both tried
+### 5. Trying both IDE/desktop and CLI AI agents
 
-**Why this is important?** Different tasks suit different interfaces. IDE-integrated tools are great for inline edits, quick assistance, and working through extensive code review. CLI agents are better for repo-wide changes, multi-file edits, grep/search-driven exploration, scaffolding, scripted flows, and terminal-heavy work. Trying both lets you pick the right tool for each task rather than forcing one interface into every situation.
+Different tasks suit different interfaces. IDE-integrated tools are great for inline edits, quick assistance, and working through extensive code review. CLI agents are better for repo-wide changes, multi-file edits, grep/search-driven exploration, scaffolding, scripted flows, and terminal-heavy work. Trying both lets you pick the right tool for each task rather than forcing one interface into every situation.
 
 **Self-check:** recent example of using an IDE agent, recent example of using a CLI agent, can articulate which kind of work fits which interface.
 
 ### 6. Refactoring and cleaning up existing code
 
-**Why this is important?** A large share of the work goes into improving code that already works — extracting, renaming, simplifying, removing duplication, cleaning up legacy code. AI is very effective for this kind of work, and it is often only applied to new features, which misses a big part of its value.
+A large share of the work goes into improving code that already works: extracting, renaming, simplifying, removing duplication, cleaning up legacy code. AI is very effective for this kind of work, and it is often only applied to new features, which misses a big part of its value.
 
-**Self-check:** recent refactor done with AI assistance, AI used to extract a function or simplify a component, legacy code cleaned up with AI, readability improved with AI across several files.
+**Self-check:** recent AI-assisted refactor: extracting a function, simplifying a component, cleaning up legacy code, or improving readability across files.
 
 ### 7. Self code review before submitting PRs
 
-**Why this is important?** AI review catches issues earlier, improves diff quality before a human reviewer sees it, and makes feedback on others' code more thorough. This reduces review cycles and raises the quality of what lands in main.
+AI review catches issues earlier, improves diff quality before a human reviewer sees it, and makes feedback on others' code more thorough. This reduces review cycles and raises the quality of what lands in main.
 
 **Self-check:** recent PR where AI review was run on your own changes before human review, or a review comment on a teammate's PR informed by AI analysis.
 
 ### 8. Agentic loop with build, static analysis, and automated tests
 
-**Why this is important?** The strongest way to use an agent is to let it close its own feedback loop — make a code change, compile, run static analysis, run unit tests, read the failures, adjust, and repeat until green. This is how the agent catches its own mistakes (including hallucinated functions or incorrect types) and produces code that is verifiably working rather than only plausible. The output becomes more trustworthy, and throughput goes up dramatically compared to reviewing one-shot generations by hand.
+The strongest way to use an agent is to let it close its own feedback loop: make a code change, compile, run static analysis, run unit tests, read the failures, adjust, and repeat until green. This is how the agent catches its own mistakes (including hallucinated functions or incorrect types) and produces code that is verifiably working rather than only plausible. The output becomes more trustworthy, and throughput goes up dramatically compared to reviewing one-shot generations by hand.
 
-**Self-check:** recent task where the agent ran build, linter, and tests in a loop; agent iterated on its own output until feedback was green; not a single-shot code generation — the loop was closed by the agent.
+**Self-check:** recent task where the agent ran build, linter, and tests in a loop; agent iterated on its own output until feedback was green; not a single-shot code generation, with the loop closed by the agent.
 
 ### 9. Creating and maintaining technical documentation
 
-**Why this is important?** AI is effective for drafting and updating READMEs, module docs, API references, setup guides, and onboarding notes. Up-to-date documentation improves team velocity and also gives AI agents better context to work from in future sessions.
+AI is effective for drafting and updating READMEs, module docs, API references, setup guides, and onboarding notes. Up-to-date documentation improves team velocity and also gives AI agents better context to work from in future sessions.
 
 **Self-check:** recent README, module doc, or API reference created or updated with AI; setup guide or onboarding notes updated with AI.
 
@@ -79,53 +79,53 @@ Use this checklist as a self-assessment to find where to go deeper.
 
 ### 10. Task briefs or spec files before larger features
 
-**Why this is important?** A good spec, used as input to AI, produces better agent output and makes the implementation easier to review. This turns "build X" into an executable plan instead of jumping directly into code generation.
+A good spec, used as input to AI, produces better agent output and makes the implementation easier to review. This turns "build X" into an executable plan instead of jumping directly into code generation.
 
 **Self-check:** ticket or design note with a markdown spec used as AI input, execution steps or implementation plan or acceptance checklist written with AI.
 
-### 11. Generating detailed requirements and explaining happy and failure paths
+### 11. Generating detailed requirements covering happy paths and failure modes
 
-**Why this is important?** Corner cases are exactly what gets missed when AI is used only for happy-path code generation. AI can help reduce risk and improve the readiness of the feature across real-world scenarios.
+Corner cases are exactly what gets missed when AI is used only for happy-path code generation. AI can help reduce risk and improve the readiness of the feature across real-world scenarios.
 
 **Self-check:** prompt history or checklist covering happy path and error states, corner cases surfaced with AI help, full-scenario coverage considered before implementation.
 
 ### 12. Architecture and design-level decisions
 
-**Why this is important?** Before implementation, there are often design choices — data model shape, API boundaries, tradeoffs between approaches. AI helps reason through options and write them down so the choice is explicit and reviewable during code review. This sits one level above the feature spec and helps build the feature the right way.
+Before implementation, there are often design choices, like data model shape, API boundaries, tradeoffs between approaches. AI helps reason through options and write them down so the choice is explicit and reviewable during code review. This sits one level above the feature spec and helps build the feature the right way.
 
 **Self-check:** recent design note or tradeoff analysis produced with AI, AI-written input used in a design discussion or technical review.
 
 ### 13. Creating ADRs and updating architecture documentation
 
-**Why this is important?** Architecture docs and ADRs often rot or get skipped because they feel heavy to write. AI makes it fast to draft, update, and keep them accurate as the system evolves, so new teammates and AI agents have reliable context for future decisions.
+Architecture docs and ADRs often rot or get skipped because they feel heavy to write. AI makes it fast to draft, update, and keep them accurate as the system evolves, so new teammates and AI agents have reliable context for future decisions.
 
 **Self-check:** recent ADR entry created or updated with AI, architecture document updated with AI as the system evolved.
 
 ---
 
-## Agents Instructions and Skills
+## Agent instructions and Skills
 
 ### 14. Agent instructions committed in the repo
 
-**Why this is important?** Source repository context improves agent onboarding, repeatability of work, and code-wide quality.
+Source repository context improves agent onboarding, repeatability of work, and code-wide quality.
 
 **Self-check:** AGENTS.md, CLAUDE.md, or Copilot instruction files present in the repo; equivalent repo-visible guidance maintained.
 
 ### 15. Custom Skills for repeated tasks and reusable commands
 
-**Why this is important?** Skills help teams move from ad-hoc prompting to full automation of their day-to-day typical workflows. You can define your own custom agent skills and/or use the skill frameworks to cover common automation scenarios.
+Skills help teams move from ad-hoc prompting to full automation of their day-to-day typical workflows. You can define your own custom agent skills and/or use the skill frameworks to cover common automation scenarios.
 
 **Self-check:** reusable Skill for build automation or feature scaffolding or dependency updates, Skill for PR prep or test generation or bug triage, repeatable work automated with a Skill instead of ad-hoc prompting.
 
 ### 16. Skills frameworks
 
-**Why this is important?** Writing every Skill from scratch is slow and means rediscovering patterns others already solved. Skills frameworks provide ready-made building blocks that complement your own custom Skills (item 15) — prebuilt breadth alongside team-specific depth. Context7 curates agent instructions for popular languages, frameworks, and libraries, and lets you selectively load only the ones relevant to the current task. Composable frameworks like Superpowers combine Skills into larger workflows and support sub-agent patterns for multi-step work.
+Writing every Skill from scratch is slow and means rediscovering patterns others already solved. Skills frameworks provide ready-made building blocks that complement your own custom Skills (item 15): prebuilt breadth alongside team-specific depth. Context7 curates agent instructions for popular languages, frameworks, and libraries, and lets you selectively load only the ones relevant to the current task. Composable frameworks like Superpowers combine Skills into larger workflows and support sub-agent patterns for multi-step work.
 
 **Self-check:** Context7 used to selectively load agent instructions for the languages or libraries in use, composable framework like Superpowers integrated into your workflow, framework Skills combined with your own custom Skills.
 
 ### 17. Sub-agents for parallel or scoped subtasks
 
-**Why this is important?** Complex tasks are often made of independent sub-problems — exploring one area while drafting another, running a search in parallel with an edit. Most modern coding AI tools can spawn sub-agents (for example Claude Code's Task/Agent tool, background agents, parallel sessions in Cursor, or terminal-spawned parallel CLI agent sessions) to keep the main context clean and complete work faster.
+Complex tasks are often made of independent sub-problems: exploring one area while drafting another, running a search in parallel with an edit. Most modern coding AI tools can spawn sub-agents (for example, Claude Code's Task/Agent tool, Cursor background agents, or parallel CLI sessions) to keep the main context clean and complete work faster.
 
 **Self-check:** recent session where one or more sub-agents were spawned for exploration or research, sub-agents used to keep main context clean during multi-part work, can explain when sub-agents were more effective than single-agent work.
 
@@ -135,25 +135,25 @@ Use this checklist as a self-assessment to find where to go deeper.
 
 ### 18. Generating or improving unit tests
 
-**Why this is important?** AI helps improve unit test coverage, reducing the time spent on unit testing and avoiding situations where unit tests get skipped.
+AI helps improve unit test coverage, reducing the time spent on unit testing and avoiding situations where unit tests get skipped.
 
 **Self-check:** recent PR with unit tests added or improved by AI.
 
 ### 19. Integration tests, E2E tests, fixtures, and realistic test data
 
-**Why this is important?** Integration tests offer the highest leverage in controlling the quality of code changes and catching regressions. A full integration test suite with E2E tests, fixtures, and seed data covers all the major behaviours of the feature being developed. AI coding agents can also evaluate the quality of the tests and improve the coverage.
+Integration tests offer the highest leverage in controlling the quality of code changes and catching regressions. A full integration test suite with E2E tests, fixtures, and seed data covers all the major behaviours of the feature being developed. AI coding agents can also evaluate the quality of the tests and improve the coverage.
 
 **Self-check:** fixtures or test datasets or seed data generation scripts produced with AI, integration tests that use AI-generated fixtures, test quality or coverage improved with AI evaluation.
 
 ### 20. Browser/device automation for testing and UI interaction
 
-**Why this is important?** Browser/device automation unlocks a practical workflow for UI validation, screenshot capture, regression checks, and turning test cases in English into automation scripts that run on the developer's machine and on CI/CD.
+Browser/device automation unlocks a practical workflow for UI validation, screenshot capture, regression checks, and turning test cases in English into automation scripts that run on the developer's machine and on CI/CD.
 
 **Self-check:** browser-based automation script in use, mobile device simulator control script, screenshot validation run as part of testing, UI automation generated from a written scenario.
 
 ### 21. Debugging failing tests and flaky behavior
 
-**Why this is important?** AI is good at narrowing hypotheses, reading logs, and suggesting minimal targeted fixes to resolve flaky tests and improve the predictability of CI/CD pipelines.
+AI is good at narrowing hypotheses, reading logs, and suggesting minimal targeted fixes to resolve flaky tests and improve the predictability of CI/CD pipelines.
 
 **Self-check:** recent failing test investigation with AI involvement, flaky test fix with AI help.
 
@@ -163,41 +163,41 @@ Use this checklist as a self-assessment to find where to go deeper.
 
 ### 22. Connected MCP servers
 
-**Why this is important?** Connected tools make agents much more useful than plain chat, and MCP servers give access to data and external systems. Popular examples to start with: browser-control MCP for web automation, Figma MCP for designs, PostgreSQL MCP for database access, GitHub MCP for repo and PR operations. When MCP is not available for a given system, Skills, vendor SDKs, or CLI scripts can play a similar role.
+Connected tools make agents much more useful than plain chat, and MCP servers give access to data and external systems. Popular examples to start with: browser-control MCP for web automation, Figma MCP for designs, PostgreSQL MCP for database access, GitHub MCP for repo and PR operations. When MCP is not available for a given system, Skills, vendor SDKs, or CLI scripts can play a similar role.
 
-**Self-check:** at least one MCP server configured and in active use, recent task completed through a connected tool, know which MCPs or Skills or SDKs or CLI scripts cover your common systems.
+**Self-check:** at least one MCP server configured and in active use, recent task completed through a connected tool, know what tooling (MCPs, Skills, SDKs, or CLI scripts) covers the systems you work with.
 
 ### 23. Inspecting logs, API responses, and data snapshots safely
 
-**Why this is important?** AI can help with debugging and investigation work based on the actual data pulled from logs or snapshots, instead of guesswork.
+AI can help with debugging and investigation work based on the actual data pulled from logs or snapshots, instead of guesswork.
 
 **Self-check:** recent investigation using logs or API output or traces, snapshots from QA or CI/CD used as AI input, real data driving the debugging rather than guesswork.
 
 ### 24. Exploring databases, modeling data, querying, and generating migrations
 
-**Why this is important?** AI helps with data across the full range of day-to-day tasks — writing queries, exploring schemas, preparing test data, modeling new entities, and drafting migrations. This is useful for feature development, incident investigation, and analytics alike. AI combined with database access (via MCP, Skills, or CLI scripts) turns manual data work into a faster, semi-automated workflow.
+AI helps with data across the full range of day-to-day tasks: writing queries, exploring schemas, preparing test data, modeling new entities, and drafting migrations. This is useful for feature development, incident investigation, and analytics alike. AI combined with database access (via MCP, Skills, or CLI scripts) turns manual data work into a faster, semi-automated workflow.
 
 **Self-check:** recent SQL query written or explained with AI, schema explored with AI help, data model designed with AI input, migration script drafted with AI.
 
 ---
 
-## Multi-Agent Workflows
+## Multi-agent workflows
 
 ### 25. Expanded permissions for autonomous agent work
 
-**Why this is important?** Default permission settings are conservative, and agents ask for confirmation on most actions. As trust in the tools grows and good guardrails are in place (agentic loops, version control, sandboxes), broader permissions can be safely granted so the agent works longer without interruption. This unlocks long refactors, overnight runs, and multi-step automation.
+Default permission settings are conservative, and agents ask for confirmation on most actions. As trust in the tools grows and good guardrails are in place (agentic loops, version control, sandboxes), broader permissions can be safely granted so the agent works longer without interruption. This unlocks long refactors, overnight runs, and multi-step automation.
 
 **Self-check:** permission settings tuned with approved commands or auto-accept scopes or trust rules, recent task completed with broader permissions where the trust envelope helped.
 
 ### 26. Git worktrees for parallel features on one machine
 
-**Why this is important?** Git worktrees let one repo host multiple isolated checkouts at once, so different agents or sessions can work on different features, in multiple branches simultaneously, without conflicting changes. This multiplies throughput — one agent can refactor in one worktree while another implements a feature in a second, and tests run in a third.
+Git worktrees let one repo host multiple isolated checkouts at once, so different agents or sessions can work on different features, in multiple branches simultaneously, without conflicting changes. This multiplies throughput: one agent can refactor in one worktree while another implements a feature in a second, and tests run in a third.
 
-**Self-check:** git worktrees set up and in active use, recent case where parallel worktrees helped — e.g., long refactor while continuing feature work.
+**Self-check:** git worktrees set up and in active use, recent case where parallel worktrees helped (e.g., long refactor while continuing feature work).
 
 ### 27. Parallel localhost service instances for integration and E2E tests
 
-**Why this is important?** Integration and E2E tests are slow because services typically bind to fixed ports, forcing tests to run serially. Tools like Portless (or similar dynamic-port/domains on localhost) let multiple instances of the same stack run in parallel on one machine. This speeds up test suites and makes parallel agent work practical when each agent needs its own running services.
+Integration and E2E tests are slow because services typically bind to fixed ports, forcing tests to run serially. Tools like Portless (or similar dynamic-port/domains on localhost) let multiple instances of the same stack run in parallel on one machine. This speeds up test suites and makes parallel agent work practical when each agent needs its own running services.
 
 **Self-check:** local environment configured for parallel service instances, test suite or workflow that benefits from running services in parallel.
 
@@ -207,35 +207,35 @@ Use this checklist as a self-assessment to find where to go deeper.
 
 ### 28. Voice input for AI coding tools
 
-**Why this is important?** Voice input removes the typing bottleneck for explaining context, describing bugs, walking through intent, and dictating specs — often where momentum gets lost. Several coding tools now support voice natively (for example, Claude Code's /voice command), and third-party dictation and realtime voice tools can be layered in. Pairing voice with agent mode lets you think out loud and have the agent act on it, which is especially effective for exploratory work, debugging narration, and long-form planning.
+Voice input removes the typing bottleneck for explaining context, describing bugs, walking through intent, and dictating specs, often where momentum gets lost. Several coding tools now support voice natively (for example, Claude Code's /voice command), and third-party dictation and realtime voice tools can be layered in. Pairing voice with agent mode lets you think out loud and have the agent act on it, which is especially effective for exploratory work, debugging narration, and long-form planning.
 
-**Self-check:** voice input tried with at least one AI coding tool, situation where voice was a better fit than typing — debugging or dictating a spec or walking through a design.
+**Self-check:** voice input tried with at least one AI coding tool, situation where voice was a better fit than typing (debugging, dictating a spec, or walking through a design).
 
 ### 29. Token usage optimized with compression and filtering tools
 
-**Why this is important?** Deep AI usage naturally grows token expense. Dedicated tools can reduce it dramatically: Caveman compresses agent responses by stripping filler and hedging, cutting output tokens by about 70% on average across Claude Code, Cursor, Copilot, Gemini CLI, Windsurf, and others. RTK is a CLI proxy that auto-filters verbose outputs from git, tests, builds, and container commands before the agent reads them, saving 60–90% on input tokens.
+Deep AI usage naturally grows token expense. Dedicated tools can reduce it dramatically: Caveman compresses agent responses by stripping filler and hedging, cutting output tokens by about 70% on average across Claude Code, Cursor, Copilot, Gemini CLI, Windsurf, and others. RTK is a CLI proxy that auto-filters verbose outputs from git, tests, builds, and container commands before the agent reads them, saving 60–90% on input tokens.
 
 **Self-check:** Caveman or RTK or equivalent token-optimization tool in use, concrete practices applied (prompt caching, tight context, model-per-task selection), measurable token reduction you can point to.
 
 ### 30. Managing dependency upgrades and security patches
 
-**Why this is important?** Dependency upgrades and security patches are repetitive, tedious work that tends to get deferred — which is exactly how CVEs pile up and breaking-change debt grows. AI is well-suited to this work because it can read changelogs, diff API changes, update call sites, run tests in a loop, and handle most of the mechanical work. Paired with automation tools like Dependabot or Renovate, upgrades become routine instead of risky.
+Dependency upgrades and security patches are repetitive, tedious work that tends to get deferred, which is exactly how CVEs pile up and breaking-change debt grows. AI is well-suited to this work because it can read changelogs, diff API changes, update call sites, run tests in a loop, and handle most of the mechanical work. Paired with automation tools like Dependabot or Renovate, upgrades become routine instead of risky.
 
 **Self-check:** recent dependency upgrade PR where AI handled the breaking changes, security patch applied with AI triaging the CVE and proposing the fix, AI used to read changelogs and call out likely breaking changes in advance, upgrade workflow integrated with Dependabot or Renovate or equivalent alongside AI assistance.
 
 ### 31. Incident response and on-call workflows
 
-**Why this is important?** On-call work involves triage under time pressure, reading logs and traces quickly, spotting patterns, drafting communication, and writing up postmortems afterward. AI is effective across all of these — it can correlate signals from logs and traces, propose hypotheses, draft runbooks for recurring alerts, and turn raw incident notes into a clean postmortem.
+On-call work involves triage under time pressure, reading logs and traces quickly, spotting patterns, drafting communication, and writing up postmortems afterward. AI is effective across all of these: it can correlate signals from logs and traces, propose hypotheses, draft runbooks for recurring alerts, and turn raw incident notes into a clean postmortem.
 
 **Self-check:** recent incident where AI helped triage or correlate signals, runbook drafted with AI for a recurring alert, postmortem written with AI from raw incident notes, alert noise reduced with AI help.
 
 ---
 
-## AI tools use in a policy-compliant way
+## Policy-compliant AI use
 
 ### 32. AI tools compliant with policy and security guidelines
 
-**Why this is important?** Using only approved AI tools protects company data and keeps AI usage within policy.
+Using only approved AI tools protects company data and keeps AI usage within policy.
 
 IMPORTANT: Check your organization's AI use policy.
 
@@ -243,9 +243,7 @@ IMPORTANT: Check your organization's AI use policy.
 
 ### 33. Token usage and limits understood
 
-**Why this is important?** Large prompts and connected tools can waste quota and silently degrade results. At the same time, deeper AI usage naturally consumes more tokens — that is expected.
-
-The goal is value per token, not maximizing tokens used.
+Large prompts and connected tools can waste quota and silently degrade results. At the same time, deeper AI usage naturally consumes more tokens, which is expected, and the goal is value per token, not maximizing tokens used.
 
 **Self-check:** clear on your budget and limits, know where to see usage information per tool.
 
