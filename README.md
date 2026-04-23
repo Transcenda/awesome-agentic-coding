@@ -89,22 +89,17 @@ This doc has two parts: an **Agentic coding toolbox** of tools and frameworks wo
 
 ### MCP servers
 
+- [MCP servers repo](https://github.com/modelcontextprotocol/servers)
 - [GitHub MCP](https://github.com/github/github-mcp-server) — official GitHub MCP server
 - [Playwright MCP](https://github.com/microsoft/playwright-mcp) — browser automation MCP from Microsoft
-- [Figma MCP](https://www.figma.com/) — Figma's developer MCP for design tokens and canvas access
-- PostgreSQL MCP — database MCP (several implementations in the [MCP servers repo](https://github.com/modelcontextprotocol/servers))
+- [Figma MCP](https://www.figma.com/) — Figma's developer MCP for design tokens and canvas access 
 
 ### Observability and incident response
 
-- [Sentry](https://sentry.io) — AI-assisted root-cause analysis with an MCP server for agent queries
 - [Rootly](https://rootly.com) — incident platform with AI agents for investigation and retrospectives
 - [incident.io](https://incident.io) — on-call and incident platform with AI summaries and investigation copilots
 - [PagerDuty AIOps](https://www.pagerduty.com) — AI-driven alert noise reduction and incident automation
-
-### Data exploration
-
-- [Outerbase](https://www.outerbase.com) — AI-powered SQL workspace for schemas, queries, and migrations
-- [dbt](https://www.getdbt.com) — analytics-engineering transformations with AI assistance in dbt Cloud
+- [Sentry](https://sentry.io) — AI-assisted root-cause analysis with an MCP server for agent queries
 
 ### Local development
 
