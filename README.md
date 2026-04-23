@@ -42,6 +42,8 @@ This doc has two parts: an **Agentic coding toolbox** of tools and frameworks wo
 - [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) — lightweight multi-agent orchestration with handoffs and tracing
 - [LangGraph](https://github.com/langchain-ai/langgraph) — graph-based orchestration for stateful multi-agent systems
 - [Agent OS](https://github.com/buildermethods/agent-os) — opinionated methodology for long-running autonomous agents
+- [Hermes Agent](https://github.com/nousresearch/hermes-agent) — self-improving agent framework with procedural memory and multi-platform deployment (Nous Research)
+- [OpenClaw](https://github.com/openclaw/openclaw) — open-source local-first AI assistant with multi-channel messaging, voice, and Canvas workspaces
 
 ### Spec-driven development
 
