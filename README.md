@@ -64,6 +64,7 @@ This doc has two parts: an **Agentic coding toolbox** of tools and frameworks wo
 - [Greptile](https://greptile.com) — AI code reviewer with repo-wide context
 - [Qodo Merge](https://github.com/Codium-ai/pr-agent) — open-source agent for PR descriptions, reviews, and walkthroughs
 - [Ellipsis](https://ellipsis.dev) — AI reviewer with auto-fix capability
+- [sober-coding](https://github.com/voidborne-d/sober-coding) — open-source CLI that scans for AI-native code smells (duplication, dead branches, deep nesting, missing error handling) and prints fix suggestions
 
 ### Codemods and refactoring
 
