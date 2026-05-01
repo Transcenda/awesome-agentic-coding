@@ -21,26 +21,27 @@ There's a lot more to it than chatting with an AI agent to generate some code. W
 ### AI coding agents
 
 - [Claude Code](https://claude.com/claude-code) — Anthropic's agentic coding CLI and IDE integration
-- [GitHub Copilot](https://github.com/features/copilot) — GitHub's AI pair programmer
 - [Cursor](https://cursor.com) — AI-first code editor
-- [Windsurf](https://windsurf.com) — AI editor
+- [Codex](https://openai.com/codex/) - Agentic coding from OpenAI
+- [GitHub Copilot](https://github.com/features/copilot) — GitHub's AI pair programmer
 - [Gemini CLI](https://github.com/google-gemini/gemini-cli) — Google's Gemini CLI
+- [Windsurf](https://windsurf.com) — AI editor
+- [Cline](https://cline.bot/) - Open source coding AI agent
 
 ### Agent instructions and Skills
 
 - [AGENTS.md](https://agents.md/) — open format for repo-level agent instructions
-- [Context7](https://github.com/upstash/context7) — up-to-date library documentation for AI agents, loadable selectively
 - [Superpowers](https://github.com/obra/superpowers) — composable Skills framework with sub-agent patterns
-- [GSD (Get Shit Done)](https://github.com/gsd-build/get-shit-done) — meta-prompting, context-engineering, spec-driven Skills system for Claude Code
-- [BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) — role-based framework with analyst, PM, architect, dev, and QA agents
+- [Context7](https://github.com/upstash/context7) — up-to-date library documentation for AI agents, loadable selectively
+- [GSD (Get Sh*t Done)](https://github.com/gsd-build/get-shit-done) — meta-prompting, context-engineering, spec-driven Skills system for Claude Code
+- [Skills.sh](https://skills.sh/) - The Open Agent Skills Ecosystem from Vercel
 
 ### Agent SDKs and multi-agent frameworks
 
+- [Hermes Agent](https://github.com/nousresearch/hermes-agent) — self-improving agent framework with procedural memory and multi-platform deployment (Nous Research)
+- [Agent OS](https://github.com/buildermethods/agent-os) — opinionated methodology for long-running autonomous agents
 - [Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk-python) — Anthropic's SDK for building sub-agents and orchestrated workflows
 - [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) — lightweight multi-agent orchestration with handoffs and tracing
-- [LangGraph](https://github.com/langchain-ai/langgraph) — graph-based orchestration for stateful multi-agent systems
-- [Agent OS](https://github.com/buildermethods/agent-os) — opinionated methodology for long-running autonomous agents
-- [Hermes Agent](https://github.com/nousresearch/hermes-agent) — self-improving agent framework with procedural memory and multi-platform deployment (Nous Research)
 - [OpenClaw](https://github.com/openclaw/openclaw) — open-source local-first AI assistant with multi-channel messaging, voice, and Canvas workspaces
 
 ### Spec-driven development
@@ -50,8 +51,9 @@ There's a lot more to it than chatting with an AI agent to generate some code. W
 - [Tessl](https://tessl.io) — spec-centric development platform
 - [BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) — also fits spec-first: agile AI-driven development organized around spec/brief artifacts
 
-### ADR tooling
+### Documentation and ADR tooling
 
+- [Mintlify](https://mintlify.com) — AI-assisted docs platform for developer documentation
 - [MADR](https://github.com/adr/madr) — markdown ADR template
 - [log4brains](https://github.com/thomvaill/log4brains) — CLI and static site generator for ADRs
 - [adr-tools](https://github.com/npryce/adr-tools) — shell-based toolchain for creating and numbering ADRs
@@ -68,26 +70,20 @@ There's a lot more to it than chatting with an AI agent to generate some code. W
 - [Grit](https://getgrit.io) — query language and CLI for AI-assisted codemods
 - [jscodeshift](https://github.com/facebook/jscodeshift) — Meta's AST codemod toolkit for JavaScript and TypeScript
 - [Comby](https://comby.dev) — language-agnostic structural search-and-replace for multi-file refactoring
+- [Awesome Codemods](https://github.com/rajasegar/awesome-codemods) - a large collection of codemods
 
-### Documentation
-
-- [Mintlify](https://mintlify.com) — AI-assisted docs platform for developer documentation
-
-### Testing
+### Testing and AI-native browser automation
 
 - [Playwright](https://playwright.dev) — cross-browser E2E framework
 - [Pact](https://pact.io) — consumer-driven contract testing for service integration
 - [Qodo Cover](https://github.com/Codium-ai/cover-agent) — open-source AI unit test generation
 - [Diffblue Cover](https://www.diffblue.com) — AI unit test generator for Java/JVM
 - [Trunk Flaky Tests](https://trunk.io/products/flaky-tests) — detect, quarantine, and track flaky tests across CI
-
-### Browser automation (AI-native)
-
 - [Browserbase Stagehand](https://github.com/browserbase/stagehand) — AI-native browser automation layered on Playwright
 - [Browser Use](https://github.com/browser-use/browser-use) — open-source library that lets LLMs drive real browsers
 - [Anthropic Computer Use](https://docs.anthropic.com/en/docs/agents-and-tools/computer-use) — Claude's screen, keyboard, and mouse control for agent-driven UI automation
 
-### MCP servers
+### MCP Servers
 
 - [MCP servers repo](https://github.com/modelcontextprotocol/servers)
 - [GitHub MCP](https://github.com/github/github-mcp-server) — official GitHub MCP server
