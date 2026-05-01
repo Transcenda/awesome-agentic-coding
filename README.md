@@ -1,8 +1,10 @@
 # Developer's Roadmap for Agentic Coding
 
-Most people use AI coding agents for shallow use cases like autocomplete and chat. The bigger wins are in agentic loops, sub-agents, custom Skills, and parallel workflows.
+So many people use AI coding agents for shallow use cases, like just ad-hoc chats to get some code generated. 
+But you can get much stronger results by using custom skills and skills frameworks, building agentic loops with automated testing, using sub-agents, and utilizing the MCPs.
 
-This doc has two parts: an **Agentic coding toolbox** of tools and frameworks worth knowing about, and a checklist of practices for deepening your use. Work through the checklist to find what to try next.
+This page lists tools worth trying and a self-check of the techniques for deepening AI coding skills.
+Work through the checklist to find what to try next.
 
 ## Table of contents
 
@@ -18,7 +20,7 @@ This doc has two parts: an **Agentic coding toolbox** of tools and frameworks wo
 
 ---
 
-## Agentic coding toolbox
+## Agentic Coding Toolbox
 
 ### AI coding agents
 
