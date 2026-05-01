@@ -16,7 +16,6 @@ data. Below you'll find tools to try and a self-check on the techniques.
 - [Policy-compliant AI use](#policy-compliant-ai-use)
 - [Agentic coding toolbox](#agentic-coding-toolbox)
 
----
 
 ## Agentic coding 101
 
@@ -74,8 +73,6 @@ AI is effective for drafting and updating READMEs, module docs, API references, 
 
 **In practice:** you've drafted or updated a README, module doc, API reference, setup guide, or onboarding note with AI.
 
----
-
 ## Spec-first work
 
 ### 10. Task briefs or spec files before larger features
@@ -101,8 +98,6 @@ Before implementation, there are often design choices, like data model shape, AP
 Architecture docs and ADRs often rot or get skipped because they feel heavy to write. AI makes it fast to draft, update, and keep them accurate as the system evolves, so new teammates and AI agents have reliable context for future decisions. Templates like MADR paired with tooling like log4brains or adr-tools keep this low-friction.
 
 **In practice:** you've written or updated an ADR with AI, or refreshed architecture docs as the system evolved.
-
----
 
 ## Agent instructions and Skills
 
@@ -130,8 +125,6 @@ Complex tasks are often made of independent sub-problems: exploring one area whi
 
 **In practice:** you've spawned sub-agents for exploration or research, kept your main context clean by offloading to them, and you can explain when that beat running everything in one agent.
 
----
-
 ## Testing and quality
 
 ### 18. Generating or improving unit tests
@@ -158,8 +151,6 @@ AI is good at narrowing hypotheses, reading logs, and suggesting minimal targete
 
 **In practice:** you've investigated a failing test or fixed flakiness with AI's help.
 
----
-
 ## Tool integrations and MCP
 
 ### 22. Connected MCP servers
@@ -180,8 +171,6 @@ AI helps with data across the full range of day-to-day tasks: writing queries, e
 
 **In practice:** you've used AI to write or explain a SQL query, explore a schema, design a data model, or draft a migration.
 
----
-
 ## Multi-agent workflows
 
 ### 25. Expanded permissions for autonomous agent work
@@ -201,8 +190,6 @@ Git worktrees let one repo host multiple isolated checkouts at once, so differen
 Integration and E2E tests are slow because services typically bind to fixed ports, forcing tests to run serially. Tools like Portless (or similar dynamic-port/domains on localhost) let multiple instances of the same stack run in parallel on one machine. This speeds up test suites and makes parallel agent work practical when each agent needs its own running services. .NET teams can also use Microsoft Aspire's isolated mode for the same pattern.
 
 **In practice:** your local setup can run multiple service instances in parallel, and there's a test suite or workflow that actually uses it.
-
----
 
 ## Productivity and operations
 
@@ -230,8 +217,6 @@ On-call work involves triage under time pressure, reading logs and traces quickl
 
 **In practice:** you've had AI help with triage, signal correlation, runbook drafting, turning raw notes into a postmortem, or cutting alert noise.
 
----
-
 ## Policy-compliant AI use
 
 ### 32. AI tools compliant with policy and security guidelines
@@ -247,8 +232,6 @@ IMPORTANT: Check your organization's AI use policy.
 Large prompts and connected tools can waste quota and silently degrade results. At the same time, deeper AI usage naturally consumes more tokens, which is expected, and the goal is value per token, not maximizing tokens used.
 
 **In practice:** you know your budget and limits, and you know where to see usage per tool.
-
----
 
 ## Agentic Coding Toolbox
 
@@ -352,8 +335,6 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 - [Dependabot](https://github.com/dependabot) — GitHub's dependency update bot
 - [Renovate](https://github.com/renovatebot/renovate) — cross-platform dependency update tool
 - [Snyk](https://snyk.io) — security platform with AI-assisted fix suggestions for vulnerable dependencies
-
----
 
 ## Contributing
 
