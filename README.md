@@ -1,6 +1,6 @@
 # Developer's Roadmap for Agentic Coding
 
-This is a roadmap for getting better at agentic coding. There's a lot more to it than turning chat prompts into code: custom skills and skills frameworks, agent loops with automated tests, subagents running jobs in parallel, and MCP servers wired into real tools and data. You can also find the techniques to try and self-checks.
+There's a lot more to it than chatting with an AI agent to generate some code. We suggest trying custom skills and skills frameworks, building agentic loops with automated tests, subagents running jobs in parallel, and MCP servers wired into real tools and data. You can also find the techniques to try and self-check.
 
 ## Table of contents
 
