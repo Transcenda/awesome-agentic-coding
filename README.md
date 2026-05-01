@@ -1,6 +1,8 @@
 # Developer's Roadmap for Agentic Coding
 
-There's a lot more to it than chatting with an AI agent to generate some code. We suggest trying custom skills and skills frameworks, building agentic loops with automated tests, subagents running jobs in parallel, and MCP servers wired into real tools and data. You can also find the techniques to try and self-check.
+This roadmap is for going deeper with agentic coding, beyond just chatting with an AI to generate code. We suggest trying custom skills and
+skills frameworks, agentic loops with automated tests, subagents running jobs in parallel, and MCP servers wired into real tools and
+data. Below you'll find tools to try and a self-check on the techniques.
 
 ## Table of contents
 
