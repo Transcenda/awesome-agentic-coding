@@ -1,10 +1,6 @@
 # Developer's Roadmap for Agentic Coding
 
-So many people use AI coding agents for shallow use cases, like just ad-hoc chats to get some code generated. 
-But you can get much stronger results by using custom skills and skills frameworks, building agentic loops with automated testing, using sub-agents, and utilizing the MCPs.
-
-This page lists tools worth trying and a self-check of the techniques for deepening AI coding skills.
-Work through the checklist to find what to try next.
+This is a roadmap for getting better at agentic coding. There's a lot more to it than turning chat prompts into code: custom skills and skills frameworks, agent loops with automated tests, subagents running jobs in parallel, and MCP servers wired into real tools and data. You can also find the techniques to try and self-checks.
 
 ## Table of contents
 
