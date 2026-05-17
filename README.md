@@ -252,6 +252,7 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 - [Context7](https://github.com/upstash/context7) — up-to-date library documentation for AI agents, loadable selectively
 - [GSD (Get Sh*t Done)](https://github.com/gsd-build/get-shit-done) — meta-prompting, context-engineering, spec-driven Skills system for Claude Code
 - [Skills.sh](https://skills.sh/) - The Open Agent Skills Ecosystem from Vercel
+- [great_cto](https://github.com/avelikiy/great_cto) — multi-agent SDLC plugin for Claude Code with 34 specialist reviewer agents, 25 archetypes, and 10 auto-attaching compliance packs (PCI, HIPAA, FDA SaMD, GDPR, and more)
 
 ### Agent SDKs and multi-agent frameworks
 
