@@ -313,6 +313,7 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 - [incident.io](https://incident.io) — on-call and incident platform with AI summaries and investigation copilots
 - [PagerDuty AIOps](https://www.pagerduty.com) — AI-driven alert noise reduction and incident automation
 - [Sentry](https://sentry.io) — AI-assisted root-cause analysis with an MCP server for agent queries
+- [agenttrace](https://github.com/luoyuctl/agenttrace) — local-first TUI for inspecting AI coding agent session cost, tokens, time, and slow-run diagnostics
 
 ### Local development
 
