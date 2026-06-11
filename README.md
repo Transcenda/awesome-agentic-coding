@@ -264,6 +264,7 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 
 ### Spec-driven development
 
+- [Ariadne Loop](https://github.com/zhangzeyu99-web/ariadne-loop) - local-first Loop Engineering specs and agent packets with verifier gates, stop rules, rollback rules, and JSON reports for Codex, Claude Code, OpenClaw, and other coding agents
 - [Spec Kit](https://github.com/github/spec-kit) — GitHub's toolkit for spec-driven development with AI agents
 - [Kiro](https://kiro.dev) — AWS's spec-first IDE
 - [Tessl](https://tessl.io) — spec-centric development platform
