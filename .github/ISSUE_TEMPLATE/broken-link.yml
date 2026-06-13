@@ -1,0 +1,41 @@
+name: Report a broken or outdated link
+description: Flag a dead, redirected, renamed, archived, or misleading entry.
+title: "[Link]: "
+labels:
+  - maintenance
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: Entry
+      description: Name of the affected roadmap or Toolbox entry.
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Current URL
+    validations:
+      required: true
+  - type: dropdown
+    id: problem
+    attributes:
+      label: Problem
+      options:
+        - Returns an error
+        - Redirects to a different project
+        - Project was renamed or moved
+        - Project is archived or unmaintained
+        - Description is outdated or misleading
+    validations:
+      required: true
+  - type: input
+    id: replacement
+    attributes:
+      label: Suggested replacement
+      description: Optional canonical replacement URL.
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Include any useful response code, redirect target, or maintenance evidence.

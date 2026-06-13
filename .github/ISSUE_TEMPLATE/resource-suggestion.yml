@@ -1,0 +1,67 @@
+name: Suggest a resource
+description: Propose a roadmap use case or Toolbox entry.
+title: "[Suggestion]: "
+labels:
+  - suggestion
+body:
+  - type: dropdown
+    id: contribution_type
+    attributes:
+      label: Suggestion type
+      options:
+        - Toolbox entry
+        - Roadmap use case
+        - Existing entry update
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: Name of the tool, resource, or use case.
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Use the canonical project or documentation URL.
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: Why it belongs
+      description: Explain the concrete engineering workflow it supports and how it differs from existing entries.
+    validations:
+      required: true
+  - type: input
+    id: roadmap_items
+    attributes:
+      label: Related roadmap items
+      description: List the item numbers this suggestion supports.
+  - type: textarea
+    id: maintenance
+    attributes:
+      label: Maintenance and adoption
+      description: Include evidence of active maintenance, adoption, or another strong reason for inclusion.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I searched the roadmap and Toolbox for duplicates.
+          required: true
+        - label: I verified that the URL resolves.
+          required: true
+        - label: I am disclosing any affiliation with this project below.
+          required: true
+  - type: textarea
+    id: affiliation
+    attributes:
+      label: Affiliation
+      description: State your relationship to the project, or write "None."
+    validations:
+      required: true
