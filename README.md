@@ -4,6 +4,8 @@
 
 This roadmap helps engineers adopt progressively more advanced AI coding techniques, from agentic workflows to custom Skills, automated feedback loops, parallel sub-agents, and MCP integrations.
 
+Prefer the simplest workflow that works. Add autonomy, tools, context, and agents only when they improve measured outcomes; keep permissions scoped, validate results with deterministic checks and evals, and require human approval for irreversible or high-impact actions.
+
 ## Contents
 
 - [Agentic coding 101](#agentic-coding-101)
@@ -25,21 +27,21 @@ A large part of development time is navigation and code comprehension, not code 
 
 **In practice:** you've used AI to explain an unfamiliar flow or find affected files, and onboarding into a new area of the codebase went faster with AI in the loop.
 
-### 2. Planning mode before coding starts
+### 2. Planning and replanning before coding starts
 
-Using AI for planning the work before writing code helps reduce blind edits and improves first-pass quality for larger changes.
+For non-trivial changes, have the agent inspect the repository, clarify constraints, and propose a plan and acceptance criteria before editing. Treat the plan as a living hypothesis: update it when code, tool output, or tests reveal new information instead of forcing the implementation through a stale upfront plan.
 
-**In practice:** you've hit plan mode before writing code for a non-trivial change, and you've got the prompt history, plan, or spec draft to show for it.
+**In practice:** you've used plan mode before a non-trivial change, revised the plan after repository or test feedback, and kept the final scope and acceptance criteria reviewable.
 
 ### 3. Agent mode for code generation
 
-Unlike autocomplete or pure chat, agent mode can inspect files, edit code, run commands, reason across steps, and complete larger tasks end-to-end. This is a different level of leverage than asking isolated code generation requests or relying on line-by-line suggestions.
+Unlike autocomplete or pure chat, agent mode can inspect files, edit code, run commands, reason across steps, and complete larger tasks end-to-end. Use that autonomy for open-ended work with clear success criteria and environmental feedback; a direct edit or single model call is usually better for simple, predictable tasks.
 
 **In practice:** you've had an agent edit several files in one task, run commands, or complete multi-step work end-to-end.
 
 ### 4. Generating the PR summaries and explanation of changes
 
-This improves reviewer speed, handoff quality, and the readability of technical changes in PRs. Tools like CodeRabbit, Qodo Merge, and GitHub Copilot for PRs automate summary and walkthrough generation as part of the PR workflow.
+This improves reviewer speed, handoff quality, and the readability of technical changes in PRs. Tools like CodeRabbit, Qodo, and GitHub Copilot for PRs automate summary and walkthrough generation as part of the PR workflow. Generated summaries are drafts: verify them against the actual diff and test results before publishing.
 
 **In practice:** you've let AI draft a PR summary or change explanation on a recent PR.
 
@@ -57,15 +59,15 @@ A large share of the work goes into improving code that already works: extractin
 
 ### 7. Self code review before submitting PRs
 
-AI review catches issues earlier, improves diff quality before a human reviewer sees it, and makes feedback on others' code more thorough. This reduces review cycles and raises the quality of what lands in main. Tools like CodeRabbit, Greptile, Qodo Merge, and Ellipsis run this automatically as part of the PR workflow.
+AI review catches issues earlier, improves diff quality before a human reviewer sees it, and makes feedback on others' code more thorough. This reduces review cycles and raises the quality of what lands in main. Tools like CodeRabbit, Greptile, Qodo, and Ellipsis run this automatically as part of the PR workflow. AI review supplements rather than replaces accountable human review, especially for architecture, security, and product intent.
 
 **In practice:** you've run AI review on your own diff before requesting human review, or left an AI-informed comment on a teammate's PR.
 
 ### 8. Agentic loop with build, static analysis, and automated tests
 
-The strongest way to use an agent is to let it close its own feedback loop: make a code change, compile, run static analysis, run unit tests, read the failures, adjust, and repeat until green. This is how the agent catches its own mistakes (including hallucinated functions or incorrect types) and produces code that is verifiably working rather than only plausible. The output becomes more trustworthy, and throughput goes up dramatically compared to reviewing one-shot generations by hand.
+The strongest way to use an agent is to let it close its own feedback loop: make a code change, compile, run static analysis, run tests, read the failures, adjust, and repeat. Define iteration limits and stop conditions, and inspect the final diff: an agent must not make checks pass by weakening tests, accepting incorrect snapshots, suppressing diagnostics, or bypassing guardrails.
 
-**In practice:** you've had an agent run build, linter, and tests in a loop, read the failures, and iterate until green — the agent closed the loop itself, not a single-shot generation.
+**In practice:** you've had an agent run build, linter, and tests in a bounded loop, read failures, iterate, and then show that the checks and final diff still validate the intended behavior.
 
 ### 9. Creating and maintaining technical documentation
 
@@ -77,7 +79,7 @@ AI is effective for drafting and updating READMEs, module docs, API references, 
 
 ### 10. Task briefs or spec files before larger features
 
-A good spec, used as input to AI, produces better agent output and makes the implementation easier to review. This turns "build X" into an executable plan instead of jumping directly into code generation. Spec-driven frameworks like Spec Kit, Kiro, Tessl, and BMAD-METHOD formalize this workflow with templates and phased flows.
+A good spec, used as input to AI, produces better agent output and makes the implementation easier to review. This turns "build X" into an executable plan instead of jumping directly into code generation. Keep specs proportional to the task and update them when implementation evidence changes the design. Spec-driven frameworks like Spec Kit, Kiro, Tessl, and BMAD-METHOD formalize this workflow with templates and phased flows.
 
 **In practice:** you've written a spec or design note in markdown and handed it to an agent as input, with AI-drafted execution steps, implementation plan, or acceptance criteria to go with it.
 
@@ -103,7 +105,7 @@ Architecture docs and ADRs often rot or get skipped because they feel heavy to w
 
 ### 14. Agent instructions committed in the repo
 
-Source repository context improves agent onboarding, repeatability of work, and code-wide quality.
+Source repository context improves agent onboarding, repeatability of work, and code-wide quality. Keep instructions concise, scoped to the relevant directory or workflow, and maintained; large collections of stale or conflicting rules consume context and reduce reliability.
 
 **In practice:** your repo has an AGENTS.md, CLAUDE.md, Copilot instructions, or equivalent guidance that agents actually read.
 
@@ -125,35 +127,35 @@ Skills help teams move from ad-hoc prompting to full automation of their day-to-
 
 **In practice:** you've written a reusable Skill for something you do often — build automation, feature scaffolding, dependency updates, PR prep, test generation, or bug triage — instead of re-prompting every time.
 
-### 18. Skills frameworks
+### 18. Reusable Skills and context ecosystems
 
-Writing every Skill from scratch is slow and means rediscovering patterns others already solved. Skills frameworks provide ready-made building blocks that complement your own custom Skills (item 17): prebuilt breadth alongside team-specific depth. Context7 curates agent instructions for popular languages, frameworks, and libraries, and lets you selectively load only the ones relevant to the current task. Composable frameworks like Superpowers, GSD, and BMAD-METHOD combine Skills into larger workflows and support sub-agent patterns for multi-step work.
+Writing every Skill from scratch is slow and means rediscovering patterns others already solved. Reusable Skills, current documentation providers such as Context7, and composable frameworks such as Superpowers, GSD, and BMAD-METHOD can provide useful building blocks. Do not install a broad framework by default: inspect and pin third-party content, load only what the task needs, and keep it only when it measurably improves outcomes over a simpler workflow.
 
-**In practice:** you pull in Context7 docs for the languages and libraries you actually use, and you've got a framework like Superpowers or GSD running alongside your own custom Skills.
+**In practice:** you selectively load a reviewed Skill or current documentation for the task, and you've removed or avoided framework layers that did not improve quality, speed, or repeatability.
 
 ### 19. Sub-agents for parallel or scoped subtasks
 
-Complex tasks are often made of independent sub-problems: exploring one area while drafting another, running a search in parallel with an edit. Most modern coding AI tools can spawn sub-agents (for example, Claude Code's Task/Agent tool, Cursor background agents, or parallel CLI sessions) to keep the main context clean and complete work faster. For custom sub-agent workflows beyond what's built in, Agent SDKs like Claude Agent SDK, OpenAI Agents SDK, and LangGraph provide orchestration primitives.
+Complex tasks sometimes contain independent sub-problems that benefit from separate context windows or parallel work. Start with one agent; add sub-agents when tasks can be cleanly partitioned, when independent perspectives improve confidence, or when the required context exceeds one agent's budget. Avoid multi-agent orchestration for tightly coupled coding work where coordination, duplicate edits, and merge conflicts cost more than the parallelism saves. For custom workflows beyond built-in sub-agents, Agent SDKs like Claude Agent SDK, OpenAI Agents SDK, and LangGraph provide orchestration primitives.
 
-**In practice:** you've spawned sub-agents for exploration or research, kept your main context clean by offloading to them, and you can explain when that beat running everything in one agent.
+**In practice:** you've compared a single-agent run with a partitioned workflow, given each sub-agent a clear objective and output contract, and can show when the extra coordination paid off.
 
 ## Testing and quality
 
 ### 20. Generating or improving unit tests
 
-AI helps improve unit test coverage, reducing the time spent on unit testing and avoiding situations where unit tests get skipped. Diffblue Cover generates tests iteratively based on runtime feedback.
+AI helps improve unit test coverage, reducing the time spent on unit testing and avoiding situations where unit tests get skipped. Generated tests should be derived from requirements and externally visible behavior, then reviewed independently; tests that merely mirror the generated implementation can preserve the same mistake. Diffblue Cover generates tests iteratively based on runtime feedback.
 
 **In practice:** you've shipped a PR where AI wrote or improved the unit tests.
 
 ### 21. Integration tests, E2E tests, fixtures, and realistic test data
 
-Integration tests offer the highest leverage in controlling the quality of code changes and catching regressions. A full integration test suite with E2E tests, fixtures, and seed data covers all the major behaviours of the feature being developed. AI coding agents can also evaluate the quality of the tests and improve the coverage. Playwright is the common base for E2E, and Pact is the standard for consumer-driven contract testing between services.
+Integration, contract, and E2E tests catch classes of regression that unit tests cannot; choose the test level according to the risk and architecture rather than treating one layer as universally best. AI can generate fixtures and seed data, but use synthetic or sanitized data instead of copying production secrets or personal information. Playwright is a common base for E2E, and Pact supports consumer-driven contract testing between services.
 
 **In practice:** you've generated fixtures, test datasets, or seed data with AI, written integration tests that use them, and had AI evaluate test quality or coverage.
 
 ### 22. Browser/device automation for testing and UI interaction
 
-Browser/device automation unlocks a practical workflow for UI validation, screenshot capture, regression checks, and turning test cases in English into automation scripts that run on the developer's machine and on CI/CD. AI-native libraries like Browserbase Stagehand and Browser Use work alongside Playwright, and Anthropic Computer Use enables direct screen, keyboard, and mouse control for agent-driven UI automation.
+Browser/device automation unlocks a practical workflow for UI validation, screenshot capture, regression checks, and turning written scenarios into automation that runs locally and in CI/CD. Prefer deterministic APIs, selectors, and test frameworks for repeatable checks. Use vision-based computer control when the interface is not otherwise accessible or the task is exploratory, and run it in an isolated environment with approval gates for consequential actions. AI-native libraries like Browserbase Stagehand and Browser Use work alongside Playwright, while computer-use models can drive screen, keyboard, and mouse interactions.
 
 **In practice:** you've got browser or device automation running — a Playwright script, simulator control, screenshot validation, or UI automation generated from a written scenario.
 
@@ -169,47 +171,53 @@ Generic code review and passing tests do not reliably catch authorization gaps, 
 
 **In practice:** you've run a dedicated security review or threat-model pass on a meaningful feature or diff, validated the findings, and added a fix, test, or explicit risk decision.
 
+### 25. Agent traces, evaluations, and regression suites
+
+Product tests validate the code an agent produced; agent evaluations validate the workflow that produced it. Capture end-to-end traces of prompts, tool calls, handoffs, approvals, and outcomes. Build a small representative dataset from real tasks and failures, score both final state and important process constraints, and rerun it when models, prompts, instructions, tools, or permissions change. Because agent behavior is non-deterministic, compare multiple runs where reliability matters instead of trusting one successful demonstration or a public benchmark alone.
+
+**In practice:** you've traced a real agent run, turned at least one failure into a repeatable eval case, and used the result to catch a regression or justify a workflow change.
+
 ## Tool integrations and MCP
 
-### 25. Connected MCP servers
+### 26. Trusted, least-privilege MCP servers
 
-Connected tools make agents much more useful than plain chat, and MCP servers give access to data and external systems. Popular examples to start with: browser-control MCP for web automation, Figma MCP for designs, PostgreSQL MCP for database access, GitHub MCP for repo and PR operations. When MCP is not available for a given system, Skills, vendor SDKs, or CLI scripts can play a similar role.
+Connected tools make agents much more useful than plain chat, and MCP servers give access to data and external systems. Treat every server as part of the trusted computing base: local servers execute code with client privileges, while remote servers can expose data and actions. Prefer official or reviewed servers, inspect installation commands, pin versions, minimize scopes and enabled tools, and keep write or destructive actions approval-gated. A popular directory is useful for discovery, not a security endorsement. When MCP is not available, a reviewed Skill, vendor SDK, or CLI may be simpler and safer.
 
-**In practice:** you've got at least one MCP server in active use, recently finished a task through a connected tool, and you know what tooling — MCPs, Skills, SDKs, or CLI scripts — covers the systems you work with.
+**In practice:** you've got at least one reviewed MCP server in active use, can explain its credentials and permissions, and have disabled tools or scopes the workflow does not need.
 
-### 26. Inspecting logs, API responses, and data snapshots safely
+### 27. Inspecting logs, API responses, and data snapshots safely
 
-AI can help with debugging and investigation work based on the actual data pulled from logs or snapshots, instead of guesswork. Platforms like Sentry (with its AI root-cause analysis and MCP server) and Rootly expose telemetry to agents so they can investigate based on real signals.
+AI can help with debugging and investigation work based on actual logs or snapshots instead of guesswork. Use read-only access by default, minimize the time range and fields retrieved, and redact secrets and personal data before they enter model context or traces. Platforms like Sentry and Rootly expose telemetry to agents so they can investigate based on real signals.
 
-**In practice:** you've debugged from real data — logs, API output, traces, QA or CI/CD snapshots — instead of guessing.
+**In practice:** you've debugged from scoped, sanitized logs, API output, traces, or QA/CI snapshots instead of guessing, without exposing credentials or unnecessary customer data.
 
-### 27. Exploring databases, modeling data, querying, and generating migrations
+### 28. Exploring databases, modeling data, querying, and generating migrations
 
-AI helps with data across the full range of day-to-day tasks: writing queries, exploring schemas, preparing test data, modeling new entities, and drafting migrations. This is useful for feature development, incident investigation, and analytics alike. AI combined with database access (via MCP, Skills, or CLI scripts) turns manual data work into a faster, semi-automated workflow. Tools like Outerbase (AI SQL workspace) and dbt Copilot bring AI into analytics-engineering contexts.
+AI helps with writing queries, exploring schemas, preparing test data, modeling entities, and drafting migrations. Give exploratory agents read-only or disposable database access by default. Review generated migrations, execution plans, locks, backups, and rollback paths before applying them; production writes and destructive queries should remain explicitly approved. Tools like Outerbase and dbt Copilot bring AI into analytics-engineering contexts.
 
-**In practice:** you've used AI to write or explain a SQL query, explore a schema, design a data model, or draft a migration.
+**In practice:** you've used AI with read-only or disposable data access to explore a schema or draft a query or migration, then reviewed and tested any state-changing operation separately.
 
 ## Multi-agent workflows
 
-### 28. Sandboxed, least-privilege environments for agent execution
+### 29. Sandboxed, least-privilege environments for agent execution
 
-Coding agents execute repository code, package scripts, MCP tools, and network requests, so prompt injection or a compromised dependency can affect more than the generated diff. Run autonomous work inside a dev container, VM, cloud sandbox, or restricted workspace with scoped credentials, limited write paths, and network allowlists. [Claude Code](https://code.claude.com/docs/en/security), [Codex](https://developers.openai.com/codex/security), and [GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent) all provide isolation and permission controls that should be configured deliberately.
+Coding agents execute repository code, package scripts, MCP tools, and network requests, so prompt injection or a compromised dependency can affect more than the generated diff. Run autonomous work inside a dev container, VM, cloud sandbox, or restricted workspace with scoped credentials, limited write paths, and network allowlists. [Claude Code](https://code.claude.com/docs/en/security), [Codex](https://developers.openai.com/codex/agent-approvals-security), and [GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent) all provide isolation and permission controls that should be configured deliberately.
 
 **In practice:** your agent runs inside a defined boundary without broad host or production credentials, network and write access are scoped, and destructive operations remain approval-gated.
 
-### 29. Expanded permissions for autonomous agent work
+### 30. Graduated autonomy inside bounded environments
 
-Default permission settings are conservative, and agents ask for confirmation on most actions. Once agentic loops, version control, sandboxing, and least-privilege boundaries are in place, broader permissions inside that boundary can let the agent work longer without interruption. This unlocks long refactors, overnight runs, and multi-step automation. Methodologies like Agent OS formalize this with opinionated specs, standards, and conventions for long-running agents.
+Repeated approval prompts can make bounded agent work inefficient. Grant autonomy progressively inside a sandbox: allow known low-risk commands and paths, keep network destinations and credentials scoped, set time or action budgets and checkpoints, and require approval for privilege elevation, production access, publishing, deletion, or other irreversible actions. Do not use unrestricted host access as a shortcut for agent productivity. Methodologies like Agent OS provide conventions for longer-running work, but the controls must fit the actual risk.
 
-**In practice:** you've tuned permission settings inside a sandbox — approved commands, auto-accept scopes, trust rules — and had a recent task benefit without granting unrestricted host access.
+**In practice:** you've tuned permissions inside a sandbox, measured fewer unnecessary interruptions, and preserved approval gates and auditability for high-impact actions.
 
-### 30. Git worktrees for parallel features on one machine
+### 31. Git worktrees for parallel features on one machine
 
-Git worktrees let one repo host multiple isolated checkouts at once, so different agents or sessions can work on different features, in multiple branches simultaneously, without conflicting changes. This multiplies throughput: one agent can refactor in one worktree while another implements a feature in a second, and tests run in a third. Agent OS and similar methodologies include conventions for driving multiple parallel worktrees.
+Git worktrees let one repo host multiple isolated checkouts at once, so different agents or sessions can work on separate branches without overwriting each other's files. They do not isolate shared databases, ports, credentials, caches, or generated artifacts, so those resources need separate boundaries too. Parallel changes still require review and integration rather than blind merging.
 
 **In practice:** you've got Git worktrees set up and a recent case where they paid off, like a long refactor running while you kept shipping feature work.
 
-### 31. Parallel localhost service instances for integration and E2E tests
+### 32. Parallel localhost service instances for integration and E2E tests
 
 Integration and E2E tests are slow because services typically bind to fixed ports, forcing tests to run serially. Tools like Portless (or similar dynamic-port/domains on localhost) let multiple instances of the same stack run in parallel on one machine. This speeds up test suites and makes parallel agent work practical when each agent needs its own running services. .NET teams can also use Microsoft Aspire's isolated mode for the same pattern.
 
@@ -217,39 +225,39 @@ Integration and E2E tests are slow because services typically bind to fixed port
 
 ## Productivity and operations
 
-### 32. Voice input for AI coding tools
+### 33. Voice input for AI coding tools
 
 Voice input removes the typing bottleneck for explaining context, describing bugs, walking through intent, and dictating specs, often where momentum gets lost. Several coding tools now support voice natively (for example, Claude Code's /voice command), and third-party dictation tools like Wispr Flow and Superwhisper layer on top of any coding tool. Pairing voice with agent mode lets you think out loud and have the agent act on it, which is especially effective for exploratory work, debugging narration, and long-form planning.
 
 **In practice:** you've tried voice input with an AI coding tool and can name a moment where it beat typing — debugging narration, dictating a spec, or walking through a design.
 
-### 33. Token usage optimized with compression and filtering tools
+### 34. Context engineering and token efficiency
 
-Deep AI usage naturally grows token expense. Dedicated tools can reduce it dramatically: Headroom compresses tool outputs, logs, files, RAG chunks, and conversation history before they reach the model, while keeping originals retrievable. Caveman compresses agent responses by stripping filler and hedging, and RTK filters verbose output from Git, tests, builds, and container commands before the agent reads it.
+Context is a finite attention budget, not a target to fill. Prefer concise scoped instructions, a minimal toolset, just-in-time retrieval, filtered command output, phase summaries, external artifacts, prompt caching, and model routing. Compression tools such as Headroom, Caveman, and RTK can help, but lossy compression may remove evidence the agent needs; keep originals retrievable and evaluate task quality as well as token savings.
 
-**In practice:** you've got Headroom, Caveman, RTK, or an equivalent token tool running, you apply prompt caching, tight context, or model-per-task selection, and you can point to a measurable reduction.
+**In practice:** you've measured cost, latency, and task success before and after a context change, and can show that the savings did not reduce correctness or hide important evidence.
 
-### 34. Managing dependency upgrades and security patches
+### 35. Managing dependency upgrades and security patches
 
 Dependency upgrades and security patches are repetitive, tedious work that tends to get deferred, which is exactly how CVEs pile up and breaking-change debt grows. AI is well-suited to this work because it can read changelogs, diff API changes, update call sites, run tests in a loop, and handle most of the mechanical work. Paired with automation tools like Dependabot, Renovate, or Snyk, upgrades become routine instead of risky.
 
 **In practice:** you've shipped a dependency upgrade PR where AI handled the breaking changes, applied a security patch with AI triaging the CVE, or used AI to read changelogs and flag breaks in advance. Your upgrade workflow pairs Dependabot, Renovate, or Snyk with AI.
 
-### 35. Incident response and on-call workflows
+### 36. Incident response and on-call workflows
 
-On-call work involves triage under time pressure, reading logs and traces quickly, spotting patterns, drafting communication, and writing up postmortems afterward. AI is effective across all of these: it can correlate signals from logs and traces, propose hypotheses, draft runbooks for recurring alerts, and turn raw incident notes into a clean postmortem. Platforms like Rootly, incident.io, and PagerDuty integrate AI into these workflows directly.
+On-call work involves triage under time pressure, reading logs and traces quickly, spotting patterns, drafting communication, and writing up postmortems afterward. AI can correlate signals, propose hypotheses, draft runbooks, and turn raw notes into a postmortem. Keep access read-only during investigation where possible, preserve an audit trail, and require an accountable human to approve production changes and external communication. Platforms like Rootly, incident.io, and PagerDuty integrate AI into these workflows directly.
 
 **In practice:** you've had AI help with triage, signal correlation, runbook drafting, turning raw notes into a postmortem, or cutting alert noise.
 
-### 36. Scheduled and event-driven agent automation
+### 37. Scheduled and event-driven agent automation
 
-Reusable Skills still depend on someone remembering to run them. Scheduled or event-driven agents can triage incoming issues, investigate failing CI, prepare release notes, check documentation drift, or open bounded maintenance PRs without a manual prompt each time. [GitHub Copilot automations](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-automations) and [Codex automations](https://developers.openai.com/codex/app/automations) support these workflows, but unattended tasks should stay sandboxed, narrowly scoped, and reviewable.
+Reusable Skills still depend on someone remembering to run them. Scheduled or event-driven agents can triage incoming issues, investigate failing CI, prepare release notes, check documentation drift, or open bounded maintenance PRs without a manual prompt each time. [GitHub Copilot automations](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-automations) and [Codex automations](https://developers.openai.com/codex/app/automations) support these workflows. Unattended runs should be sandboxed, narrowly scoped, observable, budget-limited, idempotent where possible, and configured to produce reviewable drafts rather than silently making consequential changes.
 
 **In practice:** at least one agent workflow runs on a schedule or repository event and produces a draft PR, issue update, or report that a human reviews before consequential changes land.
 
 ## Policy-compliant AI use
 
-### 37. AI tools compliant with policy and security guidelines
+### 38. AI tools compliant with policy and security guidelines
 
 Using only approved AI tools protects company data and keeps AI usage within policy.
 
@@ -257,7 +265,7 @@ IMPORTANT: Check your organization's AI use policy.
 
 **In practice:** you know which AI tools are approved for your work, you're not using anything outside that list, and your IDE/CLI is signed into the enterprise account.
 
-### 38. Token usage and limits understood
+### 39. Token usage and limits understood
 
 Large prompts and connected tools can waste quota and silently degrade results. At the same time, deeper AI usage naturally consumes more tokens, which is expected, and the goal is value per token, not maximizing tokens used.
 
@@ -284,7 +292,6 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 - [Context7](https://github.com/upstash/context7) - Up-to-date library documentation for AI agents, loadable selectively.
 - [GSD (Get Sh*t Done)](https://github.com/gsd-build/get-shit-done) - Meta-prompting, context-engineering, spec-driven Skills system for Claude Code.
 - [Skills.sh](https://skills.sh/) - The Open Agent Skills Ecosystem from Vercel.
-- [great_cto](https://github.com/avelikiy/great_cto) - Multi-agent SDLC plugin for Claude Code with 34 specialist reviewer agents, 25 archetypes, and 10 auto-attaching compliance packs (PCI, HIPAA, FDA SaMD, GDPR, and more).
 - [claude-mem](https://github.com/thedotmack/claude-mem) - Persistent, compressed context carried across coding-agent sessions.
 
 ### Agent SDKs and multi-agent frameworks
@@ -293,6 +300,7 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 - [Agent OS](https://github.com/buildermethods/agent-os) - Opinionated methodology for long-running autonomous agents.
 - [Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk-python) - Anthropic's SDK for building sub-agents and orchestrated workflows.
 - [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) - Lightweight multi-agent orchestration with handoffs and tracing.
+- [great_cto](https://github.com/avelikiy/great_cto) - Multi-agent automation framework with coding pipelines, compliance reviewers, and human gates for consequential actions.
 - [OpenClaw](https://github.com/openclaw/openclaw) - Open-source local-first AI assistant with multi-channel messaging, voice, and Canvas workspaces.
 
 ### Spec-driven development
@@ -313,8 +321,14 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 
 - [CodeRabbit](https://coderabbit.ai) - AI code review bot for GitHub/GitLab PRs.
 - [Greptile](https://greptile.com) - AI code reviewer with repo-wide context.
-- [Qodo Merge](https://github.com/Codium-ai/pr-agent) - Open-source agent for PR descriptions, reviews, and walkthroughs.
+- [PR-Agent](https://github.com/The-PR-Agent/pr-agent) - Community-maintained open-source agent for PR descriptions, reviews, and walkthroughs.
 - [Ellipsis](https://ellipsis.dev) - AI reviewer with auto-fix capability.
+
+### Agent observability and evaluation
+
+- [OpenAI Agent Evals](https://developers.openai.com/api/docs/guides/agent-evals) - Traces, graders, datasets, and evaluation runs for agent workflows.
+- [Langfuse](https://github.com/langfuse/langfuse) - Open-source tracing, prompt management, and evaluation platform for LLM applications.
+- [Arize Phoenix](https://github.com/Arize-ai/phoenix) - Open-source observability and evaluation for AI applications and agents.
 
 ### Codemods and refactoring
 
@@ -336,7 +350,8 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 
 ### MCP Servers
 
-- [MCP Servers](https://github.com/modelcontextprotocol/servers) - Reference implementations for the Model Context Protocol.
+- [MCP Registry](https://registry.modelcontextprotocol.io/) - Official registry for discovering published MCP servers.
+- [MCP Reference Servers](https://github.com/modelcontextprotocol/servers) - Educational reference implementations; evaluate and harden them before production use.
 - [Awesome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers) - Community-curated collection of MCP servers.
 - [GitHub MCP](https://github.com/github/github-mcp-server) - Official GitHub MCP server.
 - [Playwright MCP](https://github.com/microsoft/playwright-mcp) - Browser automation MCP from Microsoft.
@@ -349,6 +364,7 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 ### Observability and incident response
 
 - [Rootly](https://rootly.com) - Incident platform with AI agents for investigation and retrospectives.
+- [Kagent](https://github.com/kagent-dev/kagent) - CNCF Kubernetes-native framework for building and operating agents with tools for Kubernetes, Prometheus, Grafana, Istio, Helm, and other cloud-native systems.
 - [incident.io](https://incident.io) - On-call and incident platform with AI summaries and investigation copilots.
 - [PagerDuty AIOps](https://www.pagerduty.com) - AI-driven alert noise reduction and incident automation.
 - [Sentry](https://sentry.io) - AI-assisted root-cause analysis with an MCP server for agent queries.
