@@ -2,7 +2,7 @@
 
 <!--lint disable double-link-->
 
-This roadmap helps engineers progressively build up their agent harness, from agentic workflows to custom Skills, automated feedback loops, parallel sub-agents, and MCP integrations.
+This roadmap helps engineers progressively build up their coding agents harness, from ad-hock prompting to custom skills, automated feedback loops, sub-agents, MCPs, agent memory, skip and spec frameworks, and other advanced agentic coding workflows.
 
 ## Contents
 
