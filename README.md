@@ -4,7 +4,9 @@
 
 This roadmap helps engineers adopt progressively more advanced AI coding techniques, from agentic workflows to custom Skills, automated feedback loops, parallel sub-agents, and MCP integrations.
 
-Prefer the simplest workflow that works. Add autonomy, tools, context, and agents only when they improve measured outcomes; keep permissions scoped, validate results with deterministic checks and evals, and require human approval for irreversible or high-impact actions.
+Prefer the simplest workflow that works, and reach for more autonomy, tools, context, or agents only when they clearly pay off. Whatever the setup, check what the agent actually produced — it's confidently wrong often enough that running tests, reading the diff, and gating risky actions saves more time than it costs.
+
+Read top to bottom, these items are a gradual buildup of your harness — the loop, instructions, tools, memory, sandbox, and checks you assemble around the model. Each one you adopt adds a piece to that exoskeleton; the advanced section near the end is where you engineer the harness itself.
 
 ## Contents
 
@@ -15,6 +17,7 @@ Prefer the simplest workflow that works. Add autonomy, tools, context, and agent
 - [Tool integrations and MCP](#tool-integrations-and-mcp)
 - [Multi-agent workflows](#multi-agent-workflows)
 - [Productivity and operations](#productivity-and-operations)
+- [Harness and context engineering](#harness-and-context-engineering)
 - [Policy-compliant AI use](#policy-compliant-ai-use)
 - [Agentic Coding Toolbox](#agentic-coding-toolbox)
 
@@ -233,7 +236,7 @@ Voice input removes the typing bottleneck for explaining context, describing bug
 
 ### 34. Context engineering and token efficiency
 
-Context is a finite attention budget, not a target to fill. Prefer concise scoped instructions, a minimal toolset, just-in-time retrieval, filtered command output, phase summaries, external artifacts, prompt caching, and model routing. Compression tools such as Headroom, Caveman, and RTK can help, but lossy compression may remove evidence the agent needs; keep originals retrievable and evaluate task quality as well as token savings.
+Context is a finite attention budget, not a target to fill. Prefer concise scoped instructions, a minimal toolset, just-in-time retrieval, filtered command output, phase summaries, external artifacts, prompt caching, and model routing. Compression tools such as Headroom, Caveman, and RTK can help, but lossy compression may remove evidence the agent needs; keep originals retrievable and evaluate task quality as well as token savings. Output-side Skills like [Ponytail](https://github.com/DietrichGebert/ponytail) cut cost from the other direction, steering the agent to write only the code the task needs instead of over-engineered output.
 
 **In practice:** you've measured cost, latency, and task success before and after a context change, and can show that the savings did not reduce correctness or hide important evidence.
 
@@ -255,9 +258,50 @@ Reusable Skills still depend on someone remembering to run them. Scheduled or ev
 
 **In practice:** at least one agent workflow runs on a schedule or repository event and produces a draft PR, issue update, or report that a human reviews before consequential changes land.
 
+## Harness and context engineering
+
+The items above are the building blocks of a harness. The ones below are about engineering it: tuning the loop, verifying output you can't trust on the agent's word, and giving the agent better ways to see and remember a large codebase. Reach for these when a single agent in a plain loop stops being enough — long autonomous runs, big repos, or work that outlives one session.
+
+### 38. Loop engineering: designing the agent loop, not just prompting it
+
+Item 8 is the basic loop — edit, build, test, repeat. Loop engineering treats that loop as the thing you design: what the agent does each turn, what signal it reads, how it self-corrects, and, critically, when it stops. Set explicit stop conditions and turn or token budgets, decide what counts as progress, and shape the feedback the loop runs on so a long autonomous run converges instead of thrashing or declaring victory early. Agent SDKs and orchestration frameworks help, but the loop's stop conditions and feedback are yours to design regardless of framework.
+
+**In practice:** you've tuned an agent's loop — stop conditions, turn or token budget, what feedback it acts on each iteration — and a long unattended run finished cleanly because of it, not in spite of it.
+
+### 39. Independent verification: the agent does not grade its own work
+
+An agent reviewing its own output almost always approves it, so "the agent says it's done" is not a signal. Put the check where the agent cannot reach it: make the merge gate CI it cannot edit, or run review in a fresh context that never saw the code get written. This is cheap day to day — pipe the diff to a second agent (`git diff | <agent> -p "review this against the spec, list what's wrong"`), use a reviewer sub-agent, or let CodeRabbit or Greptile gate the PR. The point is separation: the reviewer is not the context that wrote the code.
+
+**In practice:** before agent work is accepted, a pass it can't influence has to sign off — CI it can't edit, a fresh-context review of the diff, or a reviewer sub-agent — and you've caught a confidently-wrong "done."
+
+### 40. Code intelligence for the agent, beyond grep
+
+Agents edit more accurately when they can resolve symbols, types, and references instead of pattern-matching text. Give the agent code intelligence — a Language Server (go-to-definition, find-references, type information), tree-sitter or AST tools, and semantic search over the repo — so edits are grounded in real structure rather than string matches. This cuts edits that compile-break, miss call sites, or hallucinate APIs, and it helps in any repo, not just large ones.
+
+**In practice:** your agent has more than text search available — an LSP, semantic code search, or AST tooling — and you can point to an edit it got right because it resolved references instead of grepping for them.
+
+### 41. Code graphs and structural memory for large codebases
+
+On giant repos, grep-and-read stops scaling: the agent burns tokens hunting for things and still misses cross-file relationships. When classical retrieval breaks down, pre-index the codebase into a code graph — functions, classes, imports, call chains — that the agent queries over MCP, answering "what calls this?" in a few hundred tokens instead of tens of thousands. Open source here is moving fast: [CodeGraph](https://github.com/colbymchenry/codegraph), [codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp), [CodeGraphContext](https://github.com/CodeGraphContext/CodeGraphContext), and [Potpie](https://github.com/potpie-ai/potpie) build local graphs over tree-sitter and LSP, while [Sourcegraph SCIP](https://github.com/sourcegraph/scip) and [stack-graphs](https://github.com/github/stack-graphs) are mature indexing formats. Use this when repo size, not model capability, is the bottleneck; a small repo does not need it.
+
+**In practice:** on a repo too large for grep-and-read to be cheap, your agent queries a precomputed code graph for structure, and you measured the drop in tokens or tool calls versus letting it search files.
+
+### 42. Continuity across context resets
+
+Even with million-token windows, long runs degrade: cost climbs, attention rots in the middle of very large contexts, and sessions still end through crashes, new chats, or handoffs between agents. For multi-session work, carry state in a durable artifact — a progress or plan file the agent updates and re-reads — and prefer a clean context with a structured handoff over silently summarizing history in place. This is a long-horizon tactic, not something every task needs; most single-session work fits comfortably in a modern context window.
+
+**In practice:** a task that spanned multiple sessions or context resets stayed on track because state lived in a file the agent re-read, not only in conversation history.
+
+#### Further reading
+
+- [Anthropic — Harness design for long-running agent applications](https://www.anthropic.com/engineering/harness-design-long-running-apps)
+- [Martin Fowler — Harness engineering for coding agents](https://martinfowler.com/articles/harness-engineering.html)
+- [LangChain — The Anatomy of an Agent Harness](https://www.langchain.com/blog/the-anatomy-of-an-agent-harness)
+- [Sebastian Raschka — Components of a Coding Agent](https://magazine.sebastianraschka.com/p/components-of-a-coding-agent)
+
 ## Policy-compliant AI use
 
-### 38. AI tools compliant with policy and security guidelines
+### 43. AI tools compliant with policy and security guidelines
 
 Using only approved AI tools protects company data and keeps AI usage within policy.
 
@@ -265,7 +309,7 @@ IMPORTANT: Check your organization's AI use policy.
 
 **In practice:** you know which AI tools are approved for your work, you're not using anything outside that list, and your IDE/CLI is signed into the enterprise account.
 
-### 39. Token usage and limits understood
+### 44. Token usage and limits understood
 
 Large prompts and connected tools can waste quota and silently degrade results. At the same time, deeper AI usage naturally consumes more tokens, which is expected, and the goal is value per token, not maximizing tokens used.
 
