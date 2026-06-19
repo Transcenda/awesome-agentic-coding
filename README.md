@@ -2,11 +2,7 @@
 
 <!--lint disable double-link-->
 
-This roadmap helps engineers adopt progressively more advanced AI coding techniques, from agentic workflows to custom Skills, automated feedback loops, parallel sub-agents, and MCP integrations.
-
-Prefer the simplest workflow that works, and reach for more autonomy, tools, context, or agents only when they clearly pay off. Whatever the setup, check what the agent actually produced — it's confidently wrong often enough that running tests, reading the diff, and gating risky actions saves more time than it costs.
-
-Read top to bottom, these items are a gradual buildup of your harness — the loop, instructions, tools, memory, sandbox, and checks you assemble around the model. Each one you adopt adds a piece to that exoskeleton; the advanced section near the end is where you engineer the harness itself.
+This roadmap helps engineers progressively build up their agent harness, from agentic workflows to custom Skills, automated feedback loops, parallel sub-agents, and MCP integrations.
 
 ## Contents
 
