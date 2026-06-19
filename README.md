@@ -9,7 +9,7 @@ This roadmap helps engineers progressively build up their coding agents harness,
 - [Agentic coding 101](#agentic-coding-101)
 - [Spec-first work](#spec-first-work)
 - [Agent instructions and Skills](#agent-instructions-and-skills)
-- [Testing and quality](#testing-and-quality)
+- [Testing and quality engineering](#testing-and-quality-engineering)
 - [Tool integrations and MCP](#tool-integrations-and-mcp)
 - [Multi-agent workflows](#multi-agent-workflows)
 - [Productivity and operations](#productivity-and-operations)
@@ -138,7 +138,7 @@ Complex tasks sometimes contain independent sub-problems that benefit from separ
 
 **In practice:** you've compared a single-agent run with a partitioned workflow, given each sub-agent a clear objective and output contract, and can show when the extra coordination paid off.
 
-## Testing and quality
+## Testing and quality engineering
 
 ### 20. Generating or improving unit tests
 
