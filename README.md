@@ -396,6 +396,7 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 - [GitHub MCP](https://github.com/github/github-mcp-server) - Official GitHub MCP server.
 - [Playwright MCP](https://github.com/microsoft/playwright-mcp) - Browser automation MCP from Microsoft.
 - [Figma MCP](https://www.figma.com/) - Figma's developer MCP for design tokens and canvas access.
+- [Vestige](https://github.com/samvallad33/vestige) - Local-first MCP memory server for coding agents with SQLite storage, FSRS-style retention, hybrid retrieval, provenance/correction tools, and dashboard inspection.
 
 ### Database and data tools
 
