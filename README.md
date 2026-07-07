@@ -2,7 +2,7 @@
 
 <!--lint disable double-link-->
 
-This roadmap helps engineers progressively build up their coding agents harness, from ad-hock prompting to custom skills, automated feedback loops, sub-agents, MCPs, agent memory, skip and spec frameworks, and other advanced agentic coding workflows.
+This roadmap helps engineers progressively build up their coding agent harness, from ad-hoc prompting to custom skills, automated feedback loops, sub-agents, MCPs, agent memory, skill and spec frameworks, and other advanced agentic coding workflows.
 
 ## Contents
 
@@ -52,7 +52,7 @@ Different tasks suit different interfaces. IDE-integrated tools are great for in
 
 ### 6. Refactoring and cleaning up existing code
 
-A large share of the work goes into improving code that already works: extracting, renaming, simplifying, removing duplication, cleaning up legacy code. AI is very effective for this kind of work, and it is often only applied to new features, which misses a big part of its value. For repo-wide structural changes, AI pairs well with codemod tools like Grit, jscodeshift, and Comby.
+A large share of the work goes into improving code that already works: extracting, renaming, simplifying, removing duplication, cleaning up legacy code. AI is very effective for this kind of work, and it is often only applied to new features, which misses a big part of its value. For repo-wide structural changes, AI pairs well with codemod tools like GritQL, jscodeshift, and Comby.
 
 **In practice:** you've done a real refactor with AI — extracting a function, simplifying a component, cleaning up legacy code, or tightening readability across files.
 
@@ -110,7 +110,7 @@ Source repository context improves agent onboarding, repeatability of work, and 
 
 ### 15. Turning repeated agent mistakes into durable repository knowledge
 
-Agents waste time when they repeat the same wrong command, miss the same convention, or receive the same review correction in later sessions. Close the feedback loop by promoting verified lessons into repo instructions, a Skill, or managed agent memory, and remove guidance when it becomes stale. Tools like [Headroom's `learn`](https://github.com/chopratejas/headroom) and [GitHub Copilot Memory](https://docs.github.com/en/copilot/concepts/agents/copilot-memory) can help capture this knowledge.
+Agents waste time when they repeat the same wrong command, miss the same convention, or receive the same review correction in later sessions. Close the feedback loop by promoting verified lessons into repo instructions, a Skill, or managed agent memory, and remove guidance when it becomes stale. Tools like [Headroom's `learn`](https://github.com/headroomlabs-ai/headroom) and [GitHub Copilot Memory](https://docs.github.com/en/copilot/concepts/agents/copilot-memory) can help capture this knowledge.
 
 **In practice:** after a failed task or review correction, you've recorded a reusable lesson in AGENTS.md, CLAUDE.md, a Skill, or managed memory, and a later task benefited from it.
 
@@ -146,7 +146,7 @@ AI helps improve unit test coverage, reducing the time spent on unit testing and
 
 **In practice:** you've shipped a PR where AI wrote or improved the unit tests.
 
-### 21. Integration tests, E2E tests, fixtures, and realistic test data
+### 21. Test automation harness: integration, E2E, fixtures, and realistic data
 
 Integration, contract, and E2E tests catch classes of regression that unit tests cannot; choose the test level according to the risk and architecture rather than treating one layer as universally best. AI can generate fixtures and seed data, but use synthetic or sanitized data instead of copying production secrets or personal information. Playwright is a common base for E2E, and Pact supports consumer-driven contract testing between services.
 
@@ -218,7 +218,7 @@ Git worktrees let one repo host multiple isolated checkouts at once, so differen
 
 ### 32. Parallel localhost service instances for integration and E2E tests
 
-Integration and E2E tests are slow because services typically bind to fixed ports, forcing tests to run serially. Tools like Portless (or similar dynamic-port/domains on localhost) let multiple instances of the same stack run in parallel on one machine. This speeds up test suites and makes parallel agent work practical when each agent needs its own running services. .NET teams can also use Microsoft Aspire's isolated mode for the same pattern.
+Integration and E2E tests are slow because services typically bind to fixed ports, forcing tests to run serially. Tools like Portless (or similar dynamic-port/domains on localhost) let multiple instances of the same stack run in parallel on one machine. This speeds up test suites and makes parallel agent work practical when each agent needs its own running services. Teams can also use Aspire's isolated mode for the same pattern.
 
 **In practice:** your local setup can run multiple service instances in parallel, and there's a test suite or workflow that actually uses it.
 
@@ -260,17 +260,17 @@ The items above are the building blocks of a harness. The ones below are about e
 
 ### 38. Loop engineering: designing the agent loop, not just prompting it
 
-Item 8 is the basic loop — edit, build, test, repeat. Loop engineering treats that loop as the thing you design: what the agent does each turn, what signal it reads, how it self-corrects, and, critically, when it stops. Set explicit stop conditions and turn or token budgets, decide what counts as progress, and shape the feedback the loop runs on so a long autonomous run converges instead of thrashing or declaring victory early. Agent SDKs and orchestration frameworks help, but the loop's stop conditions and feedback are yours to design regardless of framework.
+Item 8 is the basic loop — edit, build, test, repeat. Loop engineering treats that loop as the thing you design: what the agent does each turn, what signal it reads, how it self-corrects, and when it stops. Set explicit stop conditions and turn or token budgets, decide what counts as progress, and shape the feedback the loop runs on so a long autonomous run converges instead of thrashing or declaring victory early. Agent SDKs and orchestration frameworks help, but the loop's stop conditions and feedback are yours to design regardless of framework.
 
 **In practice:** you've tuned an agent's loop — stop conditions, turn or token budget, what feedback it acts on each iteration — and a long unattended run finished cleanly because of it, not in spite of it.
 
 ### 39. Independent verification: the agent does not grade its own work
 
-An agent reviewing its own output almost always approves it, so "the agent says it's done" is not a signal. Put the check where the agent cannot reach it: make the merge gate CI it cannot edit, or run review in a fresh context that never saw the code get written. This is cheap day to day — pipe the diff to a second agent (`git diff | <agent> -p "review this against the spec, list what's wrong"`), use a reviewer sub-agent, or let CodeRabbit or Greptile gate the PR. The point is separation: the reviewer is not the context that wrote the code.
+An agent reviewing its own output almost always approves it, so "the agent says it's done" is not a signal. Put the check where the agent cannot reach it: make the merge gate CI it cannot edit, or run review in a fresh context that never saw the code get written. This is cheap day to day — pipe the diff to a second agent (`git diff | <agent> -p "review this against the spec, list what's wrong"`), use a reviewer sub-agent, or let CodeRabbit or Greptile gate the PR. The reviewer must not be the same context that wrote the code.
 
 **In practice:** before agent work is accepted, a pass it can't influence has to sign off — CI it can't edit, a fresh-context review of the diff, or a reviewer sub-agent — and you've caught a confidently-wrong "done."
 
-### 40. Code intelligence for the agent, beyond grep
+### 40. Code intelligence for the agent
 
 Agents edit more accurately when they can resolve symbols, types, and references instead of pattern-matching text. Give the agent code intelligence — a Language Server (go-to-definition, find-references, type information), tree-sitter or AST tools, and semantic search over the repo — so edits are grounded in real structure rather than string matches. This cuts edits that compile-break, miss call sites, or hallucinate APIs, and it helps in any repo, not just large ones.
 
@@ -301,7 +301,7 @@ Even with million-token windows, long runs degrade: cost climbs, attention rots 
 
 Using only approved AI tools protects company data and keeps AI usage within policy.
 
-IMPORTANT: Check your organization's AI use policy.
+IMPORTANT: Know your organization's AI use policy.
 
 **In practice:** you know which AI tools are approved for your work, you're not using anything outside that list, and your IDE/CLI is signed into the enterprise account.
 
@@ -320,7 +320,7 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 - [Codex](https://github.com/openai/codex) - Agentic coding from OpenAI.
 - [GitHub Copilot](https://github.com/features/copilot) - GitHub's AI pair programmer.
 - [Gemini CLI](https://github.com/google-gemini/gemini-cli) - Google's Gemini CLI.
-- [Windsurf](https://windsurf.com) - AI editor.
+- [Windsurf](https://windsurf.com) - AI editor; acquired by Cognition (2025).
 - [Cline](https://cline.bot/) - Open source coding AI agent.
 - [OpenCode](https://github.com/anomalyco/opencode) - Open-source coding agent for the terminal, desktop, and IDE.
 
@@ -331,7 +331,7 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 - [Superpowers](https://github.com/obra/superpowers) - Composable Skills framework with sub-agent patterns.
 - [Context7](https://github.com/upstash/context7) - Up-to-date library documentation for AI agents, loadable selectively.
 - [GSD (Get Sh*t Done)](https://github.com/gsd-build/get-shit-done) - Meta-prompting, context-engineering, spec-driven Skills system for Claude Code.
-- [Skills.sh](https://skills.sh/) - The Open Agent Skills Ecosystem from Vercel.
+- [Skills.sh](https://skills.sh/) - The Open Agent Skills Ecosystem from Vercel Labs.
 - [claude-mem](https://github.com/thedotmack/claude-mem) - Persistent, compressed context carried across coding-agent sessions.
 
 ### Agent SDKs and multi-agent frameworks
@@ -347,7 +347,7 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 
 - [Spec Kit](https://github.com/github/spec-kit) - GitHub's toolkit for spec-driven development with AI agents.
 - [Kiro](https://kiro.dev) - AWS's spec-first IDE.
-- [Tessl](https://tessl.io) - Spec-centric development platform.
+- [Tessl](https://tessl.io) - Agent enablement platform (spec and skills lifecycle, plus a skills registry).
 - [BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) - Also fits spec-first: agile AI-driven development organized around spec/brief artifacts.
 
 ### Documentation and ADR tooling
@@ -362,7 +362,7 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 - [CodeRabbit](https://coderabbit.ai) - AI code review bot for GitHub/GitLab PRs.
 - [Greptile](https://greptile.com) - AI code reviewer with repo-wide context.
 - [PR-Agent](https://github.com/The-PR-Agent/pr-agent) - Community-maintained open-source agent for PR descriptions, reviews, and walkthroughs.
-- [Ellipsis](https://ellipsis.dev) - AI reviewer with auto-fix capability.
+- [Ellipsis](https://ellipsis.dev) - Platform to deploy, manage, and observe cloud coding agents; includes AI PR review with auto-fix.
 
 ### Agent observability and evaluation
 
@@ -372,7 +372,7 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 
 ### Codemods and refactoring
 
-- [Grit](https://getgrit.io) - Query language and CLI for AI-assisted codemods.
+- [GritQL](https://github.com/biomejs/gritql) - Query language for structural codemods, now maintained by Biome (formerly Grit, acquired by Honeycomb in 2025).
 - [jscodeshift](https://github.com/facebook/jscodeshift) - Meta's AST codemod toolkit for JavaScript and TypeScript.
 - [Comby](https://comby.dev) - Language-agnostic structural search-and-replace for multi-file refactoring.
 - [Awesome Codemods](https://github.com/rajasegar/awesome-codemods) - A large collection of codemods.
@@ -386,7 +386,7 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 - [Maestro](https://github.com/mobile-dev-inc/Maestro) - Declarative E2E automation for mobile and web applications.
 - [Browserbase Stagehand](https://github.com/browserbase/stagehand) - AI-native browser automation layered on Playwright.
 - [Browser Use](https://github.com/browser-use/browser-use) - Open-source library that lets LLMs drive real browsers.
-- [Anthropic Computer Use](https://docs.anthropic.com/en/docs/agents-and-tools/computer-use) - Claude's screen, keyboard, and mouse control for agent-driven UI automation.
+- [Anthropic Computer Use](https://platform.claude.com/docs/en/docs/agents-and-tools/computer-use) - Claude's screen, keyboard, and mouse control for agent-driven UI automation.
 
 ### MCP Servers
 
@@ -395,12 +395,14 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 - [Awesome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers) - Community-curated collection of MCP servers.
 - [GitHub MCP](https://github.com/github/github-mcp-server) - Official GitHub MCP server.
 - [Playwright MCP](https://github.com/microsoft/playwright-mcp) - Browser automation MCP from Microsoft.
-- [Figma MCP](https://www.figma.com/) - Figma's developer MCP for design tokens and canvas access.
+- [Figma Dev Mode MCP](https://developers.figma.com/docs/figma-mcp-server/) - Figma's developer MCP for design context and canvas access.
 - [Vestige](https://github.com/samvallad33/vestige) - Local-first MCP memory server for coding agents with SQLite storage, FSRS-style retention, hybrid retrieval, provenance/correction tools, and dashboard inspection.
 
 ### Database and data tools
 
-- [Chat2DB](https://github.com/OtterMind/Chat2DB) - AI-assisted SQL client supporting major relational and analytical databases.
+- [Chat2DB](https://github.com/CodePhiliaX/Chat2DB) - AI-assisted SQL client supporting major relational and analytical databases.
+- [Outerbase](https://github.com/outerbase/studio) - Open-source database interface with a table viewer and AI query runner; acquired by Cloudflare (2025) and folded into D1/Workers.
+- [dbt Copilot](https://www.getdbt.com/product/dbt-copilot) - dbt Labs' AI assistant that generates models, tests, docs, and semantic definitions from natural language.
 
 ### Observability and incident response
 
@@ -409,22 +411,22 @@ Large prompts and connected tools can waste quota and silently degrade results. 
 - [incident.io](https://incident.io) - On-call and incident platform with AI summaries and investigation copilots.
 - [PagerDuty AIOps](https://www.pagerduty.com) - AI-driven alert noise reduction and incident automation.
 - [Sentry](https://sentry.io) - AI-assisted root-cause analysis with an MCP server for agent queries.
-- [ccusage](https://github.com/ccusage/ccusage) - Local usage and cost analysis for Claude Code and other coding agents.
-- [agenttrace](https://github.com/luoyuctl/agenttrace) - Local-first TUI for inspecting AI coding agent session cost, tokens, time, and slow-run diagnostics.
 
 ### Local development
 
 - [Portless](https://github.com/vercel-labs/portless) - Stable named URLs for localhost services, worktree-aware (Vercel Labs).
-- [Microsoft .NET Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/) - Isolated multi-service local dev/test stacks for .NET.
+- [Aspire](https://aspire.dev/) - Isolated multi-service local dev/test stacks; now language-agnostic (formerly .NET Aspire).
 
 ### Voice input
 
 - [Wispr Flow](https://wisprflow.ai) - AI dictation app for macOS and Windows.
 - [Superwhisper](https://superwhisper.com) - macOS voice-to-text built on Whisper-family models.
 
-### Token optimization
+### Token consumption
 
-- [Headroom](https://github.com/chopratejas/headroom) - Local-first, reversible compression for agent context, tool outputs, logs, files, RAG chunks, and conversation history; available as a library, proxy, wrapper, or MCP server.
+- [ccusage](https://github.com/ccusage/ccusage) - Local usage and cost analysis for Claude Code and other coding agents.
+- [agenttrace](https://github.com/luoyuctl/agenttrace) - Local-first TUI for inspecting AI coding agent session cost, tokens, time, and slow-run diagnostics.
+- [Headroom](https://github.com/headroomlabs-ai/headroom) - Local-first, reversible compression for agent context, tool outputs, logs, files, RAG chunks, and conversation history; available as a library, proxy, wrapper, or MCP server.
 - [Caveman](https://github.com/JuliusBrussee/caveman) - Agent response compression (~70% output token reduction).
 - [RTK](https://github.com/rtk-ai/rtk) - CLI proxy for input token filtering on common dev commands.
 
