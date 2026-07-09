@@ -318,7 +318,7 @@ IMPORTANT: Know your organization's AI use policy.
 
 - [Chat2DB](https://github.com/CodePhiliaX/Chat2DB) - AI-assisted SQL client supporting major relational and analytical databases.
 - [Outerbase](https://github.com/outerbase/studio) - Open-source database interface with a table viewer and AI query runner; acquired by Cloudflare (2025) and folded into D1/Workers.
-- [dbt Copilot](https://www.getdbt.com/product/dbt-copilot) - dbt Labs' AI assistant that generates models, tests, docs, and semantic definitions from natural language.
+- [dbt Copilot](https://www.getdbt.com/product/dbt-copilot) - AI assistant from dbt Labs that generates models, tests, docs, and semantic definitions from natural language.
 
 ### Observability and incident response
 
