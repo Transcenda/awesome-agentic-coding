@@ -332,6 +332,7 @@ IMPORTANT: Know your organization's AI use policy.
 
 - [Portless](https://github.com/vercel-labs/portless) - Stable named URLs for localhost services, worktree-aware (Vercel Labs).
 - [Aspire](https://aspire.dev/) - Isolated multi-service local dev/test stacks; now language-agnostic (formerly .NET Aspire).
+- [codex-profiles](https://github.com/Ducksss/codex-profiles) - Launches Codex CLI or Desktop with isolated CODEX_HOME profiles for separate accounts and contexts without copying auth.json tokens.
 
 ### Voice input
 
