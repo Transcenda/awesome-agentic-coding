@@ -332,6 +332,7 @@ IMPORTANT: Know your organization's AI use policy.
 
 - [Portless](https://github.com/vercel-labs/portless) - Stable named URLs for localhost services, worktree-aware (Vercel Labs).
 - [Aspire](https://aspire.dev/) - Isolated multi-service local dev/test stacks; now language-agnostic (formerly .NET Aspire).
+- [Open Agent Relay](https://github.com/ShakespeareLabs/open-agent-relay) - Relays bounded local Claude Code, Codex, or automation capabilities to teammates and agents over a trusted LAN.
 
 ### Voice input
 
