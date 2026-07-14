@@ -249,6 +249,7 @@ IMPORTANT: Know your organization's AI use policy.
 - [GSD (Get Sh*t Done)](https://github.com/gsd-build/get-shit-done) - Meta-prompting, context-engineering, spec-driven Skills system for Claude Code.
 - [Skills.sh](https://skills.sh/) - The Open Agent Skills Ecosystem from Vercel Labs.
 - [claude-mem](https://github.com/thedotmack/claude-mem) - Persistent, compressed context carried across coding-agent sessions.
+- [Tree Ring Memory](https://github.com/TerminallyLazy/Tree-Ring-Memory) - Local-first Rust CLI/framework for coding-agent memory lifecycle: project-scoped recall, evidence-backed lessons, redaction/delete, and portable skill docs.
 
 ### Agent SDKs and multi-agent frameworks
 
