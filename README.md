@@ -239,6 +239,7 @@ IMPORTANT: Know your organization's AI use policy.
 - [Windsurf](https://windsurf.com) - AI editor; acquired by Cognition (2025).
 - [Cline](https://cline.bot/) - Open source coding AI agent.
 - [OpenCode](https://github.com/anomalyco/opencode) - Open-source coding agent for the terminal, desktop, and IDE.
+- [Tura](https://github.com/Tura-AI/tura) - Open-source local coding agent with CLI/TUI/GUI, task-scoped context, macro command execution, and verification.
 
 ### Agent instructions and Skills
 
