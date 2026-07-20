@@ -254,6 +254,7 @@ IMPORTANT: Know your organization's AI use policy.
 
 - [Hermes Agent](https://github.com/nousresearch/hermes-agent) - Self-improving agent framework with procedural memory and multi-platform deployment (Nous Research).
 - [Agent OS](https://github.com/buildermethods/agent-os) - Opinionated methodology for long-running autonomous agents.
+- [Better Agent](https://github.com/ofekron/better-agent) - Source-available local workspace for supervising parallel Claude, Codex, and Gemini coding-agent sessions.
 - [Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk-python) - Anthropic's SDK for building sub-agents and orchestrated workflows.
 - [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) - Lightweight multi-agent orchestration with handoffs and tracing.
 - [great_cto](https://github.com/avelikiy/great_cto) - Multi-agent automation framework with coding pipelines, compliance reviewers, and human gates for consequential actions.
