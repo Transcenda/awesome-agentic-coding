@@ -258,6 +258,7 @@ IMPORTANT: Know your organization's AI use policy.
 - [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) - Lightweight multi-agent orchestration with handoffs and tracing.
 - [great_cto](https://github.com/avelikiy/great_cto) - Multi-agent automation framework with coding pipelines, compliance reviewers, and human gates for consequential actions.
 - [OpenClaw](https://github.com/openclaw/openclaw) - Open-source local-first AI assistant with multi-channel messaging, voice, and Canvas workspaces.
+- [fractal](https://github.com/plasma-ai/fractal) - Hierarchical coding-agent runtime with recursive delegation, per-node Git worktrees, persistent SQLite state, and configurable iteration, depth, child, cost, and time limits.
 
 ### Spec-driven development
 
