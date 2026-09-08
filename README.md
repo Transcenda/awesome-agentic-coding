@@ -325,6 +325,7 @@ IMPORTANT: Know your organization's AI use policy.
 - [Rootly](https://rootly.com) - Incident platform with AI agents for investigation and retrospectives.
 - [Kagent](https://github.com/kagent-dev/kagent) - CNCF Kubernetes-native framework for building and operating agents with tools for Kubernetes, Prometheus, Grafana, Istio, Helm, and other cloud-native systems.
 - [incident.io](https://incident.io) - On-call and incident platform with AI summaries and investigation copilots.
+- [Spike](https://spike.sh) - Incident management and on-call platform with a remote MCP server for AI agents.
 - [PagerDuty AIOps](https://www.pagerduty.com) - AI-driven alert noise reduction and incident automation.
 - [Sentry](https://sentry.io) - AI-assisted root-cause analysis with an MCP server for agent queries.
 
