@@ -346,6 +346,8 @@ IMPORTANT: Know your organization's AI use policy.
 - [Headroom](https://github.com/headroomlabs-ai/headroom) - Local-first, reversible compression for agent context, tool outputs, logs, files, RAG chunks, and conversation history; available as a library, proxy, wrapper, or MCP server.
 - [Caveman](https://github.com/JuliusBrussee/caveman) - Agent response compression (~70% output token reduction).
 - [RTK](https://github.com/rtk-ai/rtk) - CLI proxy for input token filtering on common dev commands.
+- [NextReset](https://nextreset.ai/) - Independent Codex reset-history tracker with official incident sources and a browser-local personal timer.
+
 
 ### Dependency and security automation
 
