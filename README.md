@@ -295,6 +295,7 @@ IMPORTANT: Know your organization's AI use policy.
 
 ### Testing and AI-native browser automation
 
+- [Agent QA](https://github.com/vostride/agent-qa) - The self-improving QA agent for natural-language web and mobile regression tests.
 - [Playwright](https://playwright.dev) - Cross-browser E2E framework.
 - [Pact](https://pact.io) - Consumer-driven contract testing for service integration.
 - [Diffblue Cover](https://www.diffblue.com) - AI unit test generator for Java/JVM.
