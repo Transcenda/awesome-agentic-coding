@@ -215,13 +215,13 @@ Everyone builds with agents now — engineers, product, design, QA, ops — so t
 - [Ellipsis](https://ellipsis.dev) - Platform to deploy, manage, and observe cloud coding agents; includes AI PR review with auto-fix.
 
 ### Codemods and refactoring
-
 - [ast-grep](https://github.com/ast-grep/ast-grep) - Structural search, lint, and rewrite CLI on tree-sitter, with a rule catalog.
 - [GritQL](https://github.com/biomejs/gritql) - Query language for structural codemods, now maintained by Biome (formerly Grit, acquired by Honeycomb in 2025).
 - [jscodeshift](https://github.com/facebook/jscodeshift) - Meta's AST codemod toolkit for JavaScript and TypeScript.
 - [Comby](https://comby.dev) - Language-agnostic structural search-and-replace for multi-file refactoring.
 - [OpenRewrite](https://github.com/openrewrite/rewrite) - Automated mass refactoring with a large recipe catalog, strongest on the JVM.
 - [Codemod Registry](https://codemod.com/registry) - Ready-made codemods for framework and library migrations, run through the Codemod CLI.
+- [YYLO](https://github.com/yylo-dev/yylo) - Command-line orchestrator for coding agents: each task creates a dedicated branch/worktree behind typed task, validation, merge, and release-readiness boundaries, with a merge queue owning risk-based review of receipt-backed changes.
 
 ### Spec-driven development
 
