@@ -294,6 +294,7 @@ Everyone builds with agents now — engineers, product, design, QA, ops — so t
 
 ### Testing and browser/device automation
 
+- [Agent QA](https://github.com/vostride/agent-qa) - The self-improving QA agent for natural-language web and mobile regression tests.
 - [Playwright](https://playwright.dev) - Cross-browser E2E framework.
 - [Pact](https://pact.io) - Consumer-driven contract testing for service integration.
 - [Diffblue Cover](https://www.diffblue.com) - AI unit test generator for Java/JVM.
