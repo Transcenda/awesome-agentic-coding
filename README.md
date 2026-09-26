@@ -2,7 +2,7 @@
 
 <!--lint disable double-link-->
 
-This roadmap helps teams build up their coding agent harness step by step — from everyday work with agents to specs, Skills, hooks, MCP, fleets of parallel agents, and harness and context engineering for long-running agents.
+This roadmap helps teams build up their coding agent harness step by step, from everyday work with agents to specs, Skills, hooks, MCP, fleets of parallel agents, and harness and context engineering for long-running agents.
 
 ## Contents
 
@@ -20,45 +20,45 @@ This roadmap helps teams build up their coding agent harness step by step — fr
 
 ### 1. Codebase navigation and a committed repo map
 
-Agents read code faster than anyone and forget all of it when the session ends. Use them to navigate and explain unfamiliar code, and keep what they learned: a repo map with directories, entry points, and build and test commands; notes for the modules they touched; an architecture note for anything they worked out that nobody had written down. Verify it against the code first — agents state guesses with confidence — then commit it, so the next session starts from the map instead of from zero.
+Use the agent to navigate and explain unfamiliar code, then keep what it learned: a repo map with directories, entry points, and build and test commands. Check it against the code, since agents state guesses with confidence, and commit it so the next session starts from the map.
 
 **In practice:** an agent-written repo map or architecture note is committed and kept current, and a later session started from it instead of re-exploring.
 
 ### 2. Agentic loop with build, static analysis, and automated tests
 
-The best way to use an agent is to let it run its own feedback loop: change code, build, run static analysis, run tests, read the failures, fix, repeat. The loop is only as good as the checks in it, so make them worth running: one documented command that builds, lints, type-checks, and tests in minutes and gives the same answer every run — a slow or flaky check teaches the agent nothing. Give the loop an iteration limit and a stop condition, and always read the final diff: an agent under pressure to get green will weaken tests, accept wrong snapshots, hide warnings, or skip guardrails. Hooks (#10) and CI it can't edit (#3) catch what you miss.
+Let the agent run its own loop: change code, build, run static analysis and tests, read the failures, fix, repeat. Put build, lint, and tests behind one command that finishes in minutes and gives the same result every run. Set an iteration limit, and read the final diff, because an agent pushed to get green will weaken tests, accept wrong snapshots, or skip guardrails.
 
 **In practice:** build, lint, and tests run with one command in minutes; the agent loops on them with a set limit; the final diff shows no weakened tests, snapshots, or guardrails.
 
 ### 3. Independent AI code review before human review
 
-An agent reviewing its own code approves it, so "the agent says it's done" is not a signal. Before any human reads a diff, have a context that never saw it written review it against the spec: a reviewer sub-agent, a second agent over the diff (`git diff | <agent> -p "review this against the spec, list what's wrong"`), or a PR bot like CodeRabbit, Greptile, or PR-Agent. Keep the merge gate out of the agent's reach — CI with required checks, branch protection, a review it can't approve. Then the human reviews a diff that has already passed, and spends the time on what AI review can't judge: architecture, security, and product decisions.
+An agent approves its own code, so its "done" is not a signal. Before a human reads a diff, a context that did not write it reviews the diff against the spec: a reviewer sub-agent, a second agent, or a PR bot such as CodeRabbit or Greptile. Keep the merge gate out of the agent's reach with required CI checks and branch protection.
 
-**In practice:** every agent diff is reviewed against the spec by a context that didn't write it and passes CI the agent can't edit before a human sees it — and this has caught a confident but wrong "done".
+**In practice:** every agent diff is reviewed against the spec by a context that didn't write it and passes CI the agent can't edit before a human sees it, and this has caught a confident but wrong "done" at least once.
 
 ### 4. Refactoring and cleanup on every PR and on a schedule
 
-Agents write a lot of code and refactor almost none of it, so a codebase built with them degrades unless cleanup is deliberate. They are good at exactly this work — extracting functions, renaming, simplifying, removing duplication and dead code — yet most teams point them only at new features. Make cleanup routine: every PR includes the cleanup the change exposed, and a scheduled agent opens small cleanup PRs on its own (#19). For structural changes across the repo, pair the agent with codemod tools like ast-grep, GritQL, jscodeshift, and Comby, and let the tests verify the result instead of reading every file.
+Agents write a lot of code and refactor almost none of it, so cleanup has to be deliberate. Include the cleanup a change exposed in the same PR, and run a scheduled agent that opens small cleanup PRs (#19). For structural changes across the repo, use codemod tools like ast-grep, GritQL, jscodeshift, and Comby, and let the tests verify the result.
 
-**In practice:** you've shipped agent-driven cleanup — a real refactor, dead code removed, duplication merged — and cleanup runs with every PR and on a schedule.
+**In practice:** you've shipped agent-driven cleanup such as a real refactor, dead code removal, or merged duplication, and cleanup runs with every PR and on a schedule.
 
 ## Spec-first work
 
 ### 5. Approved plan with acceptance criteria before coding starts
 
-For anything non-trivial, the agent reads the repo, checks the constraints, and proposes a plan with acceptance criteria — and no agent edits code until you approve it, especially when several will work on it in parallel (#17). A plan is a living document: when the code, tool output, or tests show something new, change the plan instead of forcing the work through an out-of-date one. For anyone who builds without reading the code, the approved plan is the contract — what changes, and how you'll know it worked.
+For anything non-trivial, the agent proposes a plan with acceptance criteria and edits nothing until you approve it. Change the plan when the code, tool output, or tests show something new. For anyone who builds without reading the code, the approved plan is the contract.
 
 **In practice:** you approved a plan with acceptance criteria before the agent edited code, updated it after feedback from the repo or tests, and kept the final scope easy to review.
 
 ### 6. Specs with explicit design decisions and acceptance criteria
 
-The spec is the main artifact a human still writes — engineer or product manager — and it decides what the agents build. A good one turns "build X" into a clear plan: the happy path, the error and edge cases agents skip when nobody names them, acceptance criteria, and the design decisions stated outright — data model, API boundaries, the options considered and why one won. Use the agent to work through the trade-offs, and write them down where the next agent will read them. Keep specs as small as the task allows and update them when the implementation proves the design wrong. Spec Kit, Kiro, Tessl, and BMAD-METHOD give this a repeatable Specify → Plan → Tasks → Implement flow.
+The spec is the main artifact a human still writes and decides what the agents build. Cover the happy path, error and edge cases, acceptance criteria, and the design decisions: data model, API boundaries, options considered and why one won. Update the spec when the implementation proves the design wrong. Spec Kit, Kiro, Tessl, and BMAD-METHOD give this a repeatable flow.
 
-**In practice:** you've written a spec in markdown — happy path, error cases, acceptance criteria, and the design decisions with their trade-offs — and given it to agents as input.
+**In practice:** you've written a spec in markdown with the happy path, error cases, acceptance criteria, and design decisions with their trade-offs, and given it to agents as input.
 
 ### 7. Documentation and ADRs
 
-Documentation is no longer only for people: READMEs, module docs, API references, onboarding guides, architecture docs, and ADRs are what the next agent reads before it touches the code, and [AI-accessible internal documentation](https://dora.dev/ai/roi/report/) is one of the foundations that decide whether AI pays off at all. Agents are also the cheapest way to keep docs current — the work that always went stale because nobody had time. Make it part of the change: the agent updates the docs in the same PR, writes an ADR for every non-trivial decision, and a scheduled run flags docs that drifted from the code (#19). Mintlify brings AI writing into docs workflows; MADR with log4brains or adr-tools keeps ADRs easy to write.
+Docs are what the next agent reads before it touches the code, and [AI-accessible internal documentation](https://dora.dev/ai/roi/report/) is one of the foundations that decide whether AI pays off. Have the agent update READMEs, API references, and onboarding guides in the same PR as the change, write an ADR for every non-trivial decision, and flag stale docs on a schedule (#19).
 
 **In practice:** you've written or updated a README, API reference, onboarding note, or ADR with an agent in the same PR as the change, and kept it current.
 
@@ -66,57 +66,57 @@ Documentation is no longer only for people: READMEs, module docs, API references
 
 ### 8. Agent instructions committed in the repo
 
-Instructions checked into the repo help the agent start faster, work consistently, and keep quality up across the codebase. Keep them short, scoped to the directory or workflow they apply to, and up to date — large sets of stale or conflicting rules fill up the context and make the agent less reliable. Treat them as team-owned code: someone owns them, changes get reviewed, and rules that no longer hold get deleted.
+Instructions checked into the repo make agents start faster. Keep them short, scoped to the directory or workflow they apply to, and current; stale or conflicting rules make the agent less reliable. Someone owns them and deletes rules that no longer hold.
 
 **In practice:** your repo has an AGENTS.md, CLAUDE.md, Copilot instructions, or similar guidance that agents actually read, and someone owns keeping it short and current.
 
 ### 9. Turning repeated agent mistakes into durable knowledge and memory
 
-Agents waste time when they repeat the same wrong command, miss the same convention, or need the same review correction again in a later session. Most tools now capture memory on their own, so the discipline is curating it: when you find a lesson that holds, put it where the whole team's agents re-read it — the repo instructions, a Skill, or shared agent memory — and delete it when it no longer applies. Tools like [Headroom's `learn`](https://github.com/headroomlabs-ai/headroom) and [GitHub Copilot Memory](https://docs.github.com/en/copilot/concepts/agents/copilot-memory) help capture this.
+Agents repeat the same wrong command or miss the same convention in the next session. When a lesson holds, put it where every agent re-reads it: the repo instructions, a Skill, or shared agent memory. Delete it when it stops applying. [Headroom's `learn`](https://github.com/headroomlabs-ai/headroom) and [GitHub Copilot Memory](https://docs.github.com/en/copilot/concepts/agents/copilot-memory) help capture this.
 
 **In practice:** after a failed task or a review correction, you've saved a reusable lesson in AGENTS.md, CLAUDE.md, a Skill, or agent memory, and a later task used it.
 
 ### 10. Deterministic hooks around agent actions
 
-The agent may or may not follow an instruction, so important guardrails and routine checks should not depend on it remembering them. Hooks can check or block tool calls, run formatters and tests after edits, log what happened, and stop a task from finishing before the required checks pass. [Claude Code hooks](https://code.claude.com/docs/en/hooks) and [Codex hooks](https://developers.openai.com/codex/hooks) give pre-tool, post-tool, and session control points.
+An agent may ignore an instruction, so guardrails should not depend on it. Hooks block tool calls, run formatters and tests after edits, and stop a task before the required checks pass. [Claude Code hooks](https://code.claude.com/docs/en/hooks) and [Codex hooks](https://developers.openai.com/codex/hooks) provide them.
 
 **In practice:** your repo has at least one hook, checked into version control, that blocks a forbidden action or runs a formatter, linter, test, or audit after the agent makes changes.
 
 ### 11. Skills for repeated workflows, own and third-party
 
-Skills turn a workflow you repeat into something every agent on the team runs the same way each time. A Skill is a directory with a SKILL.md file that loads in stages — the agent reads a one-line description first, and the full instructions only when they are needed. It is now an open format that works across many agents, not one vendor's feature. Write your own for tasks you do often (build steps, scaffolding, dependency updates, PR prep, test generation, bug triage). You can also load reviewed third-party Skills and docs, such as Context7, Superpowers, or BMAD-METHOD — but don't install a large framework by default: check and pin third-party content, load only what the task needs, and keep it only if it clearly beats a simpler setup.
+A Skill turns a repeated workflow into something every agent on the team runs the same way: a SKILL.md the agent loads only when the task needs it, in an open format that works across agents. Write your own for build steps, scaffolding, and PR prep. Load reviewed third-party Skills such as Context7 or Superpowers, pin them, and skip large frameworks unless they clearly beat a simpler setup.
 
 **In practice:** you can point to a SKILL.md in your repo that you wrote and use, name at least one external Skill or docs source you load on purpose, and name one you looked at and chose not to install.
 
 ### 12. MCP servers
 
-MCP lets an agent connect to data and external systems, and it is now an open standard (governed under the Linux Foundation). It is not the default choice, though: for many tasks a CLI, a script, or a reviewed Skill is simpler and uses fewer tokens than running a server, so use MCP when you need a structured tool contract, an auth boundary, or shared multi-tenant access. Treat every server as code you trust and run: a local server runs with your access, and a remote server can read data and take actions. Use official or reviewed servers, check the install command, pin the version, turn off tools and scopes you don't need, and keep write or destructive actions behind an approval. A popular directory helps you find servers; it does not vouch for them.
+MCP connects an agent to data and external systems through an open standard. A CLI, a script, or a Skill is often simpler and cheaper in tokens, so use MCP when you need a structured tool contract, an auth boundary, or shared access. Treat every server as code you run with your access: use official or reviewed servers, pin the version, turn off tools and scopes you don't need, and keep destructive actions behind an approval.
 
-**In practice:** you've got at least one reviewed MCP server in use, you can explain its credentials and permissions, you've turned off tools or scopes you don't need — and at least once you chose a CLI or Skill instead of MCP because it was simpler.
+**In practice:** you've got at least one reviewed MCP server in use, you can explain its credentials and permissions, you've turned off tools or scopes you don't need, and at least once you chose a CLI or Skill instead of MCP because it was simpler.
 
 ### 13. Troubleshooting with scoped, read-only data access
 
-An agent that can see the real logs, traces, API responses, CI/QA snapshots, and database schemas troubleshoots; one that can't, guesses. Give it that access scoped and read-only (or throwaway) by default — a narrow time range, only the fields it needs, secrets and personal data stripped before they reach the model or the trace. Databases get extra care: review the generated migration, query plan, locks, backups, and rollback path before anything runs, and keep production writes and destructive queries behind an explicit approval. Sentry, Grafana, and Rootly expose telemetry to agents; DBHub, Postgres MCP Pro, and MCP Toolbox for Databases give scoped database access.
+An agent that can see the real logs, traces, CI snapshots, and database schemas troubleshoots; one that can't guesses. Give it scoped, read-only or throwaway access by default, with secrets and personal data stripped before they reach the model, and keep production writes and migrations behind an explicit approval. Sentry and Grafana expose telemetry to agents; DBHub gives scoped database access.
 
-**In practice:** you've troubleshot from real logs, traces, or snapshots with scoped read-only access, or explored a schema and drafted a query or migration — and reviewed and tested any change that writes data separately.
+**In practice:** you've troubleshot from real logs, traces, or snapshots with scoped read-only access, or explored a schema and drafted a query or migration, and reviewed and tested any change that writes data separately.
 
 ## Testing and quality engineering
 
 ### 14. Generating and hardening tests from requirements
 
-More agent-written code means more defects, unless the tests grow with it. Have agents write the unit, integration, contract, and E2E tests, and the fixtures and seed data those tests need. Three rules keep the tests honest. Write them from the requirements and the behavior users see, never from the code the agent just wrote — a test that mirrors the implementation hides the same bug. Harden them: mutation testing with Stryker or similar on the modules that matter proves a test can actually fail. And use fake or masked data, never production secrets or personal data. Playwright is a common base for E2E, Pact covers consumer-driven contract testing, Diffblue Cover writes unit tests from runtime behavior, and Trunk finds and quarantines flaky tests.
+More agent-written code means more defects unless the tests grow with it. Have agents write unit, integration, contract, and E2E tests. Write them from the requirements and observed behavior, never from the code the agent just wrote, because a test that mirrors the implementation hides the same bug. Harden them with mutation testing, and use fake or masked data only.
 
-**In practice:** an agent wrote or improved more than one kind of test in a shipped PR, generated the fixtures, and you've shown the tests can fail — a mutation run or a deliberate bug they caught.
+**In practice:** an agent wrote or improved more than one kind of test in a shipped PR, generated the fixtures, and you've shown the tests can fail, with a mutation run or a deliberate bug they caught.
 
 ### 15. Browser and device automation for verifying UI changes
 
-An agent that changes a screen should look at the screen. Give it Playwright MCP, Chrome DevTools MCP, or a simulator, and it loads the page, clicks through the flow, takes screenshots, and reads the console and network errors before it says done. Anything worth checking twice becomes a Playwright or Maestro script in CI, with stable selectors. Keep vision-based computer control for the cases nothing else reaches, in an isolated environment with approvals for actions that matter. Browserbase Stagehand and Browser Use work alongside Playwright; computer-use models drive the screen, keyboard, and mouse.
+An agent that changes a screen should look at the screen. Give it Playwright MCP, Chrome DevTools MCP, or a simulator so it clicks through the flow and reads console and network errors before it says done. Turn checks worth repeating into Playwright or Maestro scripts in CI. Use vision-based computer control only where nothing else reaches.
 
 **In practice:** the agent verifies its own UI changes in a real browser or simulator before it says done, and the repeatable checks run as Playwright or Maestro scripts in CI.
 
 ### 16. Evals and regression tests for the agent workflow
 
-Product tests check the code an agent wrote; agent evals check the workflow that wrote it. Record end-to-end traces of prompts, tool calls, handoffs, approvals, and results. Build a small dataset from real tasks and past failures, score both the final result and the steps that matter, and re-run it as a regression suite whenever the model, prompts, instructions, tools, or permissions change. Agent behavior varies between runs, so when reliability matters, compare several runs instead of trusting one good demo or a public benchmark.
+Product tests check the code an agent wrote; evals check the workflow that wrote it. Build a small dataset from real tasks and past failures, and re-run it whenever the model, prompts, or tools change. Agent behavior varies between runs, so compare several runs instead of trusting one demo.
 
 **In practice:** you've recorded a real agent run, turned at least one failure into a repeatable eval case, and used it to catch a regression or justify a change to the workflow.
 
@@ -124,74 +124,74 @@ Product tests check the code an agent wrote; agent evals check the workflow that
 
 ### 17. Parallel sub-agents with worktree isolation and deliberate merges
 
-Parallel sub-agents pay off when the work splits cleanly: independent parts that each fit in one context window, a second opinion on a risky change, a repo too big for one agent. Give each agent one goal and a defined output, and take back a summary, not a transcript. Isolate with worktrees — each agent gets its own checkout and branch — and remember what worktrees don't isolate: databases, ports, credentials, caches, and build output need their own boundaries, which Portless or Aspire's isolated mode provide by running several copies of the same stack. Merge deliberately: rebase, run the full checks per branch, review each result (#3). Tightly coupled work loses more to coordination and merge conflicts than parallelism saves, and the useful size of a fleet is set by how much you can review, not by how many agents the tool allows. The Claude Agent SDK, OpenAI Agents SDK, and LangGraph give you the building blocks.
+Parallel sub-agents pay off when the work splits cleanly into parts that each fit one context window. Give each agent one goal and a defined output, and take back a summary, not a transcript. Worktrees give each agent its own checkout and branch; databases, ports, credentials, and caches need their own boundaries, which Portless or Aspire's isolated mode provide. Merge deliberately: rebase, run the full checks per branch, and review each result (#3). Your review capacity sets the useful fleet size.
 
-**In practice:** you've run parallel sub-agents — local worktrees or cloud — each with one goal and a defined output, isolated down to ports and databases, and can say where the split paid off and where it didn't.
+**In practice:** you've run parallel sub-agents in local worktrees or the cloud, each with one goal and a defined output, isolated down to ports and databases, and can say where the split paid off and where it didn't.
 
 ### 18. Sandboxing and granting autonomy gradually
 
-A coding agent runs repo code, package scripts, tools, and network requests, so one prompt injection or one bad dependency reaches far past the diff. Every major tool ships a sandbox now; turn it on — a dev container, VM, or cloud sandbox with scoped credentials, limited write paths, and a network allowlist — and start there, not at full host access. Then grant autonomy gradually so approvals stop slowing you down: allow the known low-risk commands and paths, set time or action budgets, and keep approval for raising privileges, touching production, publishing, or deleting. Check the permission config into the repo so every agent on the team runs inside the same boundary. [Claude Code](https://code.claude.com/docs/en/security), [Codex](https://developers.openai.com/codex/agent-approvals-security), and the [GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent) all have isolation and permission controls worth setting up on purpose.
+A coding agent runs repo code, package scripts, and network requests. Run it in a dev container, VM, or cloud sandbox with scoped credentials, limited write paths, and a network allowlist. Then grant autonomy gradually: allow low-risk commands and paths, set budgets, and keep approval for privileges, production, publishing, and deleting. Check the permission config into the repo. [Claude Code](https://code.claude.com/docs/en/security), [Codex](https://developers.openai.com/codex/agent-approvals-security), and [Copilot](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent) document their controls.
 
 **In practice:** agents run sandboxed by default with a checked-in permission config: low-risk commands need no prompt, production, publishing, and deleting need approval, and every run leaves an audit trail.
 
 ### 19. Async, background, and cloud delegated agents
 
-Agents also work while you don't. Delegate — write a brief, hand it to a background or cloud agent, review the PR it returns — or trigger on a schedule or a repo event: triage new issues, investigate failing CI, draft release notes, flag stale docs, open small cleanup or dependency PRs. A well-written issue that comes back as a draft PR is also how people who never open an IDE build with agents. Delegate only what you can verify: a small brief and explicit acceptance criteria. Delegated or triggered — [GitHub Copilot coding agent and automations](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-automations), [OpenAI Codex cloud and automations](https://developers.openai.com/codex/app/automations), Cursor background agents, Claude Code on the web — an unattended run is sandboxed (#18), narrow, observable, budget-limited, repeatable, and ends in a draft for review (#3), not in a large change merged on its own.
+Agents also work while you don't. Delegate a brief to a background or cloud agent and review the PR it returns, or trigger runs on a schedule or repo event: triage issues, investigate failing CI, open small cleanup or dependency PRs. Delegate only what you can verify. On [GitHub Copilot](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-automations), [Codex cloud](https://developers.openai.com/codex/app/automations), Cursor, or Claude Code on the web, an unattended run is sandboxed (#18), narrow, budget-limited, and ends in a draft for review (#3).
 
-**In practice:** at least one agent runs unattended — delegated from a brief or triggered by a schedule or event — and opens a draft PR, issue update, or report that a human and automated checks review before anything important lands.
+**In practice:** at least one agent runs unattended, delegated from a brief or triggered by a schedule or event, and opens a draft PR, issue update, or report that a human and automated checks review before anything important lands.
 
 ## Harness and context engineering
 
 ### 20. Context engineering and token efficiency
 
-Context is a limited attention budget, not a space to fill — the model recalls less well as the window fills up, so choosing what it sees beats cramming it. Keep instructions short and specific, keep the toolset small, fetch information only when you need it, filter command output, summarize finished phases, move detail into external files, and use prompt caching and model routing. Deeper AI use uses more tokens, which is fine — aim for value per token, not the highest or lowest count, and know your plan's budget, limits, and where to see usage per tool. Parallel agents multiply spend, so set a team budget and watch usage per tool. Compression tools like Headroom, Caveman, and RTK can help, but lossy compression can drop something the agent needs, so keep the originals and judge task quality, not just token savings.
+The model recalls less as the context window fills, so choose what it sees. Keep instructions short, the toolset small, fetch information only when needed, filter command output, and use prompt caching and model routing. Aim for value per token rather than the lowest count, know your budget, and watch usage per tool, since parallel agents multiply spend. Compression tools like Headroom and RTK help, but check task quality as well as token savings.
 
 **In practice:** you've measured cost, latency, and success before and after a context change, you know your budget and where to see usage per tool, and you can show the savings didn't hurt correctness or hide something important.
 
 ### 21. Budgets, stop conditions, and state files for long-running agents
 
-A run that lasts hours needs its loop designed, not just prompted. Give it a turn or token budget, a stop condition, a definition of progress, and feedback it acts on every step — test results, a checklist it marks off — so it finishes instead of circling, or stopping early and calling it done. Plan for the context to end: long runs degrade even in million-token windows, and sessions die through crashes, new chats, and handoffs. Keep the state in a file the agent updates and re-reads — a progress or plan file — and prefer a clean context with a clear handoff over quietly summarizing history in place. Every harness workaround exists because of something the model can't do yet; review them as models improve instead of carrying them forward.
+A run that lasts hours needs a turn or token budget, a stop condition, a definition of progress, and feedback each step, such as test results or a checklist. Sessions end through crashes and handoffs, so keep the state in a progress file the agent updates and re-reads, and prefer a clean context with a clear handoff over summarizing history in place. Harness workarounds exist because of what the model can't do yet; review them as models improve.
 
-**In practice:** a long or multi-session run finished cleanly because you set the budget and stop condition, and its state lived in a file the agent re-read — not only in chat history.
+**In practice:** a long or multi-session run finished cleanly because you set the budget and stop condition, and its state lived in a file the agent re-read rather than in chat history alone.
 
 ### 22. Code intelligence and structural memory
 
-Agents edit more accurately when they can resolve symbols, types, and references instead of matching text patterns. Give the agent code intelligence — a language server (go-to-definition, find-references, types), tree-sitter or AST tools, and semantic search over the repo — so edits are based on real structure. This cuts changes that break the build, miss call sites, or invent APIs. On very large repos, grep-and-read gets slow and even this isn't enough: index the codebase into a code graph — functions, classes, imports, call chains — that the agent queries over MCP, answering "what calls this?" in a few hundred tokens instead of tens of thousands. CodeGraph, CodeGraphContext, Potpie, and codebase-memory-mcp build local graphs on tree-sitter and LSP; Serena exposes language-server tools over MCP; SCIP is a mature index format. Use code intelligence everywhere; add a code graph when repo size, not the model, is the bottleneck.
+Agents edit more accurately when they resolve symbols, types, and references instead of matching text. Give them a language server, AST tools, and semantic search, so edits stop missing call sites or inventing APIs. On very large repos, index the codebase into a code graph of functions, imports, and call chains that the agent queries over MCP, answering "what calls this?" in a few hundred tokens. CodeGraph, Potpie, and codebase-memory-mcp build such graphs; Serena exposes language-server tools over MCP.
 
-**In practice:** your agent has more than text search — a language server, semantic search, or AST tools — and on a repo too big for grep-and-read it queries a prebuilt code graph, with a measured drop in tokens or tool calls to show for it.
+**In practice:** your agent has a language server, semantic search, or AST tools beyond text search, and on a repo too big for grep-and-read it queries a prebuilt code graph, with a measured drop in tokens or tool calls to show for it.
 
 #### Further reading
 
-- [Anthropic — Harness design for long-running agent applications](https://www.anthropic.com/engineering/harness-design-long-running-apps)
-- [Martin Fowler — Harness engineering for coding agents](https://martinfowler.com/articles/harness-engineering.html)
-- [LangChain — The Anatomy of an Agent Harness](https://www.langchain.com/blog/the-anatomy-of-an-agent-harness)
-- [Sebastian Raschka — Components of a Coding Agent](https://magazine.sebastianraschka.com/p/components-of-a-coding-agent)
+- [Anthropic: Harness design for long-running agent applications](https://www.anthropic.com/engineering/harness-design-long-running-apps)
+- [Martin Fowler: Harness engineering for coding agents](https://martinfowler.com/articles/harness-engineering.html)
+- [LangChain: The Anatomy of an Agent Harness](https://www.langchain.com/blog/the-anatomy-of-an-agent-harness)
+- [Sebastian Raschka: Components of a Coding Agent](https://magazine.sebastianraschka.com/p/components-of-a-coding-agent)
 
 ## Security, maintenance, and policy
 
 ### 23. Security-focused review and threat modeling
 
-Normal code review and passing tests don't reliably catch missing authorization checks, injection points, exposed secrets, unsafe data flows, or supply-chain risk. Use AI to trace trust boundaries and suggest ways the code could be abused, then confirm the findings with scanners and targeted tests. [Codex Security](https://developers.openai.com/codex/security), CodeQL, Semgrep, and secret scanning add to human security review; they don't replace it.
+Code review and tests miss authorization gaps, injection points, and exposed secrets. Use AI to trace trust boundaries and suggest abuse paths, then confirm the findings with [Codex Security](https://developers.openai.com/codex/security), CodeQL, Semgrep, and targeted tests.
 
 **In practice:** you've run a real security review or threat-model pass on a meaningful feature or diff, confirmed the findings, and added a fix, a test, or a written decision to accept the risk.
 
 ### 24. Supply-chain and dual-use risk
 
-Agentic coding adds new supply-chain risks. An agent can invent a package name that doesn't exist, which attackers then register and fill with malware ("slopsquatting"); it can pull in a compromised dependency; or it can be steered by a prompt injection hidden in content it fetched. The same power that ships features can also be misused, so build security in from the start rather than adding it in review. Check that a suggested dependency actually exists and is the right one, pin and scan it, keep untrusted content — web pages, issues, PR comments, MCP tool results — away from tools that can take action, and keep an audit trail. Scanners like Trivy, Snyk, and Gitleaks add to human judgment; they don't replace it.
+An agent can invent a package name that attackers then register with malware (slopsquatting), pull in a compromised dependency, or follow a prompt injection hidden in content it fetched. Check that a suggested dependency exists and is the right one, pin and scan it, and keep untrusted content such as web pages, issues, and MCP tool results away from tools that can act.
 
 **In practice:** you've caught or prevented a made-up or malicious dependency, and in your setup untrusted input can't reach a destructive action without an approval.
 
 ### 25. Managing dependency upgrades and security patches
 
-Dependency upgrades and security patches are repetitive and easy to put off, which is how CVEs pile up and breaking-change debt grows. AI is a good fit here: it can read changelogs, compare API changes, update the call sites, run tests in a loop, and handle most of the manual work. Paired with Dependabot, Renovate, or Snyk, upgrades become routine instead of risky. Run it unattended where you can (#19): Renovate or Dependabot opens the PR, an agent fixes the breaking changes and runs the tests, and a human reviews the draft.
+Upgrades and security patches get put off, which is how CVEs pile up. An agent reads the changelog, updates the call sites, and runs the tests in a loop. Run it unattended (#19): Renovate or Dependabot opens the PR, the agent fixes the breaking changes, and a human reviews the draft.
 
 **In practice:** you've shipped a dependency-upgrade PR where AI handled the breaking changes, applied a security patch with AI triaging the CVE, or used AI to read changelogs and flag breaks early. Your upgrade workflow pairs Dependabot, Renovate, or Snyk with AI.
 
 ### 26. AI tools, models, and MCP servers compliant with company policy
 
-Use only the AI tools, models, MCP servers, and Skills your company has approved, and only with the data the policy allows — that is what keeps company data inside the company. Everyone builds with agents now, engineers and product, design, QA, and ops alike, so the policy covers all of them and is enforced by setup rather than memory: agent CLI and IDE signed into the enterprise account, managed settings and organization-level policies enforcing the rest.
+Use only the AI tools, models, MCP servers, and Skills your company has approved, with the data the policy allows. The policy covers everyone who builds with agents, and setup enforces it: enterprise accounts, managed settings, and organization-level policies.
 
-**In practice:** every builder on the team knows which AI tools, models, MCP servers, and data are approved, and the setup is enforced by managed settings and enterprise accounts, not by memory.
+**In practice:** every builder on the team knows which AI tools, models, MCP servers, and data are approved, and the setup is enforced by managed settings and enterprise accounts.
 
 ## Agentic Coding Toolbox
 
