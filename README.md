@@ -250,6 +250,7 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 - [Skills.sh](https://skills.sh/) - The Open Agent Skills Ecosystem from Vercel Labs.
 - [Agent OS](https://github.com/buildermethods/agent-os) - Injects your codebase standards and specs into agent instructions.
 - [claude-mem](https://github.com/thedotmack/claude-mem) - Persistent, compressed context carried across coding-agent sessions.
+- [since-cutoff](https://github.com/MohammadHijjawi97/since-cutoff) - Lists the APIs of your pinned Python dependencies that changed after the coding model's training cutoff, shows where the code uses them, and writes short AGENTS.md notes that `sync` keeps in step with the lockfile.
 
 ### MCP servers for team systems
 
