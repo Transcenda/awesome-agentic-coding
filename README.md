@@ -213,6 +213,7 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 - [Devin](https://devin.ai) - Cognition's autonomous software engineer; Windsurf became Devin Desktop (2026).
 - [Cline](https://cline.bot/) - Open source coding AI agent.
 - [OpenCode](https://github.com/anomalyco/opencode) - Open-source coding agent for the terminal, desktop, and IDE.
+- [Orbi](https://github.com/orbi-build/orbi) - Open-source runner that takes a labeled GitHub issue to a pull request, gates the merge on an independent review session against the acceptance criteria, and cuts the tagged release.
 
 ### Code review
 
