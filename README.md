@@ -334,6 +334,7 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 - [Claude Code agent teams](https://code.claude.com/docs/en/agent-teams) - Orchestrate teams of Claude Code sessions that share tasks and report back.
 - [Conductor](https://conductor.build) - Workspace for running a team of coding agents in parallel, one worktree per task.
 - [Superset](https://superset.sh) - Orchestration workspace for any coding agent, with a worktree per task and every session in one place.
+- [Tale](https://github.com/tale-project/tale) - Project workspace that delegates coding-agent tasks in persistent sandboxes and collects reports and deliverables for shared review.
 - [parallel-code](https://github.com/johannesjo/parallel-code) - Run Claude Code, Codex, and Gemini side by side, each in its own Git worktree.
 - [Portless](https://github.com/vercel-labs/portless) - Stable named URLs for localhost services, worktree-aware (Vercel Labs).
 - [YYLO](https://github.com/yylo-dev/yylo) - Command-line orchestrator for coding agents: each task creates a dedicated branch/worktree behind typed task, validation, merge, and release-readiness boundaries, with a merge queue owning risk-based review of receipt-backed changes.
