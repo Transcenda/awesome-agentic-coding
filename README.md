@@ -304,6 +304,7 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 ### Testing and browser/device automation
 
 - [Agent QA](https://github.com/vostride/agent-qa) - The self-improving QA agent for natural-language web and mobile regression tests.
+- [show-your-work](https://github.com/iamumeransari/claude-show-your-work) - Claude Code plugin where the agent records its own UI checks with Playwright and plays them in the terminal, before and after side by side.
 - [Playwright](https://playwright.dev) - Cross-browser E2E framework.
 - [Pact](https://pact.io) - Consumer-driven contract testing for service integration.
 - [Diffblue Cover](https://www.diffblue.com) - AI unit test generator for Java/JVM.
