@@ -371,6 +371,7 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 - [RTK](https://github.com/rtk-ai/rtk) - CLI proxy for input token filtering on common dev commands.
 - [NextReset](https://nextreset.ai/) - Independent Codex reset-history tracker with official incident sources and a browser-local personal timer.
 - [Ponytail](https://github.com/DietrichGebert/ponytail) - Skill that stops the agent over-building: it writes only the code the task needs, which cuts output tokens.
+- [contexttax](https://github.com/henrikdukefoss/contexttax) - Local CLI that estimates how many tokens CLAUDE.md, AGENTS.md, rules, skill descriptions, and MCP tool schemas add to every request, per agent, with the largest sources listed first.
 
 ### Dependency and security automation
 
