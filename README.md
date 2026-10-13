@@ -314,6 +314,7 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 - [Playwright MCP](https://github.com/microsoft/playwright-mcp) - Browser automation MCP from Microsoft.
 - [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) - Google's MCP server that lets agents drive Chrome and read console, network, and performance data.
 - [mobile-mcp](https://github.com/mobile-next/mobile-mcp) - MCP server for iOS and Android automation on simulators, emulators, and devices.
+- [Oh My Android](https://github.com/ateymoori/oh-my-android) - macOS app with an MCP server that gives agents screenshots, the UI tree in dp, taps, and logcat on the Android Emulator and devices.
 - [Browserbase Stagehand](https://github.com/browserbase/stagehand) - AI-native browser automation layered on Playwright.
 - [Browser Use](https://github.com/browser-use/browser-use) - Open-source library that lets LLMs drive real browsers.
 - [Anthropic Computer Use](https://platform.claude.com/docs/en/docs/agents-and-tools/computer-use) - Claude's screen, keyboard, and mouse control for agent-driven UI automation.
