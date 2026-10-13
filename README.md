@@ -336,6 +336,7 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 - [Conductor](https://conductor.build) - Workspace for running a team of coding agents in parallel, one worktree per task.
 - [Superset](https://superset.sh) - Orchestration workspace for any coding agent, with a worktree per task and every session in one place.
 - [parallel-code](https://github.com/johannesjo/parallel-code) - Run Claude Code, Codex, and Gemini side by side, each in its own Git worktree.
+- [Sillage](https://github.com/MarlBurroW/sillage) - Self-hosted, mobile-first web UI that drives the native Claude Code and Codex CLIs on your own machine, with git worktrees, server-side event journals so sessions outlive the client, per-conversation full-text search, and an IDE panel with diffs and terminal.
 - [Portless](https://github.com/vercel-labs/portless) - Stable named URLs for localhost services, worktree-aware (Vercel Labs).
 - [YYLO](https://github.com/yylo-dev/yylo) - Command-line orchestrator for coding agents: each task creates a dedicated branch/worktree behind typed task, validation, merge, and release-readiness boundaries, with a merge queue owning risk-based review of receipt-backed changes.
 - [Aspire](https://aspire.dev/) - Isolated multi-service local dev/test stacks; now language-agnostic (formerly .NET Aspire).
