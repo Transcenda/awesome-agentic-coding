@@ -220,6 +220,7 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 - [Greptile](https://greptile.com) - AI code reviewer with repo-wide context.
 - [PR-Agent](https://github.com/The-PR-Agent/pr-agent) - Community-maintained open-source agent for PR descriptions, reviews, and walkthroughs.
 - [Ellipsis](https://ellipsis.dev) - Platform to deploy, manage, and observe cloud coding agents; includes AI PR review with auto-fix.
+- [CodeOtter](https://github.com/dharmeshgurnani/CodeOtter) - Self-hosted AI PR reviewer for GitHub, Forgejo, and Gitea that reports scores and merge gates as status checks, using local GGUF models or your own API key.
 
 ### Codemods and refactoring
 - [ast-grep](https://github.com/ast-grep/ast-grep) - Structural search, lint, and rewrite CLI on tree-sitter, with a rule catalog.
