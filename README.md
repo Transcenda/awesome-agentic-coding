@@ -326,6 +326,7 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 - [Arize Phoenix](https://github.com/Arize-ai/phoenix) - Open-source observability and evaluation for AI applications and agents.
 - [promptfoo](https://github.com/promptfoo/promptfoo) - Open-source evals and red-teaming for prompts, agents, and RAG, runnable in CI.
 - [Braintrust](https://www.braintrust.dev) - Evals, tracing, and prompt management platform for agents.
+- [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) - Records a coding-agent run below the harness and replays it offline against the recorded bytes, turning a past run into a repeatable case.
 
 ### Fleets and orchestration
 
