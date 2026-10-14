@@ -259,6 +259,7 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 - [gstack](https://github.com/garrytan/gstack) - Opinionated Claude Code setup with role-based Skills for planning, design review, QA, and release.
 - [Google Skills](https://github.com/google/skills) - Google's Agent Skills for Google Cloud and other Google products.
 - [claude-mem](https://github.com/thedotmack/claude-mem) - Persistent, compressed context carried across coding-agent sessions.
+- [since-cutoff](https://github.com/MohammadHijjawi97/since-cutoff) - Lists the APIs of your pinned Python dependencies that changed after the coding model's training cutoff, shows where the code uses them, and writes short AGENTS.md notes that `sync` keeps in step with the lockfile.
 
 ### MCP servers for team systems
 
