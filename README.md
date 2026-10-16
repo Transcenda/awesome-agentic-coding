@@ -220,6 +220,7 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 - [Greptile](https://greptile.com) - AI code reviewer with repo-wide context.
 - [PR-Agent](https://github.com/The-PR-Agent/pr-agent) - Community-maintained open-source agent for PR descriptions, reviews, and walkthroughs.
 - [Ellipsis](https://ellipsis.dev) - Platform to deploy, manage, and observe cloud coding agents; includes AI PR review with auto-fix.
+- [Bubo](https://github.com/mountainowl/bubo) - Self-hosted open-source AI code reviewer for GitHub and GitLab that posts evidence-backed findings and learns from maintainer outcomes to reduce repository-specific noise.
 
 ### Codemods and refactoring
 - [ast-grep](https://github.com/ast-grep/ast-grep) - Structural search, lint, and rewrite CLI on tree-sitter, with a rule catalog.
