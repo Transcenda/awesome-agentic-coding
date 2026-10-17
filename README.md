@@ -384,6 +384,7 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 - [Socket](https://docs.socket.dev) - Supply-chain security that checks packages for malware, typosquats, and risky behavior before install.
 - [Syft](https://github.com/anchore/syft) - CLI that generates a software bill of materials (SBOM) from code and containers.
 - [OWASP Threat Dragon](https://github.com/OWASP/threat-dragon) - Open-source threat modeling tool with diagrams and threat lists.
+- [nextjs-supabase-stripe-security-checker](https://github.com/edtrackai/nextjs-supabase-stripe-security-checker) - Local CLI and GitHub Action with 24 checks for leaked keys, missing Supabase RLS and grants, and unverified Stripe webhooks in Next.js apps.
 
 ### Local inference
 
