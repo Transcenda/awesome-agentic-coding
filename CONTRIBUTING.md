@@ -4,29 +4,38 @@ Thanks for helping keep Awesome Agentic Coding practical and current.
 
 ## What Belongs Here
 
-Roadmap additions should describe a concrete engineering use case that deepens agentic coding practice. Each roadmap item needs:
+Roadmap additions should describe a concrete engineering practice that is not already covered. Each roadmap item needs:
 
-- A concise explanation of why the technique matters.
-- An **In practice** prompt that readers can apply to their own work.
+- A short body: what to do and why, in three to five sentences.
+- An **In practice** line that names something the reader can point to, such as a file, a config, or a run.
 - A clear distinction from existing roadmap items.
 
-Toolbox additions should:
+Toolbox additions must meet all of these:
 
-- Support one or more roadmap items.
-- Be actively maintained and documented.
-- Have demonstrated adoption or a strong reason for inclusion.
-- Add meaningful coverage rather than duplicate an existing tool.
+- Supports one or more roadmap items.
+- Has a public repository with an open-source license, at least 200 GitHub stars, and a commit in the last 6 months, and is not archived.
+- Adds coverage rather than duplicating an existing entry.
 
-Popularity signals such as GitHub stars may inform curation, but they are not sufficient on their own. Commercial tools without public repositories may be included when they are widely used and directly relevant.
+A commercial tool without a public repository is included only when it is widely used, directly relevant, and has no comparable open-source option.
+
+The [Toolbox freshness](.github/workflows/toolbox-freshness.yml) workflow checks the repository rules on every pull request and once a month, and entries that stop meeting them are removed.
+
+## Writing Style
+
+The readers are engineers on international teams, so write plain, technical English and keep it short.
+
+- No em dashes. Use a comma, a period, or parentheses.
+- No marketing language, warm-up sentences, or summary sentences.
+- No "not X but Y" or "not just X" phrasing, and no lists of three added for rhythm.
+- Name the tool, file, or command instead of describing it.
 
 ## Before Opening a Pull Request
 
 1. Search the roadmap and Toolbox for duplicates.
 2. Confirm every new link resolves.
-3. Use the existing one-line entry format: `[Name](URL) — Description.`
-4. Keep descriptions factual and avoid marketing language.
-5. Add entries to the most specific existing category.
-6. Run `npx awesome-lint`.
+3. Use the existing one-line entry format: `- [Name](URL) - Description.`
+4. Add entries to the most specific existing category.
+5. Run `npx awesome-lint`.
 
 For a new roadmap item, explain why the use case is not already covered. For a Toolbox entry, name the roadmap item or items it supports.
 
@@ -42,4 +51,4 @@ By contributing, you agree that your contribution is licensed under the [Creativ
 
 ## Reporting Problems
 
-Use the issue forms to suggest a resource or report a broken or outdated link. Security vulnerabilities should be reported privately through GitHub's security advisory feature rather than a public issue.
+Issues are disabled. Open a pull request to suggest a resource or to fix a broken or outdated link. Security vulnerabilities should be reported privately through GitHub's security advisory feature rather than a public issue.

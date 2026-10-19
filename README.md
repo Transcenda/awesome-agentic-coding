@@ -240,10 +240,9 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 
 - [Mintlify](https://mintlify.com) - AI-assisted docs platform for developer documentation.
 - [MADR](https://github.com/adr/madr) - Markdown ADR template.
-- [log4brains](https://github.com/thomvaill/log4brains) - CLI and static site generator for ADRs.
-- [adr-tools](https://github.com/npryce/adr-tools) - Shell-based toolchain for creating and numbering ADRs.
+- [architecture-decision-record](https://github.com/architecture-decision-record/architecture-decision-record) - ADR templates and real-world examples, good input for an agent drafting one.
 - [humanizer](https://github.com/blader/humanizer) - Agent Skill that removes signs of AI-generated writing from docs and other text.
-- [Structurizr](https://structurizr.com) - C4 model diagrams from a text DSL, so agents can read and update the architecture.
+- [Structurizr](https://github.com/structurizr/structurizr) - C4 model diagrams from a text DSL, so agents can read and update the architecture.
 - [LikeC4](https://likec4.dev) - Architecture-as-code language and toolkit for C4-style diagrams kept in the repo.
 - [C4-PlantUML](https://github.com/plantuml-stdlib/C4-PlantUML) - C4 model diagrams in PlantUML text.
 
@@ -314,7 +313,6 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 - [Playwright MCP](https://github.com/microsoft/playwright-mcp) - Browser automation MCP from Microsoft.
 - [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) - Google's MCP server that lets agents drive Chrome and read console, network, and performance data.
 - [mobile-mcp](https://github.com/mobile-next/mobile-mcp) - MCP server for iOS and Android automation on simulators, emulators, and devices.
-- [Oh My Android](https://github.com/ateymoori/oh-my-android) - macOS app with an MCP server that gives agents screenshots, the UI tree in dp, taps, and logcat on the Android Emulator and devices.
 - [Browserbase Stagehand](https://github.com/browserbase/stagehand) - AI-native browser automation layered on Playwright.
 - [Browser Use](https://github.com/browser-use/browser-use) - Open-source library that lets LLMs drive real browsers.
 - [Anthropic Computer Use](https://platform.claude.com/docs/en/docs/agents-and-tools/computer-use) - Claude's screen, keyboard, and mouse control for agent-driven UI automation.
@@ -337,7 +335,6 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 - [Superset](https://superset.sh) - Orchestration workspace for any coding agent, with a worktree per task and every session in one place.
 - [parallel-code](https://github.com/johannesjo/parallel-code) - Run Claude Code, Codex, and Gemini side by side, each in its own Git worktree.
 - [Portless](https://github.com/vercel-labs/portless) - Stable named URLs for localhost services, worktree-aware (Vercel Labs).
-- [YYLO](https://github.com/yylo-dev/yylo) - Command-line orchestrator for coding agents: each task creates a dedicated branch/worktree behind typed task, validation, merge, and release-readiness boundaries, with a merge queue owning risk-based review of receipt-backed changes.
 - [Aspire](https://aspire.dev/) - Isolated multi-service local dev/test stacks; now language-agnostic (formerly .NET Aspire).
 
 ### Sandboxes and permissions
@@ -345,7 +342,6 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 - [Dev Containers](https://containers.dev) - Open specification for containerized development environments, supported by editors, CI, and cloud agents.
 - [Docker Sandboxes](https://docs.docker.com/ai/sandboxes/) - Isolated sandboxes from Docker for running coding agents with controlled file and network access.
 - [E2B](https://github.com/e2b-dev/E2B) - Open-source secure cloud sandboxes for running agent-generated code.
-- [Daytona](https://github.com/daytonaio/daytona) - Secure, elastic infrastructure for running AI-generated code in isolated sandboxes.
 - [sandbox-runtime](https://github.com/anthropics/sandbox-runtime) - Anthropic's OS-level sandbox for agents, MCP servers, and any command: filesystem and network allowlists through Seatbelt on macOS and bubblewrap on Linux, no containers (beta).
 
 ### Agents in CI and automations
@@ -389,11 +385,6 @@ Use only the AI tools, models, MCP servers, and Skills your company has approved
 
 - [Ollama](https://github.com/ollama/ollama) - Run open models locally behind an OpenAI-compatible API.
 - [oMLX](https://github.com/jundot/omlx) - LLM inference server for Apple Silicon with continuous batching and SSD caching, managed from the macOS menu bar.
-
-### Voice input
-
-- [Wispr Flow](https://wisprflow.ai) - AI dictation app for macOS and Windows.
-- [Superwhisper](https://superwhisper.com) - macOS voice-to-text built on Whisper-family models.
 
 ## Contributing
 
