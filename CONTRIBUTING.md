@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping keep Awesome Agentic Coding practical and current.
+Thanks for helping keep Awesome AI-Native Engineering practical and current.
 
 ## What Belongs Here
 
@@ -17,6 +17,8 @@ Toolbox additions must meet all of these:
 - Adds coverage rather than duplicating an existing entry.
 
 A commercial tool without a public repository is included only when it is widely used, directly relevant, and has no comparable open-source option.
+
+Maintainers can waive the star minimum for a tool that covers part of a roadmap item no other Toolbox entry covers. Waived entries are listed in `star_exceptions` in [check-toolbox.sh](.github/scripts/check-toolbox.sh) and must still meet the other rules.
 
 The [Toolbox freshness](.github/workflows/toolbox-freshness.yml) workflow checks the repository rules on every pull request and once a month, and entries that stop meeting them are removed.
 
