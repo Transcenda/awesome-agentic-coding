@@ -20,9 +20,9 @@ This roadmap helps engineering teams build their agent harness step by step, fro
 
 ### 1. Product exploration
 
-Use the agent to learn how the product works from its code. Ask questions such as "How does feature X work?", "What is component Y for?", or "Which services handle a checkout request?". Have it build a repository map with entry points and build and test commands, a technology stack summary, component and sequence diagrams as Mermaid or C4 code, and an overview of the data model and external integrations. Check the results against the code, since agents state guesses with confidence, and commit them so the next session starts from them.
+Use the agent to learn how the product works from its code. Ask questions such as "How does feature X work?", "What is component Y for?", or "Which services handle a checkout request?". It can also produce a repository map with entry points and build and test commands, a technology stack summary, component and sequence diagrams as Mermaid or C4 code, and an overview of the data model and external integrations. Check the answers against the code, since agents state guesses with confidence. Generate these on demand, and commit only what the code does not show, such as the reasons behind a design decision (#7).
 
-**In practice:** you have an agent-written repo map and architecture notes committed and kept current, and the agent's answers about the architecture, components, and key workflows match the code when you check them.
+**In practice:** your AI agents can answer the questions about the architecture, components breakdown, and key workflows.
 
 ### 2. Changes that pass build and tests before review
 
